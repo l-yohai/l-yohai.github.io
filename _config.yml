@@ -1,7 +1,9 @@
 # Site settings
-title: Jekyll fractal
-email: youremailaddress@gmail.com
-description: Just a simple, single page responsive template brought to you by HTML5 UP.
+title: Yohan Lee
+email: yohan9612@yonsei.ac.kr
+description: 인문학적 감성을 잃지 않는 동시에 개인화된 AI 서비스를 개발하고 싶은 자연어처리 개발자 지망생입니다.
+
+Just a simple, single page responsive template brought to you by HTML5 UP.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://l-yohai.github.io/" # the base hostname & protocol for your site e.g. http://yvesespinosa.com
 download_button_url: ""
