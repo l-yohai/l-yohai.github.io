@@ -1,0 +1,21 @@
+# Site settings
+title: Jekyll fractal
+email: youremailaddress@gmail.com
+description: Just a simple, single page responsive template brought to you by HTML5 UP.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://l-yohai.github.io/" # the base hostname & protocol for your site e.g. http://yvesespinosa.com
+download_button_url: ""
+
+# Social settings
+500px_url:
+facebook_url: "https://www.facebook.com/yohan.lee.75248795/"
+github_url: "https://github.com/l-yohai"
+gitlab_url: 
+googleplus_url: 
+instagram_url:
+linkedin_url: 
+pinterest_url:
+twitter_url:  
+
+# Build settings
+markdown: kramdown
