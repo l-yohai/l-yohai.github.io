@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://l-yohai.github.io/sitemap.xml
