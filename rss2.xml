@@ -9,8 +9,31 @@
     <atom:link href="https://l-yohai.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sun, 05 Sep 2021 01:28:04 GMT</pubDate>
+    <pubDate>Fri, 10 Sep 2021 13:02:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>부스트캠프 AI Tech 6주차 회고 (2021-09-06 ~ 2021-09-10)</title>
+      <link>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-6%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-06-2021-09-10/</link>
+      <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-6%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-06-2021-09-10/</guid>
+      <pubDate>Fri, 10 Sep 2021 13:01:53 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;1-강의내용&quot;&gt;&lt;a href=&quot;#1-강의내용&quot; class=&quot;headerlink&quot; title=&quot;1. 강의내용&quot;&gt;&lt;/a&gt;1. 강의내용&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="1-강의내용"><a href="#1-강의내용" class="headerlink" title="1. 강의내용"></a>1. 강의내용</h2><ul><li>강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.</li></ul><h3 id="학습현황"><a href="#학습현황" class="headerlink" title="학습현황"></a>학습현황</h3><ul><li>21.09.06 월 (05:30 ~ 20:15)</li><li>21.09.07 화 (05:20 ~ 20:50)</li><li>21.09.08 수 (06:00 ~ 22:00)</li><li>21.09.09 목 (08:28 ~ 23:59)</li><li>21.09.10 금 (00:00 ~ 03:00, 09:58 ~ 21:50)</li></ul><h3 id="진도"><a href="#진도" class="headerlink" title="진도"></a>진도</h3><ul><li>Intro to NLP, Bag of Words - Word Embedding - Recurrent Neural Network - LSTM and GRU - Sequence to Sequence - Beam Search and BLEU score</li></ul><h3 id="이번-주의-개선할-사항-및-자기성찰"><a href="#이번-주의-개선할-사항-및-자기성찰" class="headerlink" title="이번 주의 개선할 사항 및 자기성찰"></a>이번 주의 개선할 사항 및 자기성찰</h3><ul><li>이력서는 미리미리</li><li>자소서는 미리미리</li></ul><hr><h2 id="2-과제-수행과정과-결과물"><a href="#2-과제-수행과정과-결과물" class="headerlink" title="2. 과제 수행과정과 결과물"></a>2. 과제 수행과정과 결과물</h2><ul><li>4개의 필수과제와 1개의 선택과제</li></ul><div class="table-container"><table><thead><tr><th>분류</th><th>해결 여부 or 결과</th></tr></thead><tbody><tr><td>필수과제 1 - Data Preprocessing</td><td>O</td></tr><tr><td>필수과제 2 - RNN-based Language model</td><td>O</td></tr><tr><td>필수과제 3 - Subword-level Language model</td><td>O</td></tr><tr><td>필수과제 4 - Preprocessing for NMT model</td><td>O</td></tr><tr><td>선택과제 1 - BERT Fine-tuning with transformers</td><td>O</td></tr></tbody></table></div><h3 id="Facts-사실-객관"><a href="#Facts-사실-객관" class="headerlink" title="Facts (사실, 객관)"></a>Facts (사실, 객관)</h3><ul><li>대략적으로만 알던 RNN, LSTM, GRU를 깊게 살펴볼 수 있었음.</li><li>수식을 통해 어떤 식의 shifting 이 일어나는지 등 수식의 의미를 조금 더 곱씹어볼 수 있었음</li></ul><h3 id="Feelings-느낌-주관"><a href="#Feelings-느낌-주관" class="headerlink" title="Feelings (느낌, 주관)"></a>Feelings (느낌, 주관)</h3><ul><li>전반적으로 나름 익숙한 것들이었기에 강의에서 완전 새롭게 배운다 하는 것은 없었지만, 그게 아니었다면 강의가 너무 어려웠을 것 같다.</li><li>사실 흘려들은 내용들도 많기 때문에 다시 한 번 들을 수 있을 때 복습해보는 것이 좋을 것 같다.</li></ul><h3 id="Affimation-자기선언"><a href="#Affimation-자기선언" class="headerlink" title="Affimation (자기선언)"></a>Affimation (자기선언)</h3><ul><li>사실 이번주는 이력서쓰느라 너무 바빴기 때문에 학습에 많은 몰입을 할 수 없었던 것 같다. 다음주에는 다음 주 내용을 공부하는 것도 좋지만 이번 주 내용을 꼭 복습해봐야할 것 같다.</li></ul><hr><h2 id="3-피어세션"><a href="#3-피어세션" class="headerlink" title="3. 피어세션"></a>3. 피어세션</h2><p>새로운 조라서 그런지 적응할 시간이 필요하다. 물론 이력서에 자소서를 준비하느라 완전 몰입하여 참여하지 못한 것에 대한 아쉬움이 크게 남는다.</p><h3 id="질의응답"><a href="#질의응답" class="headerlink" title="질의응답"></a>질의응답</h3><ul><li>팀에 선생님이 한 분 계셔서 든든하다.</li><li>퀄리티 좋은 답변을 위해 나도 이것저것 찾아보기 때문에 하나의 질문을 커버하는 것에도 시간이 좀 걸린다. 미리 많은 것을 궁금해하고 준비하여 좀 빠르게 여러 질문들에 대응이 가능해졌으면 좋겠다.</li></ul><h3 id="멘토링"><a href="#멘토링" class="headerlink" title="멘토링"></a>멘토링</h3><ul><li>첫 멘토링이라서 자기소개 정도만 하고 수다하는 시간을 가졌다.</li><li>딱 주마다 한 번씩, 한 시간씩만 보게 되는 것 같은데 멘토님께 조금 더 많은 도움을 얻었으면 좋겠다.</li><li>예닮님 보고싶다.</li></ul><hr><h2 id="4-학습회고"><a href="#4-학습회고" class="headerlink" title="4. 학습회고"></a>4. 학습회고</h2><h3 id="Affimation-자기선언-1"><a href="#Affimation-자기선언-1" class="headerlink" title="Affimation (자기선언)"></a>Affimation (자기선언)</h3><ul><li>이번주 너무 공부하지 못한 시간이 많았는데 다음주부터는 정말 공부 열심히 하자 ㅠㅠ</li></ul><hr><h2 id="5-총평"><a href="#5-총평" class="headerlink" title="5. 총평"></a>5. 총평</h2><ul><li>많은 시간을 학습에 투자하지 못했기 때문에 회고할 내용도 크게 없는 것 같다.. 다음주부터는 진짜 빡세게 할 것!!</li><li>실습이나 과제도 무난무난했고 특별히 어려운 것은 없었던 것 같다.</li><li>하지만 강의가 너무 어려웠다. 제대로 공부하고 싶다. 앎에 있어서 허전한 느낌을 받고 싶지 않다.</li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://l-yohai.github.io/categories/Diary/">Diary</category>
+      
+      
+      
+      <comments>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-6%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-06-2021-09-10/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>AI Competition의 협업을 위한 플래닝가이드</title>
@@ -514,29 +537,6 @@
       
       
       <comments>https://l-yohai.github.io/Vscode%EC%97%90%EC%84%9C-Python-Convention-%EC%A7%80%EC%A0%95%ED%95%98%EA%B8%B0/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>빛예닮특강 - 논문읽는법</title>
-      <link>https://l-yohai.github.io/%EB%B9%9B%EC%98%88%EB%8B%AE%ED%8A%B9%EA%B0%95-%EB%85%BC%EB%AC%B8%EC%9D%BD%EB%8A%94%EB%B2%95/</link>
-      <guid>https://l-yohai.github.io/%EB%B9%9B%EC%98%88%EB%8B%AE%ED%8A%B9%EA%B0%95-%EB%85%BC%EB%AC%B8%EC%9D%BD%EB%8A%94%EB%B2%95/</guid>
-      <pubDate>Wed, 11 Aug 2021 08:56:12 GMT</pubDate>
-      
-      <description>&lt;h2 id=&quot;1-제목-amp-저자&quot;&gt;&lt;a href=&quot;#1-제목-amp-저자&quot; class=&quot;headerlink&quot; title=&quot;1. 제목 &amp;amp; 저자&quot;&gt;&lt;/a&gt;1. 제목 &amp;amp; 저자&lt;/h2&gt;&lt;p&gt;제목을 통해 해당 논문이 어떤 내용을 담고 있을지 상상해 보는 것이 좋음.&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="1-제목-amp-저자"><a href="#1-제목-amp-저자" class="headerlink" title="1. 제목 &amp; 저자"></a>1. 제목 &amp; 저자</h2><p>제목을 통해 해당 논문이 어떤 내용을 담고 있을지 상상해 보는 것이 좋음.</p><ul><li>예를들어 <code>Show, Attend and Tell: Neural Image Caption Generation with Visual Attention</code> 해당 논문의 제목만 보고 ‘’아 이 논문은 <code>Image Caption</code>에 대한 논문이겠구나. 오 근데 시각적인 <code>Attention</code>을 이용했네?’ ‘Attention이 뭐지? 그냥 읽을까?’ ‘조금 찾아보고 읽을까?’ ‘아 이건 완벽하게 공부하고 다시 읽자’ 와 같이 모르는 용어가 나타났을 때 어떻게 대처할지 등 논문을 읽을 방향성을 잡을 수 있다.</li><li>멘토님은 아주 조오오오금 (사전지식 정도만) 서치하고 읽는다고 하심</li></ul><p>또한 제목과 더불어 저자를 보면 논문의 신뢰성을 대략적으로 추정할 수 있음.</p><ul><li>ex) 조경현교수님: RNN의 축을 그으셨던 대가가 참여했으니 이 논문의 수식이나 피쳐들에는 오류가 없겠구나!</li><li>신뢰성이 중요한 이유 중 하나: 매우 유명한 GAN 논문에는 수식의 오류가 있었음. 즉, 저자를 보고 의심할 수 있는 능력이 있어야 함.</li></ul><h2 id="2-Abstract"><a href="#2-Abstract" class="headerlink" title="2. Abstract"></a>2. Abstract</h2><h2 id="2-Abstract-1"><a href="#2-Abstract-1" class="headerlink" title="2. Abstract"></a>2. Abstract</h2><p>최대한 꼼꼼하게 읽자. Abstract 부분은 논문에서 가장 처음으로 읽게 되는 파트다. 해당 파트를 읽고 이 논문을 계속 읽을지 말지 판단할 수 있기 때문이다.</p><ul><li>‘Abstract만 읽었는데 재밌네’ -&gt; 논문을 읽어봐야겠다! </li><li>‘이거 Abstract 너무 어려운데..?’ 혹은 ‘하나도 이해 못하겠다..’ -&gt; 읽지 않는 편이 좋음.</li></ul><h2 id="3-Instruction"><a href="#3-Instruction" class="headerlink" title="3. Instruction"></a>3. Instruction</h2><p>Abstract를 읽고 논문을 계속 읽는 것으로 결정하였다면, 다음은 Instruction을 읽자. 논문이 나타난 이유나 해당 논문에서 이야기하고 싶은 내용을 파악할 수 있음.</p><p>다만 Instruction 파트가 너무 길 경우에는 다짜고짜 읽지 말고 우선 논문 전체의 Figure을 쭉 훑는다. Figure를 보면 해당 논문에서 이야기하고자 하는 모델이 어떤 모델일지 대략적으로 알아낼 수 있다.</p><p>또한 Figure를 보면서 해당 논문이 어떤 내용에 대해서 다루는 것일지 <strong><code>예측</code></strong>해보자. 계속해서 뒤에 나올 내용에 대한 예측의 중요성에 대해 언급을 하시는데, 예측이 맞는지 틀린지에 대한 여부로 본인이 논문에 임하는 자세를 수정하거나 자신감을 얻을 수 있음. (예측이 맞다면, 아 내가 논문을 잘 읽고 있구나. 반대로 틀렸다면, 아 조금 더 신경써서 읽어봐야겠다.)</p><p>Instruction을 읽으면 해당 논문을 가볍게 읽을지 딥하게 읽을 지 결정할 수 있다.</p><h2 id="3-1-Light-하게-읽기"><a href="#3-1-Light-하게-읽기" class="headerlink" title="3-1. Light 하게 읽기"></a>3-1. Light 하게 읽기</h2><p>별 거 없다. 짧게 훑어보고 말자.</p><h2 id="3-2-Deep-하게-읽기"><a href="#3-2-Deep-하게-읽기" class="headerlink" title="3-2. Deep 하게 읽기"></a>3-2. Deep 하게 읽기</h2><p>논문을 신경써서 읽어야겠다고 다짐했다면, 다음으로 봐야할 부분은 <code>Model</code> 파트이다. 모델 구조를 먼저 보자. 최근에 나오는 논문들은 SOTA를 달성한 모델들의 특징이 비슷하게 나타나있는 경우가 많은데, 예를들어 모델 구조에 <code>Encoder</code>가 포함되어 있다면, 쌍으로 <code>Decoder</code>가 등장할 것임을 예측할 수 있다.</p><p>여기부터는 Figure 혹은 글을 보고 이해가 되지 않는 부분이 생길 수 있는데 딥하게 읽기로 결정했으니 논문을 반복해서 읽으면서 이해하도록 노력해야한다. 그럼에도 이해하지 못했다? 그럼 또 읽어라.</p><p>이렇게 쭉 읽어나가면 된다!</p>]]></content:encoded>
-      
-      
-      <category domain="https://l-yohai.github.io/categories/Boostcamp-AI-Tech/">Boostcamp AI Tech</category>
-      
-      <category domain="https://l-yohai.github.io/categories/Boostcamp-AI-Tech/Master-Class/">Master Class</category>
-      
-      
-      
-      <comments>https://l-yohai.github.io/%EB%B9%9B%EC%98%88%EB%8B%AE%ED%8A%B9%EA%B0%95-%EB%85%BC%EB%AC%B8%EC%9D%BD%EB%8A%94%EB%B2%95/#disqus_thread</comments>
       
     </item>
     
