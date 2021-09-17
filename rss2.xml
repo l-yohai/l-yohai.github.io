@@ -9,8 +9,31 @@
     <atom:link href="https://l-yohai.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 16 Sep 2021 12:19:17 GMT</pubDate>
+    <pubDate>Fri, 17 Sep 2021 13:54:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>부스트캠프 AI Tech 7주차 회고 (2021-09-13 ~ 2021-09-17)</title>
+      <link>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-7%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-13-2021-09-17/</link>
+      <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-7%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-13-2021-09-17/</guid>
+      <pubDate>Fri, 17 Sep 2021 13:35:00 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="강의내용"><a href="#강의내용" class="headerlink" title="강의내용"></a>강의내용</h2><ul><li>강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.</li></ul><h3 id="학습현황"><a href="#학습현황" class="headerlink" title="학습현황"></a>학습현황</h3><ul><li>21.09.13 월 (09:30 ~ 20:15)</li><li>21.09.14 화 (09:20 ~ 20:50)</li><li>21.09.15 수 (09:40 ~ 23:59)</li><li>21.09.16 목 (09:58 ~ 23:59)</li><li>21.09.17 금 (10:00 ~ 22:50)</li></ul><h3 id="진도"><a href="#진도" class="headerlink" title="진도"></a>진도</h3><ul><li>Transformer - Self-supervised Pre-training Models - Advanced Self-supervised Pre-training Models</li></ul><h3 id="이번-주의-개선할-사항-및-자기성찰"><a href="#이번-주의-개선할-사항-및-자기성찰" class="headerlink" title="이번 주의 개선할 사항 및 자기성찰"></a>이번 주의 개선할 사항 및 자기성찰</h3><ul><li>멘탈 트레이닝을 잘 해야겠다.</li><li>부캠을 떠나서 그냥 이번 주에는 감정적인 대응도 많이 하고, 어떤 일의 결과들도 쉽게 승복하지 못했던 것 같다.</li></ul><hr><h2 id="과제-수행과정과-결과물"><a href="#과제-수행과정과-결과물" class="headerlink" title="과제 수행과정과 결과물"></a>과제 수행과정과 결과물</h2><ul><li>2개의 선택과제</li></ul><div class="table-container"><table><thead><tr><th>분류</th><th>해결 여부 or 결과</th></tr></thead><tbody><tr><td>선택과제 2 - NMT Training with Fairseq</td><td>O</td></tr><tr><td>선택과제 3 - Byte Pair Encoding</td><td>O</td></tr></tbody></table></div><h3 id="Facts-사실-객관"><a href="#Facts-사실-객관" class="headerlink" title="Facts (사실, 객관)"></a>Facts (사실, 객관)</h3><ul><li>Fairseq의 사용방법을 배울 수 있었다.</li><li>Byte Pair Encoding 과정을 논문을 보면서 이해할 수 있었다.</li></ul><h3 id="Feelings-느낌-주관"><a href="#Feelings-느낌-주관" class="headerlink" title="Feelings (느낌, 주관)"></a>Feelings (느낌, 주관)</h3><ul><li>과제를 왜 이렇게 냈을까라는 생각을 참 많이 했다.</li><li>억지스러운 테스트케이스와 어줍잖은 Fairseq 사용은 참 많이 아쉬웠다.</li></ul><h3 id="Affimation-자기선언"><a href="#Affimation-자기선언" class="headerlink" title="Affimation (자기선언)"></a>Affimation (자기선언)</h3><ul><li>공부해야할 양이 정말 많았는데, 당장에 하는 것들보다는 앞서 해야할 것들에 우선순위를 부여하고 여유롭게 실행해보자.</li></ul><hr><h2 id="피어세션"><a href="#피어세션" class="headerlink" title="피어세션"></a>피어세션</h2><p>나름 질의응답에도 많이 참여하려고 하고, 저번주보다는 조금 친밀한 느낌을 받으면서 세션을 진행할 수 있었다.</p><h3 id="멘토링"><a href="#멘토링" class="headerlink" title="멘토링"></a>멘토링</h3><ul><li>NLP에서의 EDA를 소개해주셨는데, 꽤 유용한 것들을 알려주셔서 많은 도움을 받을 수 있었다.</li></ul><hr><h2 id="학습회고"><a href="#학습회고" class="headerlink" title="학습회고"></a>학습회고</h2><h3 id="Affimation-자기선언-1"><a href="#Affimation-자기선언-1" class="headerlink" title="Affimation (자기선언)"></a>Affimation (자기선언)</h3><ul><li>그동안 게을리하던 논문읽기를 그래도 좀 한 것 같다. 대략적인 내용들을 파악한 뒤 읽으니까 생각보다 빠르게 읽을 수 있었던 것 같다. 그래도 아직 꼼꼼하게 하나하나의 의미를 전부 따져가면서 읽는 것은 좀 어렵지만, 점점 익숙해지면 더 나아질 것 같다.</li></ul><hr><h2 id="총평"><a href="#총평" class="headerlink" title="총평"></a>총평</h2><ul><li>새로운 팀을 구했는데, 방향성도 일치하고 한분한분 너무 실력있고 좋은 분들이라 기대가 많이 된다.</li><li>여러 학습을 진행했는데 정작 정리가 된 것은 하나도 없다. 반성하자.</li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://l-yohai.github.io/categories/Diary/">Diary</category>
+      
+      
+      
+      <comments>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-7%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-13-2021-09-17/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>VSCode Terminal Customizing</title>
@@ -490,30 +513,6 @@
       
       
       <comments>https://l-yohai.github.io/Context-Dependent-Pre-Trained-Deep-Neural-Networks-for-Large-Vocabulary-Speech-Recognition/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Convolution 소개</title>
-      <link>https://l-yohai.github.io/Convolution-%EC%86%8C%EA%B0%9C/</link>
-      <guid>https://l-yohai.github.io/Convolution-%EC%86%8C%EA%B0%9C/</guid>
-      <pubDate>Wed, 11 Aug 2021 09:20:36 GMT</pubDate>
-      
-      <description>&lt;p&gt;파라미터 수 손으로 직접 계산해보기&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/image/image-20210811102654457.png&quot; alt&gt;&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>파라미터 수 손으로 직접 계산해보기</p><p><img src="/image/image-20210811102654457.png" alt=""></p><p>알렉스넷의 파라미터 수 구하기</p><p><img src="/image/image-20210811103940850.png" alt=""></p><p>input = 224 <em> 224 </em> 3<br>filter = 11 <em> 11 </em> 3<br>fisrt param = $11<em>11</em>3<em>48</em>2 ~= 35k$</p><h1 id="Modern-CNN"><a href="#Modern-CNN" class="headerlink" title="Modern CNN"></a>Modern CNN</h1><h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p>네트워크가 두 개로 나뉘어져 있다. 당시 GPU가 부족했기 때문임. 두 장의 GPU로 학습하고 합쳤다. 인풋에 $11 * 11$ 필터를 사용했는데, 파라미터 관점에서 좋진 않다. 상대적으로 많은 파라미터가 필요하기 때문. 이후 5개의 Convolution 레이어와 3개의 Dense 레이어를 사용한다. 최근 200-300개 네트워크를 가진 신경망에 비하면 Light한 편이다.</p><h4 id="Key-Ideas"><a href="#Key-Ideas" class="headerlink" title="Key Ideas"></a>Key Ideas</h4><ul><li>Rectified Linear Unit(ReLU) 활성화 함수를 사용했다. $ReLU = max(0, x)$<ul><li>리니어 모델이 갖는 좋은 성질들을 가질 수 있게 한다.</li><li>리니어 모델들의 성질을 가지고 있기 때문에 학습하는 SGD나 Gradient Descent로 학습을 용이하게 한다.</li><li>활성화함수를 사용할 때 이전에 많이 활용하던 Sigmoid나 tanh 같은 경우 값이 커지면 슬로프가 줄어들게 된다. 슬로프가 결국 기울기니까, 뉴런의 값이 많이 크면(0에서 벗어나면) Gradient Slope는 0에 가까워진다. 이 때 Vanishing Gradient 문제가 발생할 수 있는데, ReLU를 사용하면 해당 문제를 해소할 수 있음</li></ul></li><li>GPU Implementation (2 GPUs)</li><li>Local Response Normalization(어떠한 입력 공간에서 Response가 많이 나오는 부분을 죽이는 것임. 최근엔 많이 사용되지 않음), Overlapping pooling</li><li>Data Augmentation</li><li>Dropout</li></ul><p>지금보면 LRN을 제외하고는 당연하게 모두가 사용하는 테크닉들이 주요 아이디어로 사용되었다. 하지만 당시 2015년에는 당연하지 않았다. 일반적으로 가장 잘 되는 기준을 당시에 잡아준 것이라고 볼 수 있음.</p><h2 id="VGGNet"><a href="#VGGNet" class="headerlink" title="VGGNet"></a>VGGNet</h2><ul><li><strong>$3 * 3$ Convolution 필터를 사용하였다.</strong><ul><li>크기를 생각해봤을 때 필터의 크기가 커질수록 얻는 이점은 하나의 컨볼루션 필터를 찍었을 때 고려되는 인풋의 크기가 커진다는 것이다. (Receptive Field)</li><li>$5<em>5$​ 필터 하나와 $3</em>3$​ 필터 두 개를 사용할 때 Receptive Field 차원에서는 똑같다. 하지만 파라미터의 개수는 400k vs. 294k 정도로 약 1.5배 차이가 난다. $3 * 3$ 레이어 두 개의 파라미터가 많을 것 같지만, 같은 리셉티브 필드를 사용한다는 전제로 봤을 때 필터의 크기가 작을수록 적은 파라미터를 가질 수 있다.</li></ul></li><li>$1*1$ FC레이어를 사용하였다.</li><li>Dropout</li><li>VGG16, VGG19 (레이어의 개수에 따라)</li></ul><h2 id="GoogLeNet"><a href="#GoogLeNet" class="headerlink" title="GoogLeNet"></a>GoogLeNet</h2><p>$1*1$ Convolution이 Dimension(차원) Reduction 효과가 있다. Convolution Feature Map이 witdh, height를 가질 때 special dimension이 아니라 Tensor의 Depth 방향으로 차원을 줄이는 것을 통해 파라미터 숫자를 줄일 수 있다.</p><p>AlexNet -&gt; VGGNet 에서 배웠던 인사이트는 같은 리셉티브 필드에서는 필터 크기가 작은 것이 좋다는 것을 알아내었고, LeNet에서는 전체 파라미터를 어떻게 줄일 수 있을지를 알 수 있다.</p><ul><li>네트워크 안에 네트워크가 있는 구조를 NIN(Network in network) 구조라고 한다.</li><li>Inception Blocks</li><li>$3<em>3$ Convolution을 하기 전에 $1</em>1 Conv$가 들어가는데 이것이 중요한 역할을 한다.</li><li>Inception Block에서 여러 Response들을 Concat 하는 효과도 있지만 $1*1$ 이 들어감으로서 파라미터 수가 줄어들게 된다.<ul><li>$1*1$ Conv는 채널 방향으로 차원을 줄이게 된다.</li><li><img src="/image/image-20210811123004615.png" alt=""></li><li>파라미터의 수는 $3 <em> 3 </em> 128 <em> 128 = 147,456$ vs. $1 </em> 1 <em> 128 </em> 32 \ X \ 3 <em> 3 </em> 32 * 128 = 40,960$ 이다.</li><li>입력과 출력의 사이즈는 똑같음, 즉 Receptive Field 차원에서 같은데 파라미터의 수가 약 1/3로 줄었다.</li><li>$1*1$ Conv가 파라미터를 30% 가량 줄일 수 있다!</li></ul></li></ul><h5 id="Which-CNN-Architecture-has-the-least-number-of-parameters"><a href="#Which-CNN-Architecture-has-the-least-number-of-parameters" class="headerlink" title="Which CNN Architecture has the least number of parameters?"></a>Which CNN Architecture has the least number of parameters?</h5><ol><li>AlexNet (8-layers) = (60M)</li><li>VGGNet (19-layers) = (110M)</li><li>GoogLeNet (22-layers) = (4M)</li></ol><h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><ul><li>General Performance: Train Error가 줄어듦에도 불구하고 Test Error가 Train Error와 나는 차이를 말함.</li><li>Overffiting: Train Error가 줄어드는데 Test Error가 큰 현상.</li><li>하지만 Train Error가 더 작은데도 불구하고 Test Error가 더 크면, 학습이 되지 않는 것임.</li><li>기존에는 네트워크가 커지는데 학습이 더 잘 되지 않는 상황이 존재했음.</li></ul><p>Key Ideas</p><ul><li>Add an identity map (skip connection) = Residual Connection<ul><li>입력이 왔을 때 출력값이 나오는데, 이 때 입력 x 를 한 단짜리 Convolution에 더해주는 것임. 학습하고자 하는 것은 Residual 차이만 학습하는 것임. 차이만 학습하길 원하는 것이 Residual Connection을 사용한 ResNet임.</li><li>$f(x) \rightarrow x + f(x)$</li><li>레지듀얼을 사용하지 않으면 네트워크가 많아도 학습이 잘 되지 않는다.</li><li><img src="/image/image-20210811123837717.png" alt=""></li><li>일반적으로 Simple Shortcut을 많이 사용함.</li><li>Batch Norm 이 Convolution 뒤에 일어난다. 하지만 네트워크를 작성하다보면 Batch Norm 을 ReLU 뒤에 넣거나 안넣는 것이 결과가 좋을 때가 있다고 한다.</li></ul></li><li>Bottleneck architecture<ul><li>$3*3$​ Conv를 하기 전에 Input 채널을 줄이는 구조이다.</li><li><img src="/image/image-20210811124038512.png" alt=""></li></ul></li></ul><p>ResNet으로 갈 수록 성능은 증가하고 파라미터 사이즈는 줄어들게 된다.</p><p>핵심: $1<em>1$으로 채널을 줄이고 줄인 채널에서 $3</em>3 혹은 5*5$로 Receptive Fields를 맞춤으로써 파라미터를 줄여나가는 것이 핵심 전략이다.</p><h2 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h2><p>ResNet은 결국 Convolution을 통해 나오는 값을 더해주는데, DenseNet의 아이디어는 더하지 말고 (왜냐면 성질이 섞이니까) Concat 하자는 것이다.</p><ul><li>DenseNet uses concatenation instead of addition<ul><li>Concat의 단점은 채널이 계속해서 커진다는 것인데, 이렇게 되면 Convolution Feature Map Channel도 같이 커지니까 파라미터도 커진다.</li><li>어떻게 채널을 줄이냐?</li><li>$1*1$ Conv를 하면 됨.</li></ul></li><li>Transition Block<ul><li>$BatchNorm \rightarrow 1<em>1 Conv \rightarrow 2</em>2 AvgPooling$</li></ul></li></ul><h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul><li>VGG: repeated $3*3$ blocks</li><li>GoogLeNet: $1*1$ Convolution</li><li>ResNet: skip-connection</li><li>DenseNet: Concatenation</li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
-      
-      <category domain="https://l-yohai.github.io/categories/Study/AI/">AI</category>
-      
-      
-      
-      <comments>https://l-yohai.github.io/Convolution-%EC%86%8C%EA%B0%9C/#disqus_thread</comments>
       
     </item>
     
