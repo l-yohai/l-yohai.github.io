@@ -9,8 +9,33 @@
     <atom:link href="https://l-yohai.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 12 Oct 2021 21:41:45 GMT</pubDate>
+    <pubDate>Wed, 13 Oct 2021 02:50:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>PStage MRC 3강 - Generation-based MRC</title>
+      <link>https://l-yohai.github.io/PStage-MRC-3%EA%B0%95-Generation-based-MRC/</link>
+      <guid>https://l-yohai.github.io/PStage-MRC-3%EA%B0%95-Generation-based-MRC/</guid>
+      <pubDate>Wed, 13 Oct 2021 02:50:23 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;Generation-based-MRC&quot;&gt;&lt;a href=&quot;#Generation-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC&quot;&gt;&lt;/a&gt;Generation-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Generation-based-MRC-문제-정의&quot;&gt;&lt;a href=&quot;#Generation-based-MRC-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC 문제 정의&quot;&gt;&lt;/a&gt;Generation-based MRC 문제 정의&lt;/h3&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Generation-based-MRC"><a href="#Generation-based-MRC" class="headerlink" title="Generation-based MRC"></a>Generation-based MRC</h2><h3 id="Generation-based-MRC-문제-정의"><a href="#Generation-based-MRC-문제-정의" class="headerlink" title="Generation-based MRC 문제 정의"></a>Generation-based MRC 문제 정의</h3><p>Extraction-based mrc와 다르게 주어진 질문의 답이 지문 내에 존재하지 않을 수도 있기 때문에 기본적으로 답변을 ‘생성’하는 문제로 분류한다.</p><p>input은 Extraction-based mrc와 동일하지만, generation-based mrc에서는 fine-tuning 시 정답 text까지 생성하는 seq2seq 모델로 분류할 수 있다.</p><h3 id="Generation-based-MRC-vs-Extraction-base-MRC"><a href="#Generation-based-MRC-vs-Extraction-base-MRC" class="headerlink" title="Generation-based MRC vs. Extraction-base MRC"></a>Generation-based MRC vs. Extraction-base MRC</h3><ol><li>MRC 모델 구조<ul><li>Seq-to-Seq PLM 구조 (Generation) vs. PLM + Classifier 구조 (Extraction)</li></ul></li><li>Loss 계산을 위한 답의 형태 / Prediction의 형태<ul><li>Free-form text 형태 (Generation) vs. 지문 내 답의 위치 (Extraction)</li><li>Extraction-based MRC는 f1 계산을 위해 text로의 별도의 전환 과정이 필요하다.</li></ul></li></ol><h2 id="Pre-processing"><a href="#Pre-processing" class="headerlink" title="Pre-processing"></a>Pre-processing</h2><h3 id="Tokenize"><a href="#Tokenize" class="headerlink" title="Tokenize"></a>Tokenize</h3><p>Extraction과 같이 토큰화를 진행한 뒤 input_ids(또는 input_token_ids)를 생성한다.</p><p>Generation 모델에서는 PAD 토큰은 사용되지만, CLS와 SEP 토큰의 경우 사용할 수는 있지만 보통 자연어를 이용한 텍스트 포맷으로 대신하는 경우가 많다. ex) CLS -&gt; Question, SEP -&gt; Context</p><h3 id="입력표현"><a href="#입력표현" class="headerlink" title="입력표현"></a>입력표현</h3><p>Extraction 모델과 달리 어텐션 마스크만 사용한다. 대부분 decoder가 사용된 모델에서는 입력시퀀스를 구분하지 않기 때문이다.</p><h3 id="출력표현"><a href="#출력표현" class="headerlink" title="출력표현"></a>출력표현</h3><p>토큰의 시작과 끝 위치를 맞추는 것이 아닌 정답 텍스트를 표현하기만 하면 된다.</p><p>모델의 출력을 선형 레이어에 넣고, sequence_length 내 각 위치마다 들어가야할 단어를 하나씩 선택하면서 전체 길이만큼 반복하며 시퀀스를 생성한다.</p><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><h3 id="BART"><a href="#BART" class="headerlink" title="BART"></a>BART</h3><ul><li>seq2seq 문제의 pretraining을 위한 denoising autoencoder를 사용한다.</li><li>인코더는 BERT와 같은 bi-directional 구조이며, 디코더는 GPT와 같은 uni-directional(autoregressive)이다.</li><li>텍스트에 노이즈를 주고 원래 텍스트를 복구하는 문제를 푸는 것으로 pretraining을 진행한다.</li></ul><h2 id="Post-processing"><a href="#Post-processing" class="headerlink" title="Post-processing"></a>Post-processing</h2><h3 id="Decoding"><a href="#Decoding" class="headerlink" title="Decoding"></a>Decoding</h3><p>보통 스페셜 토큰을 사용하여 문장의 시작점부터 search를 진행한다.</p><ul><li>Greedy Search<ul><li>빠르지만 처음에 선택한 답이 잘못된 선택일 수 있다.</li></ul></li><li>Exhaustive Search<ul><li>모든 가능성을 고려하기 때문에 vocab이나 문장 길이가 조금만 길어도 불가능에 가까워진다.</li></ul></li><li>Beam Search<ul><li>Exhaustive Search를 하되 각 타임스텝마다 가장 가능성이 높은 Top-k만 유지한다.</li></ul></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/">NLP</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/MRC/">MRC</category>
+      
+      
+      
+      <comments>https://l-yohai.github.io/PStage-MRC-3%EA%B0%95-Generation-based-MRC/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>PStage MRC 2강 - Extraction-based MRC</title>
@@ -491,29 +516,6 @@
       
       
       <comments>https://l-yohai.github.io/Transformer-%EC%86%8C%EA%B0%9C/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>부스트캠프 AI Tech 2주차 회고 (2021-08-09 ~ 2021-08-13)</title>
-      <link>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-2%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-08-09-2021-08-13/</link>
-      <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-2%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-08-09-2021-08-13/</guid>
-      <pubDate>Fri, 13 Aug 2021 08:00:08 GMT</pubDate>
-      
-      <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="강의내용"><a href="#강의내용" class="headerlink" title="강의내용"></a>강의내용</h2><ul><li>강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.</li></ul><h3 id="학습현황"><a href="#학습현황" class="headerlink" title="학습현황"></a>학습현황</h3><ul><li>21.08.09 월 (09:47 ~ 19:20)</li><li>21.08.10 화 (09:30 ~ 19:19)</li><li>21.08.11 수 (09:34 ~ 20:44)</li><li>21.08.12 목 (09:30 ~ 23:35)</li><li>21.08.13 금 (09:50 ~ 20:30)</li></ul><h3 id="진도"><a href="#진도" class="headerlink" title="진도"></a>진도</h3><ul><li>Data Viz (시각화의 요소 - Python &amp; Matplotlib - Bar Plot - Line Plot - Scatter Plot)</li><li>Deep Learning Basic (MLP - Optimization - Convolution - Modern CNN - CV App - RNN - Transformer - Generative Models)</li></ul><h3 id="지난-주-선언에서-지킨-것과-지키지-못한-것"><a href="#지난-주-선언에서-지킨-것과-지키지-못한-것" class="headerlink" title="지난 주 선언에서 지킨 것과 지키지 못한 것"></a>지난 주 선언에서 지킨 것과 지키지 못한 것</h3><ul><li>수식을 손으로 풀어보자고 했는데 하지 않았다.</li><li>따로 수학공부를 시작했다.</li></ul><h3 id="이번-주의-개선할-사항-및-자기성찰"><a href="#이번-주의-개선할-사항-및-자기성찰" class="headerlink" title="이번 주의 개선할 사항 및 자기성찰"></a>이번 주의 개선할 사항 및 자기성찰</h3><ul><li>이론적인 부분에 많이 몰입하지 못했다.</li><li>수학 공부를 따로 시작했으나 목표를 세우지 않고 시작하여 학습에 대한 기준점을 세우지 못했다.</li></ul><hr><h2 id="과제-수행과정과-결과물"><a href="#과제-수행과정과-결과물" class="headerlink" title="과제 수행과정과 결과물"></a>과제 수행과정과 결과물</h2><ul><li>5개의 필수과제와 3개의 선택과제</li></ul><p>분류해결 여부 or 결과</p><table style="border-collapse: collapse; width: 100%;" border="1" data-ke-align="alignLeft"><tbody><tr><td><span><span>필수과제 MLP</span></span></td><td><span><span>O</span></span></td></tr><tr><td><span><span>필수과제 Optimization</span></span></td><td><span><span>O</span></span></td></tr><tr><td><span><span>필수과제 CNN</span></span></td><td><span><span>O</span></span></td></tr><tr><td><span><span>필수과제 LSTM</span></span></td><td><span><span>O</span></span></td></tr><tr><td><span><span>필수과제 Multi Headed Attention</span></span></td><td><span><span>O</span></span></td></tr><tr><td><span><span>선택과제 ViT</span></span></td><td><span><span>O</span></span></td></tr><tr><td><span><span>선택과제 AAE</span></span></td><td><span><span>O</span></span></td></tr><tr><td><span><span>선택과제 MDN</span></span></td><td><span><span>X</span></span></td></tr></tbody></table><h3 id="Facts-사실-객관"><a href="#Facts-사실-객관" class="headerlink" title="Facts (사실, 객관)"></a>Facts (사실, 객관)</h3><ul><li>강사님이 강의에서 필수과제를 다루어주셨기 때문에 어렵지 않게 모두 잘 해결할 수 있었다.</li><li>선택과제 두 개는 해결할 수 있었지만 하나는 손도 못댔음. 그마저도 해결한 선택과제는 코드만 작동하게 한 것에 불과하다.</li></ul><h3 id="Feelings-느낌-주관"><a href="#Feelings-느낌-주관" class="headerlink" title="Feelings (느낌, 주관)"></a>Feelings (느낌, 주관)</h3><ul><li>MNIST라는 친숙한 데이터셋을 가지고 여러 테크닉들을 실험해본 정도였기 때문에 그나마 익숙하게 느껴졌다.</li><li>손도 못댄 선택과제만 보더라도, 여전히 수학이 너무 어렵게 느껴지고 수식만 보면 토나온다.</li><li>Pytorch에 대해서 잘 안다고 자만하면 안되겠다. 모르는 것들이 아직도 수두룩빽빽.</li></ul><h3 id="Findings-배운-점"><a href="#Findings-배운-점" class="headerlink" title="Findings (배운 점)"></a>Findings (배운 점)</h3><ul><li>Pytorch의 편리함 때문인지 이전까지는 Weight Update 과정들만 보더라도 두세줄 정도로 매우 간결한 코드를 썼었는데, 해당 과정들을 한 줄로 쓰니 가독성도 좋고 Process가 한 눈에 보이는 느낌으로 더 좋은 것 같다.</li><li>ViT와 Auto-Encoder에 대한 깊은 내용은 아직은 잘 모르지만, 그래도 코드로 구현 과정을 보았다는 것이 그나마 건질 수 있었던 배운 점인 것 같다.</li></ul><h3 id="Affimation-자기선언"><a href="#Affimation-자기선언" class="headerlink" title="Affimation (자기선언)"></a>Affimation (자기선언)</h3><ul><li>이제부턴 모델들을 구현한 코드들이 과제에 등장하는데, 단순히 과제를 해결하는 것에 급급하지 말고 코드 전체 내용을 꼭 따라가고 이해하도록 해보자.</li><li>특히 논문과 밀접한 관련이 있는 좋은 베이스라인 코드들이기 때문에 꼭 숙지할 것!</li><li>다음주에는 모든 선택과제를 시도할 수 있도록 더 많은 공부를 해야겠다.</li></ul><hr><h2 id="피어세션"><a href="#피어세션" class="headerlink" title="피어세션"></a>피어세션</h2><h3 id="알고리즘-스터디"><a href="#알고리즘-스터디" class="headerlink" title="알고리즘 스터디"></a><a href="https://github.com/Boostcamp-AI-Tech-1-15/algorithm_study">알고리즘 스터디</a></h3><ul><li>아직 Git에 익숙하지 않은 팀원들이 있음에도 협업 프로세스가 잘 진행이 된 것 같다. 특히 fork - pr - review 의 과정이 처음치곤 잘 이루어진 것 같아서 기쁘다.</li><li>Git 특강이 있었기 때문에 실습 느낌으로 경험해볼 수 있었어서 시너지가 더 있었던 것 같다.</li><li>그럼에도 Conflict 해결 과정은 아직 어렵게 느끼는 팀원이 있는 것 같아서 더 많은 것을 공유할 수 있도록 노력해야겠다.</li><li>한 문제만 풀었기 때문에 알고리즘 풀이 실력이라던지 신박한 방법을 알 수 있었다던지 하는 것들은 크게 없었던 것 같다. 다음주부터는 개선될 듯!</li></ul><h3 id="논문리뷰"><a href="#논문리뷰" class="headerlink" title="논문리뷰"></a>논문리뷰</h3><ul><li>세 줄 요약만으로 다른 분들이 읽은 논문의 전반적인 정보들은 파악하기가 힘들었다. 다른 사람들의 말을 듣고 소화하는 것도 결국엔 내 능력이겠지.</li><li>나는 음성인식 딥러닝 모델이 최초로 고전모델을 이긴 사례에 대한 논문을 읽었으나 음성인식은 처음이라 그런지.. 모르는 것들 투성이었다. 특히 여러 베이스가 되는 개념들에 대한 용어조차 모르고 있어서 전반적인 이해를 했다고는 할 수 없을 것 같다.</li><li>영어공부를 좀 더 해야될 것 같다. 단어만이라도 더 외우자.</li><li>시간을 좀 분배해서 하루에 몰아서 읽는 것보다는 틈틈히 읽는 것이 더 좋은 것 같다.</li></ul><h3 id="멘토링"><a href="#멘토링" class="headerlink" title="멘토링"></a>멘토링</h3><ul><li>빛예닮 빛예닮 빛예닮</li><li>취준에 관해 개인 멘토링을 받았는데, 자신감 뿜뿜할 수 있었던 좋은 시간이었다. 조언해주신 것들 + 노력해야할 것들 꼭 잘 지켜서 하반기 시즌에 지원을 한 번씩 해봐야할 것 같다.</li></ul><hr><h2 id="학습회고"><a href="#학습회고" class="headerlink" title="학습회고"></a>학습회고</h2><h3 id="Feelings-느낌-주관-1"><a href="#Feelings-느낌-주관-1" class="headerlink" title="Feelings (느낌, 주관)"></a>Feelings (느낌, 주관)</h3><ul><li>학습에 더 나은 몰입을 위해 제공되는 강의 뿐만 아니라 다른 시간들을 더 타이트하게 쪼갤 필요가 있어보인다.</li><li>2주차. 벌써부터 슬슬 많은 딥러닝 이론들을 배우기 시작했는데, 완벽히 학습을 따라갔다고는 할 수 없을 것 같다. 여전히 토나오는게 많은데 덜 익숙해서 그렇겠지.</li></ul><h3 id="Affimation-자기선언-1"><a href="#Affimation-자기선언-1" class="headerlink" title="Affimation (자기선언)"></a>Affimation (자기선언)</h3><ul><li>이론 강의에서 나오는 수식 하나, 키워드 하나조차 가볍게 넘기지 말자. 더 의문을 가져보자.</li><li>학습 정리를 좀 더 꾸준하게 해보자. 필기한 내용들을 블로그에 하나도 올리지 않았는데, 포스팅을 위해서라도 내 언어로 바꾸고 정리해보자.</li></ul><h3 id="내가-따로-노력한-것들"><a href="#내가-따로-노력한-것들" class="headerlink" title="내가 따로 노력한 것들"></a>내가 따로 노력한 것들</h3><ul><li>인공지능을 위한 수학 (절반 정도 읽음)</li><li>… 끝!</li></ul><hr><h2 id="총평"><a href="#총평" class="headerlink" title="총평"></a>총평</h2><ul><li>저번주의 회고에서 다짐한 것들은 50% 정도 지켜진 것 같다. 이번주에 다짐한 것들은 다음주에 꼭 다 지킬 수 있도록 할 것.</li><li>이번 주 역시 시간이 부족했다. 저번주엔 강의가 많아서 그랬다면 이번주는 강의 난이도가 높아서 그랬다.</li><li>복습이 필요할 것 같다. 시간확보에 조금 더 노력하자. 귀중한 기회인 만큼 남은 올해만큼이라도 부캠에 올인하자.</li><li>취준멘토링을 통해 부캠에서의 방향성이 얼추 잡힌 듯 하다. CV를 준비하고 짬을내서 프로젝트를 해보자. 난 다 소화할 수 있다.</li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://l-yohai.github.io/categories/Diary/">Diary</category>
-      
-      
-      
-      <comments>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-2%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-08-09-2021-08-13/#disqus_thread</comments>
       
     </item>
     
