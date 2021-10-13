@@ -9,8 +9,58 @@
     <atom:link href="https://l-yohai.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 13 Oct 2021 19:59:47 GMT</pubDate>
+    <pubDate>Wed, 13 Oct 2021 21:25:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>PStage MRC 7강 - Linking MRC and Retrieval</title>
+      <link>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/</link>
+      <guid>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/</guid>
+      <pubDate>Wed, 13 Oct 2021 21:24:55 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;Introduction-to-Open-domain-Question-Answering-ODQA&quot;&gt;&lt;a href=&quot;#Introduction-to-Open-domain-Question-Answering-ODQA&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Open-domain Question Answering (ODQA)&quot;&gt;&lt;/a&gt;Introduction to Open-domain Question Answering (ODQA)&lt;/h2&gt;&lt;p&gt;MRC는 지문이 주어진 상황에서 질의응답을 하는 과제이다. 이에 반해 ODQA는 비슷한 형태이지만, 지문 부분이 주어지는 것이 아니라 위키 혹은 웹 전체가 주어지게 되기 때문에 매우 많은 지문을 봐야하는 Large Scale 과제가 된다.&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Introduction-to-Open-domain-Question-Answering-ODQA"><a href="#Introduction-to-Open-domain-Question-Answering-ODQA" class="headerlink" title="Introduction to Open-domain Question Answering (ODQA)"></a>Introduction to Open-domain Question Answering (ODQA)</h2><p>MRC는 지문이 주어진 상황에서 질의응답을 하는 과제이다. 이에 반해 ODQA는 비슷한 형태이지만, 지문 부분이 주어지는 것이 아니라 위키 혹은 웹 전체가 주어지게 되기 때문에 매우 많은 지문을 봐야하는 Large Scale 과제가 된다.</p><p>ODQA라는 문제는 꽤 예전부터 다루었던 문제이며, short answer with support의 형태를 목표로 했었다.</p><p>1) Question processing</p><p>   질문으로부터 키워드를 선택하여 답변의 타입을 선택할 수 있도록 했다.</p><p>2) Passage Retrieval</p><p>   기존 IR 방법을 활용하여 연관된 document를 뽑고, passage 단위로 자른 후 선별한다.</p><p>3) Answer processing</p><p>   주어진 질문과 passage들 내에서 답을 선택하는 휴리스틱한 분류문제로 진행했다.</p><p>ODQA는 꽤 역사가 길며, 지금까지는 위와 같은 방식으로 진행되고 있었는데, 2011년 IBM Watson을 통해 발전하게 된다.</p><h2 id="Retriever-Reader-Approach"><a href="#Retriever-Reader-Approach" class="headerlink" title="Retriever-Reader Approach"></a>Retriever-Reader Approach</h2><p>ODQA에서 가장 많이 쓰이는 approach로, DB에서 관련있는 문서를 검색하는 Retriever과 검색된 문서에서 질문에 해당하는 답을 찾아내는 Reader로 이루어진다.</p><h3 id="학습-단계"><a href="#학습-단계" class="headerlink" title="학습 단계"></a>학습 단계</h3><p>Retriever</p><ul><li>TF-IDF, BM25 -&gt; 학습없음</li><li>Dense -&gt; 학습필요</li></ul><p>Reader</p><ul><li>SQuAD와 같은 MRC 데이터셋으로 학습</li><li>학습 데이터를 추가하기 위해서 Distant supervision 활용</li></ul><h3 id="Distant-supervision"><a href="#Distant-supervision" class="headerlink" title="Distant supervision"></a>Distant supervision</h3><p>질문-답변만 있는 데이터셋에서 MRc 학습 데이터 만드는 방법. Supporting document가 필요함.</p><ol><li>위키피디아에서 Retriever를 이용하여 관련성 높은 문서를 검색한다.</li><li>너무 짧거나 긴 문서, 질문의 고유명사를 포함하지 않는 등 부적합한 문서를 제거한다.</li><li>answer가 exact match로 들어있지 않은 문서를 제거한다.</li><li>남은 문서 중에 질문과 (사용 단어 기준) 연관성이 가장 높은 단락을 supporting evidence로 사용한다.</li></ol><h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><ul><li>Retriever가 질문과 가장 관련성이 높은 k개의 문서 출력</li><li>Reader는 k개의 문서를 읽고 답변 예측</li><li>Reader가 예측한 답변 중 가장 score가 높은 것을 최종 답으로 사용</li></ul><h2 id="Issues-and-Recent-Approaches"><a href="#Issues-and-Recent-Approaches" class="headerlink" title="Issues and Recent Approaches"></a>Issues and Recent Approaches</h2><h3 id="Different-granularities-of-text-at-indexing-time"><a href="#Different-granularities-of-text-at-indexing-time" class="headerlink" title="Different granularities of text at indexing time"></a>Different granularities of text at indexing time</h3><p>위키피디아에서 각 passage의 단위를 문서, 단락, 또는 문장으로 정의할지 정해야 함</p><p>Retriever 단계에서 몇 개(top-k)의 문서를 넘길지 정해야 함</p><p>Granularity에 따라 k가 다를 수밖에 없음.</p><h3 id="Single-passage-training-vs-Multi-passage-training"><a href="#Single-passage-training-vs-Multi-passage-training" class="headerlink" title="Single-passage training vs. Multi-passage training"></a>Single-passage training vs. Multi-passage training</h3><p>k개의 passage들을 따로따로 보는 것이 아니라 retrieval이 가져온 문서 전체를 하나의 passage로 취급하여 reader모델이 그 안에서 answer span 하나를 찾도록 하는 것임. 다만 문서가 너무 길어지므로 GPU에 더 많은 메로리를 할당해야하고, 처리해야하는 연산량이 많아진다.</p>]]></content:encoded>
+      
+      
+      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/">NLP</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/MRC/">MRC</category>
+      
+      
+      
+      <comments>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PStage MRC 6강 - Scaling up with FAISS</title>
+      <link>https://l-yohai.github.io/PStage-MRC-6%EA%B0%95-Scaling-up-with-FAISS/</link>
+      <guid>https://l-yohai.github.io/PStage-MRC-6%EA%B0%95-Scaling-up-with-FAISS/</guid>
+      <pubDate>Wed, 13 Oct 2021 21:24:41 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;Passage-Retrieval-and-Similarity-Search&quot;&gt;&lt;a href=&quot;#Passage-Retrieval-and-Similarity-Search&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval and Similarity Search&quot;&gt;&lt;/a&gt;Passage Retrieval and Similarity Search&lt;/h2&gt;&lt;p&gt;저번 강의에서 임베딩을 통해 리트리벌을 진행하려고 할 때 질문과 지문 쪽 각각 인코더가 존재했다는 것을 배웠다. 질문은 그때그때 임베딩을 하며, 지문은 미리 임베딩을 해놓지만 새로운 것이 들어올 때 추가하여 적절한 임베딩을 반환하게 된다.&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Passage-Retrieval-and-Similarity-Search"><a href="#Passage-Retrieval-and-Similarity-Search" class="headerlink" title="Passage Retrieval and Similarity Search"></a>Passage Retrieval and Similarity Search</h2><p>저번 강의에서 임베딩을 통해 리트리벌을 진행하려고 할 때 질문과 지문 쪽 각각 인코더가 존재했다는 것을 배웠다. 질문은 그때그때 임베딩을 하며, 지문은 미리 임베딩을 해놓지만 새로운 것이 들어올 때 추가하여 적절한 임베딩을 반환하게 된다.</p><p>Nearest Neighbor Search에서는 Passage 개수가 늘어날 수록 Top-k 때 Dot product 연산이 부담스러워질 수 있는데, 이러한 과정에서 Similarity Search를 아는 것이 중요하다.</p><h3 id="MIPS-Maximum-Inner-Product-Search"><a href="#MIPS-Maximum-Inner-Product-Search" class="headerlink" title="MIPS(Maximum Inner Product Search)"></a>MIPS(Maximum Inner Product Search)</h3><p>기본적으로 Nearest Neighbor Search보다, Inner product Search가 더 많이 사용되고 있다. Nearest Neighbor와 같은 L2 유클리디언 거리를 계산하는 것보다 Dot Product의 Maximum을 찾는 문제로 돌리는 것이 더 수월하기 때문이다. 가장 가까운 벡터를 찾겠다는 것은 Maximum Inner Product를 찾겠다는 것으로 이해하면 된다. 하지만 개념 정리나 상상을 할 때는 Nearest Neighbor Search를 떠올리는 것이 더 쉽긴 한다.</p><p>MIPS는 주어진 질문(query) 벡터 q에 대해 Passage 벡터 v들 중 가장 질문과 관련된 벡터를 찾는 문제이며, 관련성은 내적이 가장 큰 값으로 찾는다.</p><p>하지만 실제 검색해야할 데이터는 위키피디아에만 5백만개이며, 수십억, 수십조까지 커질 수 있기 때문에 사실상 모든 문서 임베딩을 Bruteforce로 찾는 것은 불가능하다.</p><h3 id="Tradeoffs-of-similarity-search"><a href="#Tradeoffs-of-similarity-search" class="headerlink" title="Tradeoffs of similarity search"></a>Tradeoffs of similarity search</h3><p>1) Search Speed - 쿼리당 유사한 벡터 k개를 찾는 시간. 많은 벡터를 가지고 있을수록 당연히 시간이 오래걸린다.</p><p>   <strong><em>Pruning</em></strong> 을 사용하면 속도 개선 가능</p><p>2) Memory Usage - 벡터를 어디에서 가져올 것인지. RAM에 올려놓으면 가장 빠르지만 RAM은 비싸다.</p><p>   <strong><em>Compression</em></strong> 으로 메모리 압축 가능</p><p>3) Accuracy - Bruteforce 검색과 얼마나 유사한지. 속도를 증가시키려면 정확도를 어느정도 희생해야 한다.</p><p>   <strong><em>Exhaustive Search</em></strong>로 정확도 개선 가능</p><h2 id="Approximating-Similarity-Search"><a href="#Approximating-Similarity-Search" class="headerlink" title="Approximating Similarity Search"></a>Approximating Similarity Search</h2><h3 id="Compression-Scalar-Quantization-SQ"><a href="#Compression-Scalar-Quantization-SQ" class="headerlink" title="Compression - Scalar Quantization (SQ)"></a>Compression - Scalar Quantization (SQ)</h3><p>Vector를 압축하여 어느정도의 정보 손실을 감안하면서 메모리 사용량을 낮추는 방법이다. 보통 32bit floating point를 사용하는데, 8bit의 unsigned integer로 압축하여 사용한다.</p><h3 id="Pruning-Inverted-File-IVF"><a href="#Pruning-Inverted-File-IVF" class="headerlink" title="Pruning - Inverted File (IVF)"></a>Pruning - Inverted File (IVF)</h3><p>클러스터링 기법으로, 일정 벡터들을 군집화하여 Search Space를 줄인 후 검색속도를 개선하는 방법이다. 군집화 이후 쿼리가 들어왔을 때 쿼리와 가장 비슷한 군집만을 방문하도록 하는 것이다. 군집화 방법으로는 k-means clustering을 가장 많이 사용한다.</p><p>Inverted file (IVF) 라고 불리는 이유는 각 클러스터에 있는 포인트들을 인덱스로 가지고 있기 때문이다. 각 클러스터의 아이디와 클러스터 벡터들이 연결되어 있는 형태로 데이터 구조가 형성된다.</p><h2 id="Introduction-to-FAISS"><a href="#Introduction-to-FAISS" class="headerlink" title="Introduction to FAISS"></a>Introduction to FAISS</h2><p>FAISS는 large scale 데이터에 대해서 효율적으로 유사도 검색과 군집화를 도와주는 페이스북의 오픈소스 라이브러리이다. </p><p>FAISS를 사용하기 위해서는 클러스터링된 벡터들을 확보해야 한다. 클러스터를 랜덤하게 지정하면 비효율적이기 때문에 적절한 군집화를 위해 데이터셋을 활용해야 하며, Quantization을 할 때도 scale할 비율을 계산해야 하기 때문에 학습데이터를 활용해야 한다.</p><p>따라서 Train과 Adding 단계가 필요하다. </p><h2 id="Scaling-up-with-FAISS"><a href="#Scaling-up-with-FAISS" class="headerlink" title="Scaling up with FAISS"></a>Scaling up with FAISS</h2><p>IVF 인덱스 만들기 (SQ 방식)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nlist = <span class="number">100</span> <span class="comment"># 클러스터 개수</span></span><br><span class="line">quantizer = faiss.IndexFlatL2(d)</span><br><span class="line">index = faiss.IndexIVFFlat(quantizer, d, nlist) <span class="comment"># Inverted File 만들기</span></span><br><span class="line">index.train(xb) <span class="comment"># 클러스터 학습</span></span><br><span class="line"></span><br><span class="line">index.add(xb) <span class="comment"># 클러스터에 벡터 추가</span></span><br><span class="line">D, I = index.search(xq, k) <span class="comment"># 검색</span></span><br></pre></td></tr></table></figure><p>IVF 인덱스 만들기 (PQ 방식)</p><ul><li>벡터 압축 기법으로, 전체 벡터를 저장하지 않고 압축된 벡터만을 저장하여 메모리 사용량을 줄일 수 있음.</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">nlist = <span class="number">100</span> <span class="comment"># 클러스터 개수</span></span><br><span class="line">m = <span class="number">8</span> <span class="comment"># subquantizer 개수</span></span><br><span class="line">quantizer = faiss.IndexFlatL2(d)</span><br><span class="line">index = faiss.IndexIVFPQ(quantizer, d, nlist, m, <span class="number">8</span>) <span class="comment"># 각각의 sub-vector가 8 bits로 인코딩됨</span></span><br><span class="line"></span><br><span class="line">index.train(xb) <span class="comment"># 클러스터 학습</span></span><br><span class="line">index.add(xb) <span class="comment"># 클러스터에 벡터 추가</span></span><br><span class="line">D, I = index.search(xq, k) <span class="comment"># 검색</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/">NLP</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/MRC/">MRC</category>
+      
+      
+      
+      <comments>https://l-yohai.github.io/PStage-MRC-6%EA%B0%95-Scaling-up-with-FAISS/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>PStage MRC 4-5강 - Passage Retrieval - Sparse Embedding, Dense Embedding</title>
@@ -470,53 +520,6 @@
       
       
       <comments>https://l-yohai.github.io/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A1%9C-%EC%82%B0%EB%8B%A4%EB%8A%94-%EA%B2%83-%EC%9C%A0%EC%84%9D%EB%AC%B8-CTO/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>시각화 이해하기</title>
-      <link>https://l-yohai.github.io/%EC%8B%9C%EA%B0%81%ED%99%94-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/</link>
-      <guid>https://l-yohai.github.io/%EC%8B%9C%EA%B0%81%ED%99%94-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/</guid>
-      <pubDate>Mon, 16 Aug 2021 09:04:28 GMT</pubDate>
-      
-      <description>&lt;h2 id=&quot;1-데이터-이해하기&quot;&gt;&lt;a href=&quot;#1-데이터-이해하기&quot; class=&quot;headerlink&quot; title=&quot;1. 데이터 이해하기&quot;&gt;&lt;/a&gt;1. 데이터 이해하기&lt;/h2&gt;&lt;h3 id=&quot;1-1-데이터-시각화&quot;&gt;&lt;a href=&quot;#1-1-데이터-시각화&quot; class=&quot;headerlink&quot; title=&quot;1.1 데이터 시각화&quot;&gt;&lt;/a&gt;1.1 데이터 시각화&lt;/h3&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="1-데이터-이해하기"><a href="#1-데이터-이해하기" class="headerlink" title="1. 데이터 이해하기"></a>1. 데이터 이해하기</h2><h3 id="1-1-데이터-시각화"><a href="#1-1-데이터-시각화" class="headerlink" title="1.1 데이터 시각화"></a>1.1 데이터 시각화</h3><p>데이터 시각화를 위해서는 ‘데이터’가 우선적으로 필요하다. 데이터를 어떻게 시각화하냐는 데이터를 로컬하게 보냐 글로벌하게 보냐에 따라 다르다. 개별 데이터를 보여줄 것인지 전체 데이터에 대한 구성을 보여줄 것인지를 정해야 하고, 그러기 위해서는 어떤 데이터가 있고 어떤 데이터셋이 있는지 알아야 한다.</p><p>데이터에 대해서 어떤 것들을 전달할 수 있고, 어떤 데이터셋이 있는지 알아보자.</p><h3 id="1-2-데이터의-종류"><a href="#1-2-데이터의-종류" class="headerlink" title="1.2 데이터의 종류"></a>1.2 데이터의 종류</h3><p>수많은 데이터셋이 있고, 데이터들은 여러 특징들로 나눌 수 있다.</p><ul><li>정형 데이터<ul><li>일반적으로 csv 파일로 제공되는 데이터이다.</li><li>Row: 데이터 한 개 (item)</li><li>Column: Attribute (feature)</li><li>가장 쉽게 시각할 수 있는 데이터셋이며 통계적 특성과 Feature 사이의 관계들로 많이 이야기할 수 있다.</li><li>데이터 간 비교하고, 통계적 특성들을 비교할 수 있음.</li></ul></li><li>시계열 데이터<ul><li>시간 흐름에 따른 데이터이며, Time-Series Data라고 한다.</li><li>기온, 주가 등의 정형데이터와 음성, 비디오와 같은 비정형 데이터가 존재한다.</li><li>시간 흐름에 따른 <code>추세(Trend), 계절성(Seasonality), 주기성(Cycle)</code> 등을 살필 수 있다.</li></ul></li><li>지리 데이터<ul><li>지도 정보와 보고자 하는 정보간의 조화가 중요하며, 지도 정보를 단순화 시키는 경우도 존재한다.</li><li>거리, 경로, 분포 등 다양하게 실사용에 이용되고 있다.</li><li>정형데이터 시각화와 다르게 실제로 어떻게 사용될 수 있을지가 중요하고, 거리 정보가 굉장히 중요하다.</li><li>위도 경도 등도 추가로 학습해야한다.</li></ul></li><li>관계형(네트워크) 데이터<ul><li>객체와 객체 간의 관계를 시각화할 수 있으며 객체는 Node로 표현하고 관계는 Link로 표현한다.</li><li>크기와 색, 수에 따라서 객체와 관계의 가중치를 표현한다.</li><li>직관적이지 않아서 Mapping 방법이 굉장히 중요하며 네트워크를 구성할 때 Huristic 하게 이용한다.</li></ul></li><li>계층적 데이터<ul><li>회사 조직도나 집안의 가계도 등인 Hirarchy 를 강조하는 시각화이며 보통 Tree 구조로 표현한다.</li><li>한국 수출 아이템에 대한 분야별 분포 등을 계층적 데이터로 시각화할 수 있다.</li></ul></li><li>다양한 비정형 데이터</li></ul><p>데이터는 굉장히 다양하기 때문에 대표적으로 4가지로 분류한다.</p><ul><li>수치형 데이터 (Numerical)<ul><li>연속형 (Continuous): 길이, 무게, 온도 등 데이터 간 실수값들이 존재하는 데이터</li><li>이산형 (Discrete): 주사위 눈금, 사람 수 등 중간이 없고 떨어져 있는 한 단위들이 데이터인 것.</li></ul></li><li>범주형 데이터 (Categorical) - 문자열로 나타나는 것들<ul><li>명목형 (Nominal): 혈액형, 종교, MBTI 등 순서가 딱히 중요하지 않은 데이터</li><li>순서형 (Ordinal): 학년, 학점, 등급 등 순서가 존재하는 데이터. 이산형으로 볼 수도 있지만 스케일 자체가 비율이 있다면 이산형, 수치가 절대적이지 않으면 순서형으로 표현하는 편이다.</li></ul></li></ul><p>시각화 이전에 이 데이터는 어떤형 데이터이기 때문에 이런 시각화를 해야겠다! 라는 접근이 필요하다.</p><h2 id="2-시각화-이해하기"><a href="#2-시각화-이해하기" class="headerlink" title="2. 시각화 이해하기"></a>2. 시각화 이해하기</h2><h3 id="2-1-마크와-채널"><a href="#2-1-마크와-채널" class="headerlink" title="2.1 마크와 채널"></a>2.1 마크와 채널</h3><ul><li>시각화는 보통 그래픽에서 가장 중요한 세 단위(점, 선, 면(mark)) 로 이루어진 데이터를 어떤 식으로 나타내고 어떤 식으로 조화할 지에 대한 고민으로 이루어진다.</li><li>점, 선, 면에서 어떠한 Variation을 줄 수 있는지를 visual channel 이라고 하는데, 각 마크를 변경할 수 있는 요소들을 말한다. 평행하게 움직이는지, 수직적으로 움직이는지, 아니면 동시적으로 움직이는지, 길이나 색, 기울기, 모양 등을 변경할 수 있다.</li><li>즉 시각화에서는 점, 선, 면을 어떻게 다루고 어떻게 시각화를 할 수 있을지부터 시작한다.</li></ul><h3 id="2-2-전주의적-속성"><a href="#2-2-전주의적-속성" class="headerlink" title="2.2 전주의적 속성"></a>2.2 전주의적 속성</h3><p>데이터에서 변경시킬 수 있는 요소 중에서 주의를 주지 않아도 인지하게 되는 요소를 전주의적 요소 (Pre-attentive Attribute) 라고 한다.</p><p><img src="/image/image-20210822003427676.png" alt="image-20210822003427676" style="zoom:50%;" /></p><p>딱 눈으로 봤을 때 직관적으로 기존과 다르다는 인사이트를 바로 전달될 수 있게 사용하는 것이 중요하다.</p><p>하지만 점주의적 속성들은 동시에 사용했을 때 인지하기 어렵기 때문에 데이터 자체는 시각적인 분리가 잘 이루어지는 데이터인 경우에도 직관적으로 한 눈에 보기 어려운 경우가 생길 수 있다. 즉 전주의적 속성은 적재적소에 시각화하는 것이 중요하다.</p>]]></content:encoded>
-      
-      
-      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
-      
-      <category domain="https://l-yohai.github.io/categories/Study/Visualization/">Visualization</category>
-      
-      
-      
-      <comments>https://l-yohai.github.io/%EC%8B%9C%EA%B0%81%ED%99%94-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Generative Models 소개</title>
-      <link>https://l-yohai.github.io/Generative-Models-%EC%86%8C%EA%B0%9C/</link>
-      <guid>https://l-yohai.github.io/Generative-Models-%EC%86%8C%EA%B0%9C/</guid>
-      <pubDate>Fri, 13 Aug 2021 09:26:33 GMT</pubDate>
-      
-      <description>&lt;p&gt;What I cannot create, I do not understand. - Richard Feynman&lt;/p&gt;
-&lt;p&gt;생성 모델을 학습한다는 것에 대해서 가장 처음에 생각하는 것은 그럴듯한 문장 혹은 이미지를 만드는 것이라고 생각한다. 하지만 이것이 전부가 아니라, 생성모델은 그것보다 많은 것을 포함하는 개념이다.&lt;/p&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<p>What I cannot create, I do not understand. - Richard Feynman</p><p>생성 모델을 학습한다는 것에 대해서 가장 처음에 생각하는 것은 그럴듯한 문장 혹은 이미지를 만드는 것이라고 생각한다. 하지만 이것이 전부가 아니라, 생성모델은 그것보다 많은 것을 포함하는 개념이다.</p><p>Generation: 강아지와 같은 이미지를 만드는 것도 생성모델이 하는 일이지만, Density estimation 어떤 이미지가 들어왔을 때 확률값 하나가 튀어나와서 이미지가 고양이 같은지 강아지 같은지 강아지가 아닌 것 같은지 구분하고 싶은 것임. 이상행동감지로 활용될 수 있다. 엄밀히 생성모델은 Discrimity 모델을 포함하고 있다. 즉 생성해내는 것만 아니라 구분하는 것까지 포함하고 있다.</p><p>이러한 모델을 보통 explicit model 이라고 한다. 확률값을 얻을 수 있는 모델을 뜻함.</p><p>Unsupervised representation learning 이라고 강아지가 있으면 강아지는 귀가 두개고 꼬리가 있고 등의 특성이 있을텐데 이것을 feature learning 이라고 한다. 이 feature learning이 생성모델이 할 수 있는 것으로 표현하기도 함.</p><h4 id="Basic-Discrete-Distributions"><a href="#Basic-Discrete-Distributions" class="headerlink" title="Basic Discrete Distributions"></a>Basic Discrete Distributions</h4><ul><li>Bernoulli distribution<ul><li>이것을 포함하는 확률분포에는 숫자가 하나 필요함. 동전을 던졌을 때 앞 뒤가 나오는 것. 카테고리면 n개가 필요한 것. 주사위를 던졌을 때 n개가 필요한 것이 아니라 n - 1개가 필요함.</li></ul></li><li>Categorical distribution</li></ul><p>RGB 이미지 하나를 픽셀로 표현할 때 (r, g, b) ~ p(R, G, B) 는 256 <em> 256 </em> 256 가지가 있다. 그렇다면 이것을 표현하는 파라미터는 256 <em> 256 </em> (256 - 1) 개가 필요함.</p>]]></content:encoded>
-      
-      
-      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
-      
-      <category domain="https://l-yohai.github.io/categories/Study/AI/">AI</category>
-      
-      
-      
-      <comments>https://l-yohai.github.io/Generative-Models-%EC%86%8C%EA%B0%9C/#disqus_thread</comments>
       
     </item>
     

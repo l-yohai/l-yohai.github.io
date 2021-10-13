@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/</loc>
+        <lastmod>2021-10-13T21:25:26.063Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://l-yohai.github.io/PStage-MRC-6%EA%B0%95-Scaling-up-with-FAISS/</loc>
+        <lastmod>2021-10-13T21:25:19.416Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://l-yohai.github.io/PStage-MRC-4-5%EA%B0%95-Passage-Retrieval-Sparse-Embedding-Dense-Embedding/</loc>
         <lastmod>2021-10-13T19:59:47.019Z</lastmod>
         <changefreq>weekly</changefreq>
