@@ -113,31 +113,6 @@
     </item>
     
     <item>
-      <title>PStage MRC 2강 - Extraction-based MRC</title>
-      <link>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/</link>
-      <guid>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/</guid>
-      <pubDate>Tue, 12 Oct 2021 21:41:29 GMT</pubDate>
-      
-      <description>&lt;h2 id=&quot;Extraction-based-MRC&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC&quot;&gt;&lt;/a&gt;Extraction-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Extraction-based-MRC의-문제-정의&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC의-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC의 문제 정의&quot;&gt;&lt;/a&gt;Extraction-based MRC의 문제 정의&lt;/h3&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="Extraction-based-MRC"><a href="#Extraction-based-MRC" class="headerlink" title="Extraction-based MRC"></a>Extraction-based MRC</h2><h3 id="Extraction-based-MRC의-문제-정의"><a href="#Extraction-based-MRC의-문제-정의" class="headerlink" title="Extraction-based MRC의 문제 정의"></a>Extraction-based MRC의 문제 정의</h3><p>질문의 답변이 항상 주어진 지문 내에 span으로 존재한다고 가정한다.</p><p>평가방법은 크게 EM과 f1이 존재한다. f1은 조금 더 soft한 metric으로 보통 EM보다 점수가 높게 형성된다. EM score는 정답과 조금이라도 다르면 0점을 부여하고, F1은 정답과의 overlap 비율을 계산하여 부분점수를 부여한다.</p><p>모델의 input은 Context, Question 두 개의 벡터가 임베딩의 형태로 들어가게 되며 start index와 end index이 존재하는 벡터가 output이 된다.</p><h2 id="Pre-processing"><a href="#Pre-processing" class="headerlink" title="Pre-processing"></a>Pre-processing</h2><h3 id="Tokenization"><a href="#Tokenization" class="headerlink" title="Tokenization"></a>Tokenization</h3><p>텍스트를 작은 단위(token)로 나누어야 한다.</p><p>띄어쓰기, 형태소, subword 등 여러 단위의 토큰 기준이 사용되는데, 최근엔 OOV(out of vocab) 문제를 해결해주고 정보학적 이점을 가진 BPE가 주로 사용되며, WordPiece Tokenizer 역시 BPE 방법론 중 하나이다.</p><p>input으로 들어갈 때 SEP 라는 special 토큰으로 context와 질문을 구분하게 된다.</p><h3 id="Attention-Mask"><a href="#Attention-Mask" class="headerlink" title="Attention Mask"></a>Attention Mask</h3><p>입력 시퀀스 중에서 attention 연산 시 무시할 토큰을 표시한다. 보통 0은 무시, 1은 연산에 포함하며, PAD와 같은 의미를 가지지 않은 special token을 무시하기 위해 사용한다.</p><h3 id="Token-Type-IDS"><a href="#Token-Type-IDS" class="headerlink" title="Token Type IDS"></a>Token Type IDS</h3><p>입력이 두 개 이상의 시퀀스(ex; 질문 &amp; 지문)로 구성되어 있을 때 각각에게 ID를 부여하여 모델이 구분하여 해석하도록 유도하게 된다. MRC에선 질문이 항상 첫 번째 문장으로 구성되기 때문에 질문을 0으로, 지문을 1로 구성하고 padding 값들에 0을 부여하여 지문 내에서만 정답을 찾을 수 있도록 한다.</p><h3 id="모델-출력값"><a href="#모델-출력값" class="headerlink" title="모델 출력값"></a>모델 출력값</h3><p>정답은 문서 내에 존재하는 연속된 단어 토큰(span)이므로, 시작 인덱스와 종료 인덱스를 알면 정답을 맞출 수 있다. Extraction-based에선 답안을 생성하기 보다, 시작위치와 끝위치를 예측하도록 학습하여 Token Classification Task로 치환하여 학습을 진행한다.</p><h2 id="Fine-tuning"><a href="#Fine-tuning" class="headerlink" title="Fine-tuning"></a>Fine-tuning</h2><p>Question + Paragraph 가 SEP 토큰으로 구분되어 있는 워드 임베딩이 input으로 들어온 후 Start/End Span을 output으로 내보내야 한다. 이 output span은 각 토큰이 답의 시작 토큰일 확률, 각 토큰이 답의 끝 토큰일 확률로 구성되며, 실제 답의 start/end position과 CELoss를 취하게 된다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logits = self.qa_outputs(sequence_output)</span><br><span class="line">start_logits, end_logits = logits.split(<span class="number">1</span>, dim=-<span class="number">1</span>)</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">loss_fc = CrossEntropyLoss(ignore_index=ignored_index)</span><br><span class="line">start_loss = loss_fct(start_logits, start_position)</span><br><span class="line">end_loss = loss_fct(end_logits, end_position)</span><br><span class="line">total_loss = (start_loss + end_loss) / <span class="number">2</span></span><br></pre></td></tr></table></figure><h2 id="Post-processing"><a href="#Post-processing" class="headerlink" title="Post-processing"></a>Post-processing</h2><h3 id="불가능한-답-제거"><a href="#불가능한-답-제거" class="headerlink" title="불가능한 답 제거"></a>불가능한 답 제거</h3><p>아래와 같은 경우에는 candidate list에서 후보를 제거해야한다.</p><ul><li>End position이 start position보다 앞에 있는 경우</li><li>예측한 위치가 context를 벗어난 경우 (ex - question 위치에서 답이 등장한 경우)</li><li>미리 설정한 max_answer_length보다 길이가 긴 경우</li></ul><h3 id="최적의-답-찾기"><a href="#최적의-답-찾기" class="headerlink" title="최적의 답 찾기"></a>최적의 답 찾기</h3><ol><li>Start/end position prediction 에서 score(logits)가 가장 높은 n개를 찾는다.</li><li>불가능한 start/end 조합을 제거한다.</li><li>가능한 조합들을 score의 합이 큰 순서대로 정렬한다.</li><li>Score가 가장 큰 조합을 최종 예측으로 선정한다.</li><li>Top-k가 필요한 경우 차례대로 내보낸다.</li></ol>]]></content:encoded>
-      
-      
-      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
-      
-      <category domain="https://l-yohai.github.io/categories/Study/NLP/">NLP</category>
-      
-      <category domain="https://l-yohai.github.io/categories/Study/NLP/MRC/">MRC</category>
-      
-      
-      
-      <comments>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>PStage MRC 1강 - MRC Intro</title>
       <link>https://l-yohai.github.io/PStage-MRC-1%EA%B0%95-MRC-Intro/</link>
       <guid>https://l-yohai.github.io/PStage-MRC-1%EA%B0%95-MRC-Intro/</guid>
@@ -159,6 +134,31 @@
       
       
       <comments>https://l-yohai.github.io/PStage-MRC-1%EA%B0%95-MRC-Intro/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PStage MRC 2강 - Extraction-based MRC</title>
+      <link>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/</link>
+      <guid>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/</guid>
+      <pubDate>Mon, 11 Oct 2021 21:41:29 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;Extraction-based-MRC&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC&quot;&gt;&lt;/a&gt;Extraction-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Extraction-based-MRC의-문제-정의&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC의-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC의 문제 정의&quot;&gt;&lt;/a&gt;Extraction-based MRC의 문제 정의&lt;/h3&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Extraction-based-MRC"><a href="#Extraction-based-MRC" class="headerlink" title="Extraction-based MRC"></a>Extraction-based MRC</h2><h3 id="Extraction-based-MRC의-문제-정의"><a href="#Extraction-based-MRC의-문제-정의" class="headerlink" title="Extraction-based MRC의 문제 정의"></a>Extraction-based MRC의 문제 정의</h3><p>질문의 답변이 항상 주어진 지문 내에 span으로 존재한다고 가정한다.</p><p>평가방법은 크게 EM과 f1이 존재한다. f1은 조금 더 soft한 metric으로 보통 EM보다 점수가 높게 형성된다. EM score는 정답과 조금이라도 다르면 0점을 부여하고, F1은 정답과의 overlap 비율을 계산하여 부분점수를 부여한다.</p><p>모델의 input은 Context, Question 두 개의 벡터가 임베딩의 형태로 들어가게 되며 start index와 end index이 존재하는 벡터가 output이 된다.</p><h2 id="Pre-processing"><a href="#Pre-processing" class="headerlink" title="Pre-processing"></a>Pre-processing</h2><h3 id="Tokenization"><a href="#Tokenization" class="headerlink" title="Tokenization"></a>Tokenization</h3><p>텍스트를 작은 단위(token)로 나누어야 한다.</p><p>띄어쓰기, 형태소, subword 등 여러 단위의 토큰 기준이 사용되는데, 최근엔 OOV(out of vocab) 문제를 해결해주고 정보학적 이점을 가진 BPE가 주로 사용되며, WordPiece Tokenizer 역시 BPE 방법론 중 하나이다.</p><p>input으로 들어갈 때 SEP 라는 special 토큰으로 context와 질문을 구분하게 된다.</p><h3 id="Attention-Mask"><a href="#Attention-Mask" class="headerlink" title="Attention Mask"></a>Attention Mask</h3><p>입력 시퀀스 중에서 attention 연산 시 무시할 토큰을 표시한다. 보통 0은 무시, 1은 연산에 포함하며, PAD와 같은 의미를 가지지 않은 special token을 무시하기 위해 사용한다.</p><h3 id="Token-Type-IDS"><a href="#Token-Type-IDS" class="headerlink" title="Token Type IDS"></a>Token Type IDS</h3><p>입력이 두 개 이상의 시퀀스(ex; 질문 &amp; 지문)로 구성되어 있을 때 각각에게 ID를 부여하여 모델이 구분하여 해석하도록 유도하게 된다. MRC에선 질문이 항상 첫 번째 문장으로 구성되기 때문에 질문을 0으로, 지문을 1로 구성하고 padding 값들에 0을 부여하여 지문 내에서만 정답을 찾을 수 있도록 한다.</p><h3 id="모델-출력값"><a href="#모델-출력값" class="headerlink" title="모델 출력값"></a>모델 출력값</h3><p>정답은 문서 내에 존재하는 연속된 단어 토큰(span)이므로, 시작 인덱스와 종료 인덱스를 알면 정답을 맞출 수 있다. Extraction-based에선 답안을 생성하기 보다, 시작위치와 끝위치를 예측하도록 학습하여 Token Classification Task로 치환하여 학습을 진행한다.</p><h2 id="Fine-tuning"><a href="#Fine-tuning" class="headerlink" title="Fine-tuning"></a>Fine-tuning</h2><p>Question + Paragraph 가 SEP 토큰으로 구분되어 있는 워드 임베딩이 input으로 들어온 후 Start/End Span을 output으로 내보내야 한다. 이 output span은 각 토큰이 답의 시작 토큰일 확률, 각 토큰이 답의 끝 토큰일 확률로 구성되며, 실제 답의 start/end position과 CELoss를 취하게 된다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logits = self.qa_outputs(sequence_output)</span><br><span class="line">start_logits, end_logits = logits.split(<span class="number">1</span>, dim=-<span class="number">1</span>)</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">loss_fc = CrossEntropyLoss(ignore_index=ignored_index)</span><br><span class="line">start_loss = loss_fct(start_logits, start_position)</span><br><span class="line">end_loss = loss_fct(end_logits, end_position)</span><br><span class="line">total_loss = (start_loss + end_loss) / <span class="number">2</span></span><br></pre></td></tr></table></figure><h2 id="Post-processing"><a href="#Post-processing" class="headerlink" title="Post-processing"></a>Post-processing</h2><h3 id="불가능한-답-제거"><a href="#불가능한-답-제거" class="headerlink" title="불가능한 답 제거"></a>불가능한 답 제거</h3><p>아래와 같은 경우에는 candidate list에서 후보를 제거해야한다.</p><ul><li>End position이 start position보다 앞에 있는 경우</li><li>예측한 위치가 context를 벗어난 경우 (ex - question 위치에서 답이 등장한 경우)</li><li>미리 설정한 max_answer_length보다 길이가 긴 경우</li></ul><h3 id="최적의-답-찾기"><a href="#최적의-답-찾기" class="headerlink" title="최적의 답 찾기"></a>최적의 답 찾기</h3><ol><li>Start/end position prediction 에서 score(logits)가 가장 높은 n개를 찾는다.</li><li>불가능한 start/end 조합을 제거한다.</li><li>가능한 조합들을 score의 합이 큰 순서대로 정렬한다.</li><li>Score가 가장 큰 조합을 최종 예측으로 선정한다.</li><li>Top-k가 필요한 경우 차례대로 내보낸다.</li></ol>]]></content:encoded>
+      
+      
+      <category domain="https://l-yohai.github.io/categories/Study/">Study</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/">NLP</category>
+      
+      <category domain="https://l-yohai.github.io/categories/Study/NLP/MRC/">MRC</category>
+      
+      
+      
+      <comments>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/#disqus_thread</comments>
       
     </item>
     
