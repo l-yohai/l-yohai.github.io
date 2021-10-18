@@ -9,16 +9,8 @@
 
 
     <url>
-        <loc>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/</loc>
-        <lastmod>2021-10-17T11:02:18.771Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/</loc>
-        <lastmod>2021-10-13T21:25:26.063Z</lastmod>
+        <lastmod>2021-10-18T14:16:12.542Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,7 +18,15 @@
 
     <url>
         <loc>https://l-yohai.github.io/PStage-MRC-6%EA%B0%95-Scaling-up-with-FAISS/</loc>
-        <lastmod>2021-10-13T21:25:19.416Z</lastmod>
+        <lastmod>2021-10-18T14:16:08.831Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/</loc>
+        <lastmod>2021-10-17T11:02:18.771Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
