@@ -9,14 +9,14 @@
     <atom:link href="https://l-yohai.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 28 Oct 2021 14:03:06 GMT</pubDate>
+    <pubDate>Sat, 30 Oct 2021 10:36:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>PStage MRC 7강 - Linking MRC and Retrieval</title>
       <link>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/</link>
       <guid>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/</guid>
-      <pubDate>Sat, 16 Oct 2021 04:25:55 GMT</pubDate>
+      <pubDate>Sat, 16 Oct 2021 04:26:55 GMT</pubDate>
       
       <description>&lt;h2 id=&quot;Introduction-to-Open-domain-Question-Answering-ODQA&quot;&gt;&lt;a href=&quot;#Introduction-to-Open-domain-Question-Answering-ODQA&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Open-domain Question Answering (ODQA)&quot;&gt;&lt;/a&gt;Introduction to Open-domain Question Answering (ODQA)&lt;/h2&gt;&lt;p&gt;MRC는 지문이 주어진 상황에서 질의응답을 하는 과제이다. 이에 반해 ODQA는 비슷한 형태이지만, 지문 부분이 주어지는 것이 아니라 위키 혹은 웹 전체가 주어지게 되기 때문에 매우 많은 지문을 봐야하는 Large Scale 과제가 된다.&lt;/p&gt;</description>
       
