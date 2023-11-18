@@ -18,7 +18,10 @@
       <guid>https://l-yohai.github.io/AI-Bookathon-%EB%8C%80%EC%83%81-%ED%9B%84%EA%B8%B0/</guid>
       <pubDate>Wed, 17 Nov 2021 21:54:58 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;2021-SKKU-AI-x-Bookathon-대상-후기&quot;&gt;&lt;a href=&quot;#2021-SKKU-AI-x-Bookathon-대상-후기&quot; class=&quot;headerlink&quot; title=&quot;2021 SKKU AI x Bookathon 대상 후기&quot;&gt;&lt;/a&gt;2021 SKKU AI x Bookathon 대상 후기&lt;/h2&gt;&lt;h2 id=&quot;대회-및-팀원-소개&quot;&gt;&lt;a href=&quot;#대회-및-팀원-소개&quot; class=&quot;headerlink&quot; title=&quot;대회 및 팀원 소개&quot;&gt;&lt;/a&gt;대회 및 팀원 소개&lt;/h2&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;2021-SKKU-AI-x-Bookathon-대상-후기&quot;&gt;&lt;a href=&quot;#2021-SKKU-AI-x-Bookathon-대상-후기&quot; class=&quot;headerlink&quot; title=&quot;2021 SKKU AI x Bookathon 대상 후기&quot;&gt;</description>
+        
       
       
       
@@ -39,7 +42,10 @@
       <guid>https://l-yohai.github.io/PStage-MRC-7%EA%B0%95-Linking-MRC-and-Retrieval/</guid>
       <pubDate>Sat, 16 Oct 2021 05:29:55 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Introduction-to-Open-domain-Question-Answering-ODQA&quot;&gt;&lt;a href=&quot;#Introduction-to-Open-domain-Question-Answering-ODQA&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Open-domain Question Answering (ODQA)&quot;&gt;&lt;/a&gt;Introduction to Open-domain Question Answering (ODQA)&lt;/h2&gt;&lt;p&gt;MRC는 지문이 주어진 상황에서 질의응답을 하는 과제이다. 이에 반해 ODQA는 비슷한 형태이지만, 지문 부분이 주어지는 것이 아니라 위키 혹은 웹 전체가 주어지게 되기 때문에 매우 많은 지문을 봐야하는 Large Scale 과제가 된다.&lt;/p&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;Introduction-to-Open-domain-Question-Answering-ODQA&quot;&gt;&lt;a href=&quot;#Introduction-to-Open-domain-Question-Answering-ODQA&quot; class=&quot;headerlin</description>
+        
       
       
       
@@ -64,7 +70,10 @@
       <guid>https://l-yohai.github.io/PStage-MRC-6%EA%B0%95-Scaling-up-with-FAISS/</guid>
       <pubDate>Thu, 14 Oct 2021 21:24:41 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Passage-Retrieval-and-Similarity-Search&quot;&gt;&lt;a href=&quot;#Passage-Retrieval-and-Similarity-Search&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval and Similarity Search&quot;&gt;&lt;/a&gt;Passage Retrieval and Similarity Search&lt;/h2&gt;&lt;p&gt;저번 강의에서 임베딩을 통해 리트리벌을 진행하려고 할 때 질문과 지문 쪽 각각 인코더가 존재했다는 것을 배웠다. 질문은 그때그때 임베딩을 하며, 지문은 미리 임베딩을 해놓지만 새로운 것이 들어올 때 추가하여 적절한 임베딩을 반환하게 된다.&lt;/p&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;Passage-Retrieval-and-Similarity-Search&quot;&gt;&lt;a href=&quot;#Passage-Retrieval-and-Similarity-Search&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrie</description>
+        
       
       
       
@@ -89,7 +98,10 @@
       <guid>https://l-yohai.github.io/PStage-MRC-4-5%EA%B0%95-Passage-Retrieval-Sparse-Embedding-Dense-Embedding/</guid>
       <pubDate>Wed, 13 Oct 2021 19:59:34 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Introduction-to-Passage-Retrieval&quot;&gt;&lt;a href=&quot;#Introduction-to-Passage-Retrieval&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Passage Retrieval&quot;&gt;&lt;/a&gt;Introduction to Passage Retrieval&lt;/h2&gt;&lt;h3 id=&quot;Passage-Retrieval&quot;&gt;&lt;a href=&quot;#Passage-Retrieval&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval&quot;&gt;&lt;/a&gt;Passage Retrieval&lt;/h3&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;Introduction-to-Passage-Retrieval&quot;&gt;&lt;a href=&quot;#Introduction-to-Passage-Retrieval&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Passage Re</description>
+        
       
       
       
@@ -114,7 +126,10 @@
       <guid>https://l-yohai.github.io/PStage-MRC-3%EA%B0%95-Generation-based-MRC/</guid>
       <pubDate>Wed, 13 Oct 2021 02:50:23 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Generation-based-MRC&quot;&gt;&lt;a href=&quot;#Generation-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC&quot;&gt;&lt;/a&gt;Generation-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Generation-based-MRC-문제-정의&quot;&gt;&lt;a href=&quot;#Generation-based-MRC-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC 문제 정의&quot;&gt;&lt;/a&gt;Generation-based MRC 문제 정의&lt;/h3&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;Generation-based-MRC&quot;&gt;&lt;a href=&quot;#Generation-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC&quot;&gt;&lt;/a&gt;Generation-based MRC&lt;/h2&gt;&lt;</description>
+        
       
       
       
@@ -139,7 +154,10 @@
       <guid>https://l-yohai.github.io/PStage-MRC-2%EA%B0%95-Extraction-based-MRC/</guid>
       <pubDate>Tue, 12 Oct 2021 02:41:29 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Extraction-based-MRC&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC&quot;&gt;&lt;/a&gt;Extraction-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Extraction-based-MRC의-문제-정의&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC의-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC의 문제 정의&quot;&gt;&lt;/a&gt;Extraction-based MRC의 문제 정의&lt;/h3&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;Extraction-based-MRC&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC&quot;&gt;&lt;/a&gt;Extraction-based MRC&lt;/h2&gt;&lt;</description>
+        
       
       
       
@@ -164,7 +182,10 @@
       <guid>https://l-yohai.github.io/PStage-MRC-1%EA%B0%95-MRC-Intro/</guid>
       <pubDate>Tue, 12 Oct 2021 00:58:58 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Introduction-to-MRC&quot;&gt;&lt;a href=&quot;#Introduction-to-MRC&quot; class=&quot;headerlink&quot; title=&quot;Introduction to MRC&quot;&gt;&lt;/a&gt;Introduction to MRC&lt;/h2&gt;&lt;p&gt;Machine Reading Comprehension (기계독해)는 주어진 지문(Context)를 이해하고, 주어진 질의(Query/Question)의 답변을 추론하는 문제이다.&lt;/p&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;Introduction-to-MRC&quot;&gt;&lt;a href=&quot;#Introduction-to-MRC&quot; class=&quot;headerlink&quot; title=&quot;Introduction to MRC&quot;&gt;&lt;/a&gt;Introduction to MRC&lt;/h2&gt;&lt;p&gt;Ma</description>
+        
       
       
       
@@ -189,15 +210,11 @@
       <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-9%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-27-2021-10-01/</guid>
       <pubDate>Sun, 03 Oct 2021 13:31:47 GMT</pubDate>
       
+        
+        
       <description>&lt;h2 id=&quot;P-Stage-강의-커리큘럼&quot;&gt;&lt;a href=&quot;#P-Stage-강의-커리큘럼&quot; class=&quot;headerlink&quot; title=&quot;P Stage 강의 커리큘럼&quot;&gt;&lt;/a&gt;P Stage 강의 커리큘럼&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;인공지능과 자연어 처리&lt;/li&gt;
-&lt;li&gt;자연어의 전처리&lt;/li&gt;
-&lt;li&gt;BERT 언어모델 소개&lt;/li&gt;
-&lt;li&gt;한국어 BERT 언어 모델 학습&lt;/li&gt;
-&lt;li&gt;BERT 기반 단일 문장 분류 모델 학습&lt;/li&gt;
-&lt;li&gt;BERT 기반 두 문장 관계 분류 모델 학습&lt;/li&gt;
-&lt;li&gt;BERT 언어모델 기반의 문장 토큰 분류&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;li&gt;인공지능과 자연어 처리</description>
+        
       
       
       
@@ -218,9 +235,13 @@
       <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-7%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-13-2021-09-17/</guid>
       <pubDate>Fri, 17 Sep 2021 13:35:00 GMT</pubDate>
       
+        
+        
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황</description>
+        
       
       
       
@@ -241,8 +262,11 @@
       <guid>https://l-yohai.github.io/VSCode-Terminal-Customizing/</guid>
       <pubDate>Thu, 16 Sep 2021 07:22:57 GMT</pubDate>
       
+        
+        
       <description>&lt;p&gt;서버에서 vscode 터미널 많이들 사용하고 계시죠?!! 캠퍼여러분들께 도움이되는 터미널 커스텀에 대해서 소개해드릴까 합니다!&lt;/p&gt;
-&lt;p&gt;vscode의 default terminal은 bash로, 커스터마이징의 끝은 순정이라고는 하지만.. zsh의 강력함을 한 번 맛보면 bash로 돌아가기가 정말 힘듭니다.&lt;/p&gt;</description>
+&lt;p&gt;vscode의 default terminal은 bash로, 커스터마이징의 끝은 순정이라고는 하지만.. zs</description>
+        
       
       
       
@@ -265,9 +289,13 @@
       <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-6%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-09-06-2021-09-10/</guid>
       <pubDate>Fri, 10 Sep 2021 13:01:53 GMT</pubDate>
       
+        
+        
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황</description>
+        
       
       
       
@@ -288,32 +316,10 @@
       <guid>https://l-yohai.github.io/AI-Competition%EC%9D%98-%ED%98%91%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%94%8C%EB%9E%98%EB%8B%9D%EA%B0%80%EC%9D%B4%EB%93%9C/</guid>
       <pubDate>Sat, 04 Sep 2021 19:34:22 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;🍡-떡볶이조-팀원들-🔥&quot;&gt;&lt;a href=&quot;#🍡-떡볶이조-팀원들-🔥&quot; class=&quot;headerlink&quot; title=&quot;🍡 떡볶이조 팀원들 🔥&quot;&gt;&lt;/a&gt;🍡 떡볶이조 팀원들 🔥&lt;/h2&gt;&lt;div class=&quot;table-container&quot;&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;김다영&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;김아경&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;문하겸&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;박지민&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;이요한&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;전준영&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;정민지&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/keemdy&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/68893924?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/EP000&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/70522267?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/ddobokki&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/44228269?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/ddeokbboki-good&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/82632580?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/l-yohai&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/49181231?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/20180707jun&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/50571795?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/minji-o-j&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/45448731?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;🍡-떡볶이조-팀원들-🔥&quot;&gt;&lt;a href=&quot;#🍡-떡볶이조-팀원들-🔥&quot; class=&quot;headerlink&quot; title=&quot;🍡 떡볶이조 팀원들 🔥&quot;&gt;&lt;/a&gt;🍡 떡볶이조 팀원들 🔥&lt;/h2&gt;&lt;div class=&quot;table-contain</description>
+        
       
       
       
@@ -338,7 +344,10 @@
       <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-Pstage1-%ED%9A%8C%EA%B3%A0-2021-08-23-2021-09-04/</guid>
       <pubDate>Fri, 03 Sep 2021 15:35:38 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;🔥-Final-Score&quot;&gt;&lt;a href=&quot;#🔥-Final-Score&quot; class=&quot;headerlink&quot; title=&quot;🔥 Final Score&quot;&gt;&lt;/a&gt;🔥 Final Score&lt;/h2&gt;&lt;h3 id=&quot;🥉Public-Leaderboard&quot;&gt;&lt;a href=&quot;#🥉Public-Leaderboard&quot; class=&quot;headerlink&quot; title=&quot;🥉Public Leaderboard&quot;&gt;&lt;/a&gt;🥉Public Leaderboard&lt;/h3&gt;</description>
+        
+        
+      <description>&lt;h2 id=&quot;🔥-Final-Score&quot;&gt;&lt;a href=&quot;#🔥-Final-Score&quot; class=&quot;headerlink&quot; title=&quot;🔥 Final Score&quot;&gt;&lt;/a&gt;🔥 Final Score&lt;/h2&gt;&lt;h3 id=&quot;🥉Public-Leaderbo</description>
+        
       
       
       
@@ -359,9 +368,13 @@
       <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-4%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-08-23-2021-08-27/</guid>
       <pubDate>Sat, 28 Aug 2021 10:38:28 GMT</pubDate>
       
+        
+        
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황</description>
+        
       
       
       
@@ -382,8 +395,10 @@
       <guid>https://l-yohai.github.io/Paper-Review%EB%A5%BC-%EC%9C%84%ED%95%9C-%EA%B9%83%ED%97%88%EB%B8%8C-%ED%98%91%EC%97%85-%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0/</guid>
       <pubDate>Mon, 23 Aug 2021 20:49:16 GMT</pubDate>
       
-      <description>&lt;p&gt;팀프로젝트를 진행하면서 여러 목적성을 가진 채널이 필요해졌고, 그 중 하나가 논문리뷰한 자료들을 어떻게 관리할지였다. 팀원들 모두 퀄리티가 너무 좋게 준비를 잘 해오셔서 시각적인 요소들을 사용하여 자료를 공유할 수 있으면 좋겠다는 생각을 했고, 여러 이야기 끝에 깃허브 페이지를 사용해보기로 했다.&lt;/p&gt;
-&lt;h2 id=&quot;Jekyll-or-Hexo&quot;&gt;&lt;a href=&quot;#Jekyll-or-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Jekyll or Hexo?&quot;&gt;&lt;/a&gt;Jekyll or Hexo?&lt;/h2&gt;</description>
+        
+        
+      <description>&lt;p&gt;팀프로젝트를 진행하면서 여러 목적성을 가진 채널이 필요해졌고, 그 중 하나가 논문리뷰한 자료들을 어떻게 관리할지였다. 팀원들 모두 퀄리티가 너무 좋게 준비를 잘 해오셔서 시각적인 요소들을 사용하여 자료를 공유할 수 있으면 좋겠다는 생각을 했고, </description>
+        
       
       
       
@@ -406,8 +421,12 @@
       <guid>https://l-yohai.github.io/Fazil-Say-Paganini-Variation-%EB%8F%84%EC%9E%85%EB%B6%80/</guid>
       <pubDate>Sun, 22 Aug 2021 10:39:23 GMT</pubDate>
       
+        
+        
       <description>&lt;p&gt;Fazil Say는 여러 유명 작품들을 많이 편곡했는데 그 중에서 터키행진곡과 이 곡이다.&lt;/p&gt;
-&lt;p&gt;현대음악적인 테크닉들이 매우 많이 등장하며, 현대음악답게.. 뒷부분은 내 취향이 아니다. 이해하기 넘 어려워&lt;/p&gt;</description>
+&lt;p&gt;현대음악적인 테크닉들이 매우 많이 등장하며, 현대음악답게.. 뒷부분은 내 취향이 아니다. 이해하기 넘 어려워&lt;/p&gt;
+&lt;p&gt;리스트의 파가니니 연</description>
+        
       
       
       
@@ -428,8 +447,11 @@
       <guid>https://l-yohai.github.io/Arensky-Suite-No-1-in-F-major-Op-15-Part-2-3/</guid>
       <pubDate>Sun, 22 Aug 2021 10:33:41 GMT</pubDate>
       
+        
+        
       <description>&lt;p&gt;Anton Stepanovich Arensky 의 &lt;code&gt;두 대의 피아노를 위한 모음곡 1번 F장조, Op. 15&lt;/code&gt; 중 2번 왈츠이다.&lt;/p&gt;
-&lt;p&gt;림스키코르사코프에게 작곡을 배운 뒤 라흐마니노프와 스크리아빈을 제자로 둔 거장이다.&lt;/p&gt;</description>
+&lt;p&gt;림스키코르사코프에게 작곡을 배운 뒤 라흐마니노프와 스크리아빈을 제자로 둔 거장이다.</description>
+        
       
       
       
@@ -450,9 +472,13 @@
       <guid>https://l-yohai.github.io/%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%94%84-AI-Tech-3%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EA%B3%A0-2021-08-17-2021-08-20/</guid>
       <pubDate>Fri, 20 Aug 2021 08:01:05 GMT</pubDate>
       
+        
+        
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황</description>
+        
       
       
       
@@ -473,7 +499,10 @@
       <guid>https://l-yohai.github.io/Data-Centric-%ED%8A%B9%EA%B0%95-%EC%B5%9C%EC%84%B1%EC%B2%A0-%EA%B5%90%EC%88%98%EB%8B%98/</guid>
       <pubDate>Thu, 19 Aug 2021 09:03:43 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Data-Centric&quot;&gt;&lt;a href=&quot;#Data-Centric&quot; class=&quot;headerlink&quot; title=&quot;Data Centric&quot;&gt;&lt;/a&gt;Data Centric&lt;/h1&gt;&lt;p&gt;더이상 성능을 미세하게 올리는 것에 집착하는 AI 엔지니어링은 요구되지 않는다. 과연 어떤 능력이 더 중요할 것인가?&lt;/p&gt;</description>
+        
+        
+      <description>&lt;h1 id=&quot;Data-Centric&quot;&gt;&lt;a href=&quot;#Data-Centric&quot; class=&quot;headerlink&quot; title=&quot;Data Centric&quot;&gt;&lt;/a&gt;Data Centric&lt;/h1&gt;&lt;p&gt;더이상 성능을 미세하게 올리는 것에 집착하는 AI 엔지</description>
+        
       
       
       
@@ -496,15 +525,11 @@
       <guid>https://l-yohai.github.io/WaveNet-Review/</guid>
       <pubDate>Thu, 19 Aug 2021 08:01:05 GMT</pubDate>
       
+        
+        
       <description>&lt;h2 id=&quot;Short-Summary&quot;&gt;&lt;a href=&quot;#Short-Summary&quot; class=&quot;headerlink&quot; title=&quot;Short Summary&quot;&gt;&lt;/a&gt;Short Summary&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;적은 데이터셋과 단일 모델만으로 다양한 오디오 파형을 생성할 수 있어서 TTS, 음악, Voice Conversion 등 분야에서 SOTA(state-of-the-art)를 기록한 WaveNet은 화자의 Identity나 음악의 장르 등을 특징($h$)으로 추가하면 특징에 맞는 output을 산출할 수 있는 확률적 모델이자 자기회귀(AR) 모델이다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/image/unnamed.gif&quot; alt=&quot;Causal Convolution&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;이전에 신호처리와 Image Segmentation에 사용되던 Causal Convolution은 많은 레이어를 필요로했고, Receptive Field를 확장시키기 위해서는 큰 필터가 필요하여 연산에 많은 비용이 들었다. WaveNet은 이러한 문제들을 Dilated Convolution을 사용하여  Receptive Fields를 효율적으로 넓힐 수 있었다. 그 결과 Causal Convolution보다 연산비용을 줄이고 학습속도를 시퀀셜 모델을 처리하던 RNN, LSTM보다 획기적으로 줄일 수 있었다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;기존 16bit 정수형 시퀀스로 저장되던 음성신호들의 연산에는 각 레이어마다 65,536개의 확률 계산이 필요했는데, $\mu$-law companding transformation 방법을 사용하여 256개의 신호로 양자화시킬 수 있었다. Activation Unit Gate (LSTM에서의 input게이트와 유사) 를 사용하여 linguistic features (주파수, 음의 높낮이, 숨소리, 세기 등)들을 재현할 수 있었다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;li&gt;&lt;p&gt;적은 데이터셋과 단일 모델만으로</description>
+        
       
       
       

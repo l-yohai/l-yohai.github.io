@@ -1,3 +1,6 @@
+@import url("https://webfontworld.github.io/gmarket/GmarketSans.css");
+@import url("https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @-moz-keyframes spinAround {
   from {
     transform: rotate(0deg);
@@ -412,7 +415,7 @@ button,
 input,
 select,
 textarea {
-  font-family: 'Jua', 'Nanum Gothic', "Helvetica Neue", sans-serif;
+  font-family: 'NanumSquareRound', "Helvetica Neue", sans-serif;
 }
 code,
 pre {
@@ -1064,13 +1067,13 @@ a.has-text-grey-lightest:focus {
   font-weight: 700 !important;
 }
 .is-family-primary {
-  font-family: 'Jua', 'Nanum Gothic', "Helvetica Neue", sans-serif !important;
+  font-family: 'NanumSquareRound', "Helvetica Neue", sans-serif !important;
 }
 .is-family-secondary {
-  font-family: 'Jua', 'Nanum Gothic', "Helvetica Neue", sans-serif !important;
+  font-family: 'NanumSquareRound', "Helvetica Neue", sans-serif !important;
 }
 .is-family-sans-serif {
-  font-family: 'Jua', 'Nanum Gothic', "Helvetica Neue", sans-serif !important;
+  font-family: 'NanumSquareRound', "Helvetica Neue", sans-serif !important;
 }
 .is-family-monospace {
   font-family: monospace !important;
@@ -11596,7 +11599,7 @@ figure.highlight .section {
 .cc-window,
 .cc-revoke {
   font-size: 1.1rem !important;
-  font-family: 'Jua', 'Nanum Gothic', "Helvetica Neue", sans-serif !important;
+  font-family: 'NanumSquareRound', "Helvetica Neue", sans-serif !important;
 }
 .cc-window {
   color: #4a4a4a !important;
@@ -11673,4 +11676,3 @@ figure.highlight .section {
     padding: 1.5rem 1rem;
   }
 }
-@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
