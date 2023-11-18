@@ -1,6 +1,3 @@
-@import url("https://webfontworld.github.io/gmarket/GmarketSans.css");
-@import url("https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css");
-@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @-moz-keyframes spinAround {
   from {
     transform: rotate(0deg);
@@ -11676,3 +11673,6 @@ figure.highlight .section {
     padding: 1.5rem 1rem;
   }
 }
+@import url("https://webfontworld.github.io/gmarket/GmarketSans.css");
+@import url("https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
