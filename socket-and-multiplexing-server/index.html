@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>소켓과 select를 이용한 멀티플렉싱 서버 구축하기 - YOHAI</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Yohan Lee"><meta name="msapplication-TileImage" content="/image/avatar.jpg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Yohan Lee"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="1. 소켓 이해하기"><meta property="og:type" content="blog"><meta property="og:title" content="소켓과 select를 이용한 멀티플렉싱 서버 구축하기"><meta property="og:url" content="https://l-yohai.github.io/socket-and-multiplexing-server/"><meta property="og:site_name" content="YOHAI"><meta property="og:description" content="1. 소켓 이해하기"><meta property="og:locale" content="ko_KR"><meta property="og:image" content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc2aVsF%2FbtqPC1aU4bF%2FxhHIzfaRyJRotW78EBILok%2Fimg.png"><meta property="article:published_time" content="2020-12-10T07:54:55.000Z"><meta property="article:modified_time" content="2021-08-22T07:56:35.000Z"><meta property="article:author" content="Yohan Lee"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc2aVsF%2FbtqPC1aU4bF%2FxhHIzfaRyJRotW78EBILok%2Fimg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://l-yohai.github.io/socket-and-multiplexing-server/"},"headline":"소켓과 select를 이용한 멀티플렉싱 서버 구축하기","image":["https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc2aVsF%2FbtqPC1aU4bF%2FxhHIzfaRyJRotW78EBILok%2Fimg.png"],"datePublished":"2020-12-10T07:54:55.000Z","dateModified":"2021-08-22T07:56:35.000Z","author":{"@type":"Person","name":"Yohan Lee"},"publisher":{"@type":"Organization","name":"YOHAI","logo":{"@type":"ImageObject","url":"https://l-yohai.github.io/image/logo.png"}},"description":"1. 소켓 이해하기"}</script><link rel="canonical" href="https://l-yohai.github.io/socket-and-multiplexing-server/"><link rel="alternate" href="/rss.xml" title="YOHAI" type="application/atom+xml"><link rel="icon" href="/image/avatar.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Jua:wght@400&amp;family=Source+Code+Pro" rel="stylesheet"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&amp;family=Source+Code+Pro" rel="stylesheet"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-FE2M7J88MT" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-FE2M7J88MT');</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/image/logo.png" alt="YOHAI" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/l-yohai"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="검색" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time datetime="2020-12-10T07:54:55.000Z" title="2020. 12. 10. 오후 4:54:55">2020-12-10</time>&nbsp;게시 됨</span><span class="level-item"><time datetime="2021-08-22T07:56:35.000Z" title="2021. 8. 22. 오후 4:56:35">2021-08-22</time>&nbsp;업데이트 됨</span><span class="level-item"><a class="link-muted" href="/categories/Study/">Study</a><span> / </span><a class="link-muted" href="/categories/Study/C/">C</a></span><span class="level-item">한 시간안에 읽기 (약 9270 단어)</span></div></div><h1 class="title is-3 is-size-4-mobile">소켓과 select를 이용한 멀티플렉싱 서버 구축하기</h1><div class="content"><p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc2aVsF%2FbtqPC1aU4bF%2FxhHIzfaRyJRotW78EBILok%2Fimg.png" alt></p>
+<h2 id="1-소켓-이해하기"><a href="#1-소켓-이해하기" class="headerlink" title="1. 소켓 이해하기"></a>1. 소켓 이해하기</h2><p>전화를 걸기 위해서는 ‘단연코’ 전화기가 필요하다. 전화기는 멀리 떨어져 있는 두 사람이 대화할 수 있도록 만들어주는 매개체이다. 소켓은 전화기처럼 멀리 떨어져 있는 두 개의 호스트(host)를 연결해주는 매개체 역할을 한다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>우리는 누군가에게 걸려오는 전화를 받게 된다. 그리고 전화를 받으면 ‘여보세요’라는 응답을 주게 된다. 그렇다면, 전화기(소켓)을 만든 이후에 무엇이 더 필요할까? 당연히 전화번호가 필요하다. 그래야 누가 나한테 전화를 할 수 있기 때문이다. 그렇다면, 전화번호를 우리의 전화기에 할당시켜야 하는 것처럼, 소켓에도 일종의 ‘전화번호’가 필요하다. 소켓에서 전화번호의 역할을 하는 것은 바로 IP 주소이며, bind 함수를 이용하여 소켓에 주소를 할당할 수 있다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr *myaddr, <span class="keyword">int</span> addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>이제 전화를 받을 준비가 끝났다. 하지만, 전화가 케이블에 연결되어 있지 않으면 소용이 없다. 즉, 전화선을 연결시키고 전화를 받을 상태를 만들어주어야 한다. 마찬가지로 소켓도 연결 가능한 상태가 되도록 대기를 시켜주어야 하는데, listen 함수를 이용하여 연결 요청이 가능하도록 만들어줄 수 있다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">listen</span><span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">int</span> backlog)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>자, 이제 전화벨이 울린다. 통화를 하기 위해서는 통화버튼을 눌러야 한다. 즉 누군가 대화를 요청했을 때 이것을 수락해야 한다는 뜻인데 소켓 역시 누군가가 데이터를 주고받기 위해 대화(연결)를 요청했을 때 그 요청을 수락할 수 있어야 한다. 이것을 accept 함수가 수행하게 된다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr *addr, <span class="keyword">int</span> *addrlen)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>지금까지의 내용을 정리해보면, 네트워크 프로그래밍의 기본 과정은</p>
+<ol>
+<li>전화기를 구한다. -&gt; socket()</li>
+<li>전화번호를 할당한다. -&gt; bind()</li>
+<li>전화를 케이블에 연결한다. -&gt; listen()</li>
+<li>전화를 수락한다. -&gt; accept()<br>위 과정을 수행하게 된다. 그리고 이 과정을 거친 프로그램이 바로 ‘서버’ 프로그램이 되는 것이다.</li>
+</ol>
+<p>자 그러면 이제 전화를 받을 수 있는 상황은 다 만들어졌다. 이제 남은 것은 전화를 거는 사람!을 구하는 것이다. 네트워크의 개념 속에서 이 사람은 ‘클라이언트’가 되고 클라이언트 역시 위와 비슷한 과정을 거쳐야 한다. 하지만 여기서 달라지는 것은 서버에게 먼저 전화를 걸어야 한다는 것. 이 기능을 하는 함수가 connect 이다.</p>
+<p>클라이언트 소켓 구현</p>
+<ol>
+<li>전화를 걸기 위한 전화기를 구한다. socket()</li>
+<li>전화를 건다. (connect)</li>
+<li>연결이 완료되면 데이터를 주고받는다. (read)</li>
+</ol>
+<ul>
+<li>자 지금까지의 내용을 전부 이해했다면 의아한 부분이 있을 것이다. 바로 전화를 걸기위한 ‘전화번호’를 부여받지 않는다는 것이다. 이 궁금증은 추후에 풀어갈 것이다.</li>
+</ul>
+<hr>
+<ul>
+<li>파일 조작하기</li>
+</ul>
+<p>리눅스에서는 모든 것(파일, 소켓, 콘솔)을 ‘파일’로 간주한다. 즉 파일 입・출력 함수를 소켓의 입・출력에서 사용할 수 있다.</p>
+<p>42 과정을 잘 진행했다면, 파일 입・출력에 관한 것은 도사가 되어있을 것이니 파일 디스크립터에 대한 내용은 생략하도록 한다!</p>
+<h4 id="File-Open-Mode"><a href="#File-Open-Mode" class="headerlink" title="File Open Mode"></a>File Open Mode</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Mode</th>
+<th style="text-align:center">의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">O_CREATE</td>
+<td style="text-align:center">필요한 경우 파일을 생성함</td>
+</tr>
+<tr>
+<td style="text-align:center">O_TRUNC</td>
+<td style="text-align:center">존재하던 데이터를 모두 삭제</td>
+</tr>
+<tr>
+<td style="text-align:center">O_APPEND</td>
+<td style="text-align:center">존재하던 데이터를 보존하고 뒤에 이어서 저장</td>
+</tr>
+<tr>
+<td style="text-align:center">O_RDONLY</td>
+<td style="text-align:center">읽기 전용 모드로 파일을 연다.</td>
+</tr>
+<tr>
+<td style="text-align:center">O_WRONLY</td>
+<td style="text-align:center">쓰기 전용 모드로 파일을 연다.</td>
+</tr>
+<tr>
+<td style="text-align:center">O_RDWR</td>
+<td style="text-align:center">읽기 쓰기 전용 모드로 파일을 연다.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>socket() 으로 소켓을 생성하면 소켓 파일 디스크립터가 생성된다. 소켓 파일 디스크립터 역시 3번부터 넘버링된다.</p>
+<hr>
+<h2 id="2-소켓-생성과-프로토콜-설정"><a href="#2-소켓-생성과-프로토콜-설정" class="headerlink" title="2. 소켓 생성과 프로토콜 설정"></a>2. 소켓 생성과 프로토콜 설정</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">** domain: 생성할 소켓의 통신을 위해 프로토콜 체계(Protocol Family)를 설정한다.</span></span><br><span class="line"><span class="comment">** type: 생성할 소켓의 데이터 전송을 위해 전송 타입을 설정한다.</span></span><br><span class="line"><span class="comment">** protocol: 두 호스트 간 통신을 위해 특정 프로토콜을 지정한다.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>socket() 함수의 인자들을 제대로 이해하기 위해서는 프로토콜 체계를 이해할 필요가 있다.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">프로토콜 체계</th>
+<th style="text-align:center">정의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">PF_INET</td>
+<td style="text-align:center">IPv4 인터넷 프로토콜</td>
+</tr>
+<tr>
+<td style="text-align:center">PF_INET6</td>
+<td style="text-align:center">IPv6 인터넷 프로토콜</td>
+</tr>
+<tr>
+<td style="text-align:center">PF_LOCAL</td>
+<td style="text-align:center">Local 통신을 위한 UNIX 프로토콜</td>
+</tr>
+<tr>
+<td style="text-align:center">PF_PACKET</td>
+<td style="text-align:center">Low Level socket을 위한 인터페이스</td>
+</tr>
+<tr>
+<td style="text-align:center">PF_IPX</td>
+<td style="text-align:center">IPX 노벨 프로토콜</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>PF_INET을 소켓 함수의 첫 번째 인자로 전달하는 경우, 생성되는 소켓은 IPv4 기반으로 하는 인터넷 프로토콜에 적합한 소켓이 생성될 것이다. 이렇듯 데이터를 주고 받는 환경에 따라 그에 맞는 적합한 프로토콜을 지정해주어야 한다. 이 말은 즉 소켓은 모든 프로토콜을 수용할 수 있다는 뜻이며, “소켓은 프로토콜에 독립적이다”라고 표현한다.</p>
+<p>소켓 함수의 두 번째 인자인 Type은 데이터 전송 타입을 말한다. 주의해야 할 것은 domain(프로토콜 체계)이 정해졌다고 해서 데이터 전송 방법까지 결정된 것은 아니라는 것이다. 즉, 하나의 프로토콜 체계 안에서도 데이터를 전송하는 방법이 여러 개 있을 수 있다는 뜻이다.</p>
+<p>가장 대표적으로 사용되는 두 가지의 데이터 전송방식은 다음과 같다.</p>
+<ol>
+<li>SOCK_STREAM</li>
+</ol>
+<ul>
+<li>SOCK_STREAM 타입의 소켓은 연결 지향형 소켓이다. 연결 지향형 소켓을 사용하게 되면 두 사람이 하나의 라인을 통해 물건을 주고받을 수 있게 된다.</li>
+<li>에러나 데이터의 손실이 없다. - 독립된 전송 라인을 통하여 데이터를 전달하기 때문에 라인의 문제가 아니라면 데이터는 반드시 전달될 수 있다.</li>
+<li>전송하는 순서대로 데이터가 전달된다.</li>
+<li>전송되는 데이터의 경계가 존재하지 않는다. - 이 말이 좀 애매할 수 있는데, 용량이 큰 데이터를 보낼 때 여러 개로 나누어서 보낼 수 있고, 하나의 큰 데이터를 여러 개로 나누어 옮길 수 있다는 뜻으로 이해하면 될 것 같다.</li>
+<li>정리하면, <code>신뢰성이 있는 순차적 바이트 기반의 연결 지향 전송 타입</code>이다.</li>
+</ul>
+<ol>
+<li>SOCK_DGRAM</li>
+</ol>
+<ul>
+<li>비연결 지향형 소켓이다.</li>
+<li>전송 순서에 상관없이 가장 빠른 전송을 지향한다.</li>
+<li>전송 데이터는 손실될 수 있고 에러가 발생할 수 있다.</li>
+<li>전송 데이터의 경계가 존재한다.</li>
+<li>한 번에 전송되는 데이터의 크기가 제한된다.</li>
+</ul>
+<p>소켓 함수의 세 번째 인자인 protocol은 호스트 대 호스트가 사용할 프로토콜을 설정하기 위해 사용된다.</p>
+<p>프로토콜 체계가 PF_INET인 경우,</p>
+<ol>
+<li>IPPROTO_TCP: TCP 기반의 소켓 생성</li>
+<li>IPPROTO_UDP: UDP 기반의 소켓 생성<br>두 가지 프로토콜이 올 수 있다.</li>
+</ol>
+<p>근데 사실, 첫 번째와 두 번째 인자만 잘 정해졌어도, 세 번째 인자에 0이 들어와도 적합한 소켓이 생성될 수 있다.</p>
+<p>그렇다면, 이 세 번째 인자는 언제 사용되느냐?</p>
+<p>바로 하나의 프로토콜 체계 안에서 최종적으로 통신하는 형태가 다른 여러 개의 프로토콜이 존재하는 경우를 위해서다. RAW_SOCKET을 생성하는 경우가 유용한 경우라고 하는데, 일단은 스킵하도록 한다.</p>
+<p>대체로, socket(PF_INET, SOCK_STREAM, ) 인 경우에는 세 번째 인자로 TCP 타입이, socket(PF_INET, SOCK_DGRAM, )인 경우에는 세 번째 인자로 UDP 타입이 들어간다.</p>
+<hr>
+<h2 id="3-주소-체계와-데이터-정렬"><a href="#3-주소-체계와-데이터-정렬" class="headerlink" title="3. 주소 체계와 데이터 정렬"></a>3. 주소 체계와 데이터 정렬</h2><p>일반적으로 하나의 컴퓨터 안에서 여러 프로그램을 동시에 실행시킨다. 인강을 들으면서 카톡을 한다던가 하는 경우… 이러한 경우 두 개 이상의 프로그램이 인터넷을 통해 데이터를 주고 받고 있다고 할 수 있다. 컴퓨터는 하나의 IP 주소를 가지고 있으며, 인터넷을 통해 데이터를 주고 받는 프로그램이 여러 개가 실행되고 있다고 하더라도 데이터를 송・수신 하는 길은 하나밖에 존재하지 않을텐데, 어떻게 수신한 데이터를 구분하여 각각의 프로그램에 전달해 줄 수 있는 것일까?</p>
+<p>이것을 위하여 Port가 사용된다. 포트는 short int (0 ~ 65535)의 범위를 가지며, 포트를 사용하여 수신한 데이터 패킷(네트워크 상에서 이동하는 데이터 블록)을 어떤 프로그램에 전달할 것인지 결정한다.</p>
+<ul>
+<li>TCP 소켓과 UDP 소켓은 하나의 포트를 공유할 수 없으며, 데이터 전송 시에는 IP 주소 뿐만 아니라 Port 정보도 포함시켜야 한다.</li>
+</ul>
+<p>자 그러면 이제 IPv4의 주소 체계를 알아보자.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> &#123;</span></span><br><span class="line">    <span class="keyword">sa_family_t</span>        sin_family; <span class="comment">// 주소 체계 (address family)</span></span><br><span class="line">    <span class="keyword">uint16_t</span>        sin_port; <span class="comment">// 16비트 TCP / UDP port</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span>    <span class="title">sin_addr</span>;</span> <span class="comment">// 32비트 IPv4 주소</span></span><br><span class="line">    <span class="keyword">char</span>            sin_zero[<span class="number">8</span>]; <span class="comment">// 사용되지 않음</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>생소한 데이터 타입이 등장하는데, 이 타입들은 POSIX(Portable Operating System Interface)에서 근거를 찾을 수 있다.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Data Type</th>
+<th style="text-align:center">Description</th>
+<th style="text-align:center">Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">sa_family_t</td>
+<td style="text-align:center">address family</td>
+<td style="text-align:center"><sys socket.h></sys></td>
+</tr>
+<tr>
+<td style="text-align:center">socklen_t</td>
+<td style="text-align:center">length of struct</td>
+<td style="text-align:center"><sys socket.h></sys></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>구조체의 sin_family 변수에는 주소 체계 정보를 대입한다. 아래 표의 값들이 사용될 수 있다.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Address Family</th>
+<th style="text-align:center">정의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">AF_INET</td>
+<td style="text-align:center">IPv4 인터넷 프로토콜</td>
+</tr>
+<tr>
+<td style="text-align:center">AF_INET6</td>
+<td style="text-align:center">IPv6 인터넷 프로토콜</td>
+</tr>
+<tr>
+<td style="text-align:center">AF_LOCAL</td>
+<td style="text-align:center">Local 통신을 위한 UNIX 프로토콜</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>sockaddr_in 구조체 변수에 값을 대입할 경우에는 반드시 네트워크 바이트 순서로 값을 변경한 다음에 대입해야 한다.</p>
+<ol>
+<li>Big-Endian 방식</li>
+</ol>
+<ul>
+<li>상위 바이트의 값이 메모리 상에 먼저 표시되는 방법이다.</li>
+</ul>
+<ol>
+<li>Little-Endian 방식</li>
+</ol>
+<ul>
+<li>하위 바이트의 값이 메모리 상에 먼저 표시되는 방법이다.</li>
+</ul>
+<p>위 두 방식 중 어떤 방식을 택할것인지는 사용자의 CPU에 따라 달라진다. 이것을 ‘호스트 바이트 순서’라고 한다.</p>
+<p>하지만 호스트 바이트 순서는 일정치 않다는 문제점이 있기 때문에, 네트워크 바이트 순서로 <code>Big-Endian</code> 방식만을 사용하기로 약속되어 있다.</p>
+<p>Big-Endian 방식으로 데이터를 변경하기 위해서 일종의 함수들을 사용해야 하는데, 함수 이름만 보면 그 기능을 충분히 파악할 수 있다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">h: host byte order</span><br><span class="line">n: network byte order</span><br><span class="line">s: <span class="keyword">short</span> (<span class="number">16b</span>it)</span><br><span class="line">l: <span class="keyword">long</span> (<span class="number">32b</span>it)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="title">htons</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">short</span>)</span></span>; <span class="comment">// host to network short : 16비트 데이터를 host byte 순서에서 network byte 순서로 바꾸어라!</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="title">ntohs</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">short</span>)</span></span>; <span class="comment">// network to host short : 16비트 데이터를 network byte 순서에서 host byte 순서로 바꾸어라!</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="title">htonl</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span>)</span></span>; <span class="comment">// host to network long : 32비트 데이터를 host byte 순서에서 network byte 순서로 바꾸어라!</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="title">ntohl</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span>)</span></span>; <span class="comment">// network to host long : 32비트 데이터를 network byte 순서에서 host byte 순서로 바꾸어라!</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>일반적으로 short 타입은 Port 정보의 바이트 순서를, long 타입은 IP 주소의 바이트 순서를 변경하는데 사용된다.</li>
+</ul>
+<p>sockaddr_in 안에서 주소를 나타내기 위해 선언된 멤버의 자료형은 unsgined long 이었다. 따라서 IP 주소를 할당하기 위해서는 unsigned long 타입의 IP 주소를 표현해야 한다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="title">inet_addr</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>inet_addr() 함수를 사용하면 해당 unsigned long 타입의 데이터 값을 반환해준다. 실패 시 <code>INADDR_NONE</code> 을 리턴한다.</p>
+<p>하지만 inet_addr()을 사용하게 되면 반환값을 sockaddr_in-&gt;in_addr 구조체 안에 대입해야 한다.</p>
+<p>이 번거로운 과정을 <code>inet_aton</code> 함수가 한 번에 해결해준다. 반대로 32비트 값을 Dotted-Decimal Notation(IP주소)으로 변환하기 위해서는 <code>inet_ntoa</code> 함수를 사용하면 된다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inet_aton</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>, struct in_addr *addr)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">inet_ntoa</span><span class="params">(struct in_addr addr)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>주소 정보 구조체를 생성하고 초기화 하는 방법을 살펴보았다. 이제는 소켓에 주소를 할당하는 일만 남았다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr *myaddr, <span class="keyword">int</span> addrlen)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">** sockfd: 소켓의 파일 디스크립터를 인자로 전달한다.</span></span><br><span class="line"><span class="comment">** myaddr: sockaddr_in 구조체 변수의 포인터를 인자로 전달한다.</span></span><br><span class="line"><span class="comment">** addrlen: 인자로 전달된 주소 정보 구조체의 길이를 전달한다.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">** success: return 0</span></span><br><span class="line"><span class="comment">** fail: return -1</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>bind() 함수 호출이 성공하면 sockfd가 가리키는 소켓에 myaddr이 가리키는 주소 정보가 할당된다.</p>
+<hr>
+<h2 id="3-TCP-기반-서버-클라이언트"><a href="#3-TCP-기반-서버-클라이언트" class="headerlink" title="3. TCP 기반 서버/클라이언트"></a>3. TCP 기반 서버/클라이언트</h2><p>bind() 함수를 이용하여 소켓에 주소까지 할당했으면, 이제는 listen 함수를 통해서 ‘연결 요청 대기 상태’로 들어갈 차례이다. 여기까지 진행이 되어야 클라이언트가 연결 요청을 할 수 있겠지. 즉, 여기까지 진행이 되어야 클라이언트가 연결을 요청하는 함수 connect()를 호출해도 오류가 발생되지 않는다!</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">listen</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> backlog)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">** s: 클라이언트의 연결 요청을 받아들이는 역할을 하게 될 소켓의 파일 디스크립터를 인자로 전달한다. 이 소켓을 서버 소켓 이라고 함.</span></span><br><span class="line"><span class="comment">** backlog: 연결 요청 대기 큐(Queue)의 크기를 나타낸다. 보통 인자로 최소 15이상의 값이 들어오고, 큐의 크기가 5가 되어 클라이언트의 연결 요청을 5개까지 대기시킬 수 있게 된다.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>클라이언트의 연결 요청 역시 인터넷을 통해 들어오는 일종의 ‘데이터 전송’이다. 따라서 당연히 받아들이기 위해서는 소켓이 하나 있어야 한다. listen 함수의 첫 번째 인자로 전달된 소켓(서버 소켓)이 하는 일이 바로 이것이다. 일종의 수문장 역할인 셈이다.</p>
+<p>클라이언트: “저기여,, 제가 혹시 감히 연결해도 될까요..?”<br>서버소켓: “아 그래도 되긴합니다 ㅋ. 근데 시스템이 바쁘니까 번호표 받고 대기실 가서 기다리세여 ㅋ.”</p>
+<p>listen() 함수가 호출되면 첫 번째 인자로 들어온 소켓을 서버 소켓으로 만들어주고, 두 번째 전달되는 backlog 값을 참조하여 대기실을 만든다. 이 대기실이 바로 Queue의 크기가 되는 것이고, 클라이언트의 연결 요청을 대기시키게 한다.</p>
+<p>자, 연결 대기 상태까지 만들어 놨으면 당연히 연결 요청을 수락해야 한다. 그리고 당연히 수락하는 과정에도 소켓이 필요하다. 하지만, 서버 소켓은 이미 하는 일이 있으니… 소켓을 하나 더 만들어야 하는데… 다행히 accept 함수를 이용하면 직접 만드는 헛수고를 하지 않아도 된다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span><span class="params">(<span class="keyword">int</span> s, struct sockaddr *addr, <span class="keyword">int</span> *addrlen)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">** s: 서버 소켓의 파일 디스크립터를 인자로 전달한다.</span></span><br><span class="line"><span class="comment">** addr: 연결 요청을 수락할 클라이언트의 주소 정보를 저장한다. 호출 성공시 클라이언트의 주소 정보로 채워진다.</span></span><br><span class="line"><span class="comment">** addrlen: 인자로 전달된 addr의 크기를 저장한다. 호출 성공시 리턴받은 클라이언트의 주소 길이가 바이트 단위로 채워진다.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>accpet() 함수는 대기실에서 클라이언트의 연결 요청을 수락해 주는 함수이다. 따라서 호출 성공시 내부적으로 클라이언트와의 데이터 입・출력을 위한 소켓을 생성하고, 그 소켓의 파일 디스크립터를 리턴한다. 중요한 것은 소켓은 알아서 만들어지기 때문에, 직접 소켓을 만들지 않아도 된다.</p>
+<hr>
+<p>자 그렇다면 이제는 TCP 기반 클라이언트를 살펴보자.</p>
+<p>앞서 이야기했듯이, 서버보다 간단하게 구현할 수 있다. 차이가 났던 부분은 ‘연결 요청’과정(connect)과 전화번호를 할당(bind)받지 않는다는 것이었다.</p>
+<p>서버가 listen() 함수를 호출하게 되면 클라이언트의 연결 요청이 대기실에 들어갈 수 있다고 했다. 그렇다면 클라이언트의 연결 요청은 어느 시점에 발생할까? 눈치챘겠지만 바로 connect() 함수 호출 시점이다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">connect</span><span class="params">(<span class="keyword">int</span> sockfd, struct sockaddr *serv_addr, <span class="keyword">int</span> addrlen)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">** sockfd: 미리 생성해 놓은 소켓의 파일 디스크립터이다.</span></span><br><span class="line"><span class="comment">** serv_addr: 연결 요청을 보낼 서버의 주소 정보를 지닌 구조체 변수의 포인터이다.</span></span><br><span class="line"><span class="comment">** addrlen: serv_addr 포인터가 가리키는 구조체 변수의 크기이다.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>connect 함수가 반환되는 시점은 연결 요청이 서버에 의해 수락(accept)되거나 오류가 발생하여 연결 요청이 중단되는 경우다. 만약 연결 요청이 바로 이루어지지 않고 서버의 대기 큐에서 대기하고 있는 상태라면 connect 함수는 리턴되지 않고 블로킹(blocking) 상태에 머무르게 된다.</p>
+<p>자, 그렇다면 왜 클라이언트 영역에서는 소켓의 ‘전화번호’를 할당하지 않았을까? 전화번호인 IP 주소가 필요없다는 것인가?! 물론 아니다. 그렇다면 언제 주소를 할당받는 다는 것인가?</p>
+<ul>
+<li>Connect 함수가 호출할 때 주소가 자동으로 할당된다.</li>
+<li>운영체제, 보다 정확하게 이야기하자면 커널이 생성해준다…</li>
+<li>스스로 알아서 생성해준다…</li>
+<li>커널은 호스트에 할당된 IP 주소를 찾아서 할당시키고, 남아돌고 있는 포트 중 하나를 골라서 할당시킨다.</li>
+<li>즉, connect 함수 호출 시 자동적으로 소켓에 주소와 포트가 할당된다! bind 함수를 사용할 필요가 없다!</li>
+</ul>
+<p>자, 여기까지 이해한 내용을 바탕으로 코딩을 진행하면, 우리의 서버는 한 클라이언트의 요청에만 응답하고 더이상 다른 어떤 요청도 무시하고 바로 종료된다. 이건 우리가 상상한 서버의 모습이 아니지 않은가?</p>
+<p>따라서 클라이언트의 요청을 항시 대기할 수 있도록 해야한다. 간단하다. 클라이언트 연결이 종료되는 close() 함수 호출이 끝나고, 다시 listen() 상태로 돌아가게 하면 된다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    client_socket = accept(server_socket, (struct sockaddr *)&amp;client_addr, &amp;client_addr_size);</span><br><span class="line">    <span class="keyword">if</span> (client_socket == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        error_handling(<span class="string">&quot;accept() error&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    write(client_socket, message, <span class="keyword">sizeof</span>(message));</span><br><span class="line">    close(client_socket);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>얼마나 간단한가!</p>
+<hr>
+<p>지금까지 과정으로 간단한 에코 서버와 에코 클라이언트를 구현할 수 있게 되었다.</p>
+<p>하지만 에코 클라이언트에서 생각할 문제가 있다.</p>
+<p>TCP는 연결 지향 프로토콜로서 데이터의 경계가 없다고 했다. 그렇다 보니 한 번의 write 함수 호출을 통해 “ABCD”라는 문자열을 전송한다고 했을 때 이 데이터들이 반드시 하나의 패킷으로 구성되어서 전송된다고 보장할 수 없다. 상황에 따라서 “AB” 문자열이 먼저 하나의 패킷으로 전송되고, 그 다음에 “C”가 전송되고, 마지막으로 “D”가 전송될 수 있다. 그렇다면, 이러한 데이터 전송 특징에 문제가 되는 것은 무엇일까?</p>
+<p>정리하면, 지금까지는 한 번의 write 함수로 데이터를 전송하고 한 번의 read 함수를 통해 데이터를 수신했다. 이 때 한 번의 read 함수로는 일부 데이터 패킷만을 받았을 때 문제가 생긴다. 그렇다면, 반드시 하나의 패킷으로 구성되어야 온전한 데이터 송・수신을 보장할 수 있는데, TCP는 이것을 절대로 보장해주지 않는다.</p>
+<p>이 때</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (recv_len = <span class="number">0</span>; recv_len &lt; str_len; )</span><br><span class="line">    &#123;</span><br><span class="line">        recv_num = read(sock, &amp;message[recv_len], str_len - recv_len);</span><br><span class="line">        <span class="keyword">if</span> (recv_num == <span class="number">-1</span>)</span><br><span class="line">            error_handling(<span class="string">&quot;read() error&quot;</span>);</span><br><span class="line">        recv_len += recv_num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>데이터를 전송하려는 과정에서 반복문을 통해 read 함수를 계속해서 호출하며 배열에 저장시킨다면, 정확히 전송한 바이트 크기만큼의 데이터를 수신할 수 있다.</p>
+<p>TCP 기반의 에코 클라이언트가 구현하기 쉬운 이유가, 수신할 데이터의 크기를 미리 알고 있다는 것에 있다. 다른 소켓 프로그램의 경우에서는 데이터를 수신하는 측에서 몇 바이트를 수신해야 하는지 알 수 없다. 이러한 경우엔 프로그램을 구현하기가 조금 더 어려워질 것이다. 하지만, EOF를 사용하여 전송한 데이터의 끝을 알리게 한다면 해결할 수 잇을 것이나, 제한적일 수밖에 없다… 경험과 시행착오를 통해서 항상 최선의 적합한 정답을 찾도록 하자………</p>
+<p>그리고 에코 서버에서</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">accept()</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">5</span>);</span><br><span class="line">str_len = read(client_socket, message, BUFFER_SIZE);</span><br><span class="line">write(client_socket, message, str_len);</span><br></pre></td></tr></table></figure>
+<p>5초간 sleep을 걸어주면서 write 함수 호출이 여러번 들어왔을 때를 대비할 수 있다.</p>
+<hr>
+<h2 id="4-I-O-멀티플렉싱"><a href="#4-I-O-멀티플렉싱" class="headerlink" title="4. I/O 멀티플렉싱"></a>4. I/O 멀티플렉싱</h2><p>소켓 프로그래밍의 기본을 알았다면, 이제는 서브젝트에 해당하는 내용인 멀티플렉싱에 대해서 살펴볼 차례이다.</p>
+<p>Webserv 과제는 select() 함수를 이용한 단일 프로세스의 멀티플렉싱(multiplexing) 서버를 구현하는 것이다.</p>
+<p>보통 다중 접속 서버를 구현하기 위해서 fork와 pipe를 이용하여 다중 프로세스로 처리한다. 하지만 프로세스의 생성은 상당히 많은 연산과정을 거치며, 생성 후에도 많은 자원을 차지하게 된다. 따라서 모든 프로세스들은 서로 독립적인 메모리 공간을 할당받아서 사용하기 때문에 프로세스간 통신을 하기 위해서는 다소 복잡한 방법을 선택할 수 밖에 없다. 하지만, 만약 하나의 프로세스로 여러 클라이언트들과 데이터를 주고받을 수만 있다면 보다 좋은 서버의 모델이 될 것이다. 이것이 바로 I/O 멀티플렉싱 방법이 등장한 배경이다.</p>
+<p>자, 그렇다면 멀티플렉싱 서버란 어떠한 서버를 의미하는 것인가? 전화기지국과 다른 전화기지국을 연결하는 하나의 중계선이 있다고 가정해보자. 이 때 비록 선은 하나이지만, 이 선을 통해서 여러 사람이 통화를 할 수 있다. 즉 하나의 선을 여러 사람이 공유하며 통화를 위해 사용한다는 것인데, 이것이 바로 멀티플렉싱이다. 이렇듯 멀티플렉싱이란 데이터를 전송하는데 있어서 장치의 효율성을 높이기 위해 최소한의 물리적인 요소만 사용하는 경제학적인 방법이다.</p>
+<p>서버에 멀티플렉싱 개념을 도입해보자. 서버에서의 멀티플렉싱은 ‘여러 개’를 묶어서 ‘하나’로 만드는 것(그 하나를 공유한다)이라고 생각하면 이해하기 쉽다. 멀티프로세스 기반에서는 하나의 서버(부모프로세스)를 토대로 여러 개의 자식 프로세스를 만들고 그 자식 프로세스들을 통해 클라이언트와 소통하게 한다. 하지만 멀티플렉싱 기반의 서버는 여러 개의 자식 프로세스를 생성하는 것 대신에, 클라이언트의 입・출력을 하나로 묶어서 하나의 서버로 여러 클라이언트와 통신할 수 있도록 하며, 클라이언트의 연결 요청 엮시 하나로 묶어서 처리한다.</p>
+<p>이해가 쉽게 되지 않을 수도 있다. 다른 예를 들어보자. 한 반에 학생이 열 명이 있고, 한 명의 선생님에게 열 명의 아이들이 동시에 질문한다고 생각해보자. 학교 측에서는 이 질문세례를 막기 위해 선생님 9명을 추가로 고용한다. 이렇게 <code>일 대 일</code> 로 교사와 학생을 연결시키는 것을 멀티 프로세스라고 생각하면 된다. 하지만, 아이들이 공부를 하면서 점점 지식이 쌓이고, 질문의 수가 갑자기 확 줄어버렸다. 따라서 교사 한 명으로 커버가 될 것이라 예상하고 나머지 교사 9명을 해고했다고 해보자. 이 때 동시에 질문이 들어오는 것을 막기 위해 질문하고 싶은 학생에게는 손을 들게 하고, 교사는 손을 든 학생이 있는지 확인하다가 손을 든 학생의 질문을 받기로 했다. 이것이 바로 멀티플렉싱 방법이다. 서버는 주기적으로 데이터를 전송하는 클라이언트가 있는지 <code>확인</code>하며, 발견한 경우에 그 클라이언트로부터 데이터를 받아온다. 이렇게 생각하면 이해가 된다!</p>
+<p>그렇다면, 어떠한 방식으로 멀티플렉싱 서버를 구현할 수 있을까? 대표적으로 select() 함수를 통해 멀티플렉싱 서버를 구현한다. select() 함수를 사용하면 한 곳에 모아놓은 여러 개의 파일 디스크립터(소켓)를 동시에 관찰할 수 있다. 데이터 전송 시 파일 디스크립터를 블로킹 처리하지 않고 바로 전달 가능한 파일 디스크립터가 어떤 것인지, 예외가 발생한 파일 디스크립터가 어떤 것인지 지켜보게 된다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">select</span><span class="params">(<span class="keyword">int</span> n, fd_set *readfds, fd_set *writefds, ft_set *exceptfds, struct timeval *timeout)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">** n: 검사 대상이 되는 파일 디스크립터의 개수</span></span><br><span class="line"><span class="comment">** readfds: &quot;입력 스트림에 변화가 발생했는지&quot; 확인하고자 하는 소켓들의 정보. 입력 스트림에 변화가 발생했다는 것은 수신할 데이터가 존재한다는 뜻이다.</span></span><br><span class="line"><span class="comment">** writefds: &quot;데이터 전송 시, 블로킹되지 않고 바로 전송이 가능한지&quot; 확인하고자 하는 소켓들의 정보.</span></span><br><span class="line"><span class="comment">** exceptfds: &quot;예외가 발생했는지&quot; 확인하고자 하는 소켓들의 정보.</span></span><br><span class="line"><span class="comment">** timeout: 함수 호출 후, 무한대기 상태에 빠지지 않도록 설정할 수 있는 변수</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">** return value: -1(에러), 0(타임아웃), 0보다 큰 경우: 변경된 파일 디스크립터의 수</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>select 함수는 호출했을 때 관찰 대상들에게서 변화가 발생해야 반환되며, 그렇지 않으면 변화가 발생할 때까지 무한정으로 블로킹 상태에 빠지게 된다.</li>
+<li>fd_set 은 관찰하려고 하는 파일 디스크립터 정보를 모아놓은 비트 단위 배열이다.</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">함수 선언</th>
+<th style="text-align:center">기능</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">FD_ZERO(fd_set *fdset);</td>
+<td style="text-align:center">fdset 포인터가 가리키는 변수의 모든 비트를 0으로 초기화</td>
+</tr>
+<tr>
+<td style="text-align:center">FD_SET(int fd, fd_set *fdset);</td>
+<td style="text-align:center">fdset 포인터가 가리키는 변수에 fd로 전달되는 파일 디스크립터 정보를 설정</td>
+</tr>
+<tr>
+<td style="text-align:center">FD_CLR(int fd, fd_set *fdset);</td>
+<td style="text-align:center">fdset 포인터가 가리키는 변수에서 fd로 전달되는 파일 디스크립터 정보를 삭제</td>
+</tr>
+<tr>
+<td style="text-align:center">FD_ISSET(int fd, fd_set *fdset);</td>
+<td style="text-align:center">fdset 포인터가 가리키는 변수가 fd로 전달되는 파일 디스크립터 정보를 지니고 있는지 확인</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>select() 함수는 아래의 상황에서 반환된다.</p>
+<ul>
+<li>수신할 데이터가 있을 때 - 읽어들일 데이터(read() 함수의 입력 버퍼)가 존재하는 경우(+ 클라이언트의 연결이 요청되었을 때).</li>
+<li>파일 디스크립터를 통해 데이터를 전송할 경우 블로킹되지 않았을 때 - write() 함수의 출력 버퍼에 전송하지 못한 데이터가 남아있어서 곧바로 데이터 전송을 할 수 없는 경우 블로킹된다.</li>
+<li>파일 디스크립터가 가리키는 소켓에서 에러가 발생하지 않았을 때.</li>
+</ul>
+<h5 id="select-함수-호출-예제"><a href="#select-함수-호출-예제" class="headerlink" title="select() 함수 호출 예제"></a>select() 함수 호출 예제</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE 30</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fd_set reads, temps;</span><br><span class="line">    <span class="keyword">int</span> result;</span><br><span class="line">    <span class="keyword">char</span> msg[BUFSIZE];</span><br><span class="line">    <span class="keyword">int</span> str_len;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">timeval</span> <span class="title">timeout</span>;</span></span><br><span class="line"></span><br><span class="line">    FD_ZERO(&amp;reads);</span><br><span class="line">    FD_SET(<span class="number">0</span>, &amp;reads); <span class="comment">/* standard input 설정 */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        temps = reads;</span><br><span class="line">        timeout.tv_sec = <span class="number">5</span>;</span><br><span class="line">        timeout.tv_usec = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        result = select(<span class="number">1</span>, &amp;temps, <span class="number">0</span>, <span class="number">0</span>, &amp;timeout);</span><br><span class="line">        <span class="keyword">if</span> (result == <span class="number">-1</span>) <span class="comment">/* select 함수 오류 발생 */</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">&quot;select error&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">0</span>) <span class="comment">/* timeout */</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">&quot;time over&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (FD_ISSET(<span class="number">0</span>, &amp;temps))</span><br><span class="line">            &#123;</span><br><span class="line">                str_len = read(<span class="number">0</span>, msg, BUFSIZE);</span><br><span class="line">                msg[str_len] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">                <span class="built_in">fputs</span>(msg, <span class="built_in">stdout</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>select() 함수의 사용법까지 알았느니 실제 멀티플렉싱 서버를 구현해보자. /study/tutorial/ 디렉토리에 있는 multiplexing_server 를 임의의 포트와 연결시켜 실행하고, 여러 개의 터미널을 통해 multiplexing_client를 실행시켜보자.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> multiplexing_server</span></span><br><span class="line">./multiplexing_server 9130</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> multiplexing_client</span></span><br><span class="line">./multiplexing_client 127.0.0.1 9130</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="5-Webserv-과제-진행하기"><a href="#5-Webserv-과제-진행하기" class="headerlink" title="5. Webserv 과제 진행하기"></a>5. Webserv 과제 진행하기</h2><p>본격적으로 공부한 것을 토대로 과제에 진입해보자.</p>
+<p>웹서비스는 서버와 클라이언트 모델을 따른다. 이 때 두 가지 모델에서 정보를 제대로 주고받고 해석하기 위해서는 두 가지 프로토콜이 필요하다. 하나는 데이터요청과 응답에 관한 프로토콜이고, 또 다른 하나는 데이터의 형식을 정의하기 위한 프로토콜이다. 전자가 HTTP, 후자가 HTML이다. 클라이언트가 형식에 맞게 웹서버에 무엇인가를 요청하면, 웹서버는 이 요청을 분석하여 알맞은 형태로 응답한다. 응답을 받은 클라이언트는 정보를 해석해서 사용자에게 보여준다.</p>
+<p>이번 과제에서는 HTTP 프로토콜만 신경쓰면 되는 것 같다.</p>
+<p>자 그럼 HTTP 프로토콜을 살펴보자.</p>
+<ol>
+<li>요청방법 (GET/POST/HEAD/PUT/DELETE …)</li>
+<li>요청 페이지 (index.html)</li>
+<li>프로토콜 (HTTP/1.1)</li>
+</ol>
+<p>GET 요청 방법부터 구현해보자. 웹브라우저로 웹페이지를 요청할 때 사용하는 일반적인 방법이다.</p>
+<ul>
+<li>요청할 URL: GET이면 요청할 페이지, POST라면 클라이언트가 보낸 자료를 처리할 서버의 url이다.</li>
+<li>프로토콜 버전: 책에 나오는 시점에서 최신은 1.1이라고 했는데 아직도 1.1인지는 모르겠다. (나중에.. 확인해보자.)</li>
+</ul>
+<p>요청을 한 이후에는 적절한 응답을 보내주어야 하는데, 이것 역시 HTTP 형식을 따라야 한다. (최소 아래 모든 헤더를 구현해야 한다.)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">◦ Accept-Charsets # 클라이언트가 이해할 수 있는 문자</span><br><span class="line">◦ Accept-Language # 서버가 돌려주기로 예상된 언어</span><br><span class="line">◦ Allow # HTTP 요청 방법</span><br><span class="line">◦ Authorization # 서버와 함께 유저 에이전트를 인증하기 위한 자격증명</span><br><span class="line">◦ Content-Language # 사용자 언어</span><br><span class="line">◦ Content-Length # 문서의 크기</span><br><span class="line">◦ Content-Location # 반환된 데이터의 대체 위치</span><br><span class="line">◦ Content-Type # 이미지나 동영상 등 다양한 형식이 나타날 수 있기 때문에 형태를 알려주기 위해 꼭 필요하다</span><br><span class="line">◦ Date # 문서를 전송한 시간</span><br><span class="line">◦ Host # 서버가 listening 중인 TCP 포트 번호</span><br><span class="line">◦ Last-Modified # 마지막 수정 날짜</span><br><span class="line">◦ Location # 페이지를 리다이렉트할 url</span><br><span class="line">◦ Referer # 현재 페이지로 연결되는 링크가 있던 이전 웹 페이지의 주소</span><br><span class="line">◦ Retry-After # 클라이언트가 다음 요청을 생성하기 전에 대기해야 하는 시간</span><br><span class="line">◦ Server # 웹서버 프로그램의 정보</span><br><span class="line">◦ Transfer-Encoding # 데이터 전송을 위한 인코딩 형식</span><br><span class="line">◦ User-Agent # 사용자 에이전트의 어플리케이션 타입</span><br><span class="line">◦ WWW-Authenticate # 리소스에 접근할 때 사용되어야 하는 인증메소드</span><br></pre></td></tr></table></figure>
+<p>임의 페이지에 GET 요청을 보내보자.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Telnet을 사용할 때는 반드시 끝에 개행문자가 두 개 와야한다.</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">%</span><span class="bash"> telnet www.joinc.co.kr 80</span></span><br><span class="line">GET /modules/moniwiki/wiki.php/FrontPage HTTP/1.0</span><br><span class="line">\n</span><br><span class="line">\n</span><br></pre></td></tr></table></figure>
+<p>웹서버 프로그램을 만들기 위해 HTTP 프로토콜과 응답방식 등에 대해서 알아보았다. 자 그러면 구조를 설계해보자.</p>
+<p>클라이언트의 요청을 받은 웹서버는 파일 시스템에서 파일 정보를 읽어서 클라이언트에 전송한다. 혹은 외부의 다른 프로그램을 실행해서 그 결과를 클라이언트에 전송하기도 한다. 외부 프로그램으로의 정보 입출력은 <code>CGI 규격</code>을 사용한다.</p>
+<p>CGI 너는 도대체 무엇이냐..! 끝도 없이 새로운 게 나타난다… PHP와 같이 이해해보자.</p>
+<ul>
+<li>웹서버는 웹 서비스를 위한 하부구조 역할을 한다. 이 때 웹서버는 다양한 서비스를 개발할 수 있도록 외부의 프로그램을 실행시켜 데이터를 대신 처리한다. 이 때 웹 서버와 외부 프로그램 간의 통신 방식을 CGI(Common Gateway Interface)라고 한다. CGI 프로그램은 공통규격만 따르면 되기 때문에 어떤 언어를 사용해도 관계없다. 하지만, 우리는 C++로 만들어야 하지 않은가… 뭐 이러한 특징 때문에 서로 다른 언어들로 디버깅을 하게 되더니 개발과 유지보수가 매우 어려워졌다고 한다. 이렇듯 여튼저튼 이유로 웹페이지 문서에 통합되는 언어로 개발할 필요가 생겼는데, 이렇게 해서 만들어진 언어가 바로 PHP라고 한다. PHP 코드는 HTML 문서에 포함되어 있는데, 덕분에 개발과 디버깅 과정이 웹 문서에 통합된다.</li>
+</ul>
+<p>자 그렇다면 이제 웹서버의 구조를 설계할 수 있다.</p>
+<blockquote>
+<p>반드시 C++로 HTTP 서버를 구현해야 한다.</p>
+<blockquote>
+<p>서버는 반드시 RFC 7230 ~ 7535 (http 1.1) 을 준수하도록 한다.</p>
+<p>서버와 클라이언트 사이의 통신은 non-blocking으로, 단 하나의 select()와 listen()을 사용하도록 한다.</p>
+<p>서버는 정지되면 안되고 클라이언트는 적절하게 연결을 끊을 수 있도록 한다.</p>
+<p>서버로 온 Request가 영원히 머물러서는 안된다.</p>
+<p>CGI를 제외하고는 fork()를 사용하지 말자.</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>서버 소켓을 생성한다.</li>
+<li>bind() 함수를 사용하여 주소를 할당한다.</li>
+<li>listen() 함수를 사용하여 사용자의 요청을 대기하도록 한다.</li>
+<li>select() 함수를 이용하여 멀티플렉싱으로 사용자의 요청을 accept() 할 수 있게 한다. - 이 때 select 함수는 동시에 read와 write를 동시에 확인하도록 한다.</li>
+<li>read() 로 클라이언트의 요청을 수신하고 요청방식에 따라 처리할 수 있도록 구조화한다.</li>
+<li>요청방식에 따라 응답할 HTTP 형태를 구현한다.</li>
+<li>write() 로 클라이언트에게 응답한다.</li>
+<li>소켓을 닫는다.</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>소켓과 select를 이용한 멀티플렉싱 서버 구축하기</p><p><a href="https://l-yohai.github.io/socket-and-multiplexing-server/">https://l-yohai.github.io/socket-and-multiplexing-server/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Yohan Lee</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-12-10</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-08-22</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="external nofollow noopener noreferrer" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="external nofollow noopener noreferrer" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="external nofollow noopener noreferrer" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Tensorflow-Value-Error-Unknown-Layer-Functional-problem/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Tensorflow에서 Value Error: Unknown Layer: Functional 문제</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020-innocon/"><span class="level-item">2020 이노베이션 아카데미 컨퍼런스(INNO-CON) 후기</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">댓글</h3><script src="https://utteranc.es/client.js" repo="l-yohai/l-yohai.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/image/avatar.jpg" alt="YOHAI"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">YOHAI</p><p class="is-size-6 is-block">Your Own Humanistic AI</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">포스트</p><a href="/archives"><p class="title">66</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">카테고리</p><a href="/categories"><p class="title">22</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">태그</p><a href="/tags"><p class="title">26</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/l-yohai" target="_blank" rel="external nofollow noopener noreferrer">팔로우</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Email" href="mailto:yohan9612@yonsei.ac.kr"><i class="fas fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Github" href="https://github.com/l-yohai"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="external nofollow noopener noreferrer" title="Linkedin" href="https://www.linkedin.com/in/l-yohai/"><i class="fab fa-linkedin"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">카테고리</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/42-Life/"><span class="level-start"><span class="level-item">42 Life</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Boostcamp-AI-Tech/"><span class="level-start"><span class="level-item">Boostcamp AI Tech</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/Boostcamp-AI-Tech/Master-Class/"><span class="level-start"><span class="level-item">Master Class</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Competition/"><span class="level-start"><span class="level-item">Competition</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Diary/"><span class="level-start"><span class="level-item">Diary</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/categories/Paper-Review/"><span class="level-start"><span class="level-item">Paper Review</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/"><span class="level-start"><span class="level-item">Programming</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Problem-Solving/"><span class="level-start"><span class="level-item">Problem Solving</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/Project/"><span class="level-start"><span class="level-item">Project</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/Tips/"><span class="level-start"><span class="level-item">Tips</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Study/"><span class="level-start"><span class="level-item">Study</span></span><span class="level-end"><span class="level-item tag">30</span></span></a><ul><li><a class="level is-mobile" href="/categories/Study/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/Study/Algorithm/"><span class="level-start"><span class="level-item">Algorithm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Study/C/"><span class="level-start"><span class="level-item">C</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Study/Math-for-AI/"><span class="level-start"><span class="level-item">Math for AI</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/categories/Study/NLP/"><span class="level-start"><span class="level-item">NLP</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/Study/NLP/MRC/"><span class="level-start"><span class="level-item">MRC</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Study/Network/"><span class="level-start"><span class="level-item">Network</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Study/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Study/Visualization/"><span class="level-start"><span class="level-item">Visualization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Yonsei/"><span class="level-start"><span class="level-item">Yonsei</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/fur-Musik/"><span class="level-start"><span class="level-item">für Musik</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">태그</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/42-Seoul/"><span class="tag">42 Seoul</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/42Seoul/"><span class="tag">42Seoul</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/42%EC%84%9C%EC%9A%B8/"><span class="tag">42서울</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/42%EC%84%9C%EC%9A%B8-%EB%B3%B8%EA%B3%BC%EC%A0%95/"><span class="tag">42서울 본과정</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/42%EC%84%9C%EC%9A%B8-%ED%9B%84%EA%B8%B0/"><span class="tag">42서울 후기</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AI-%EB%8C%80%ED%9A%8C-%ED%98%91%EC%97%85-%ED%94%8C%EB%9E%98%EB%8B%9D%EA%B0%80%EC%9D%B4%EB%93%9C/"><span class="tag">AI, 대회, 협업, 플래닝가이드</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Franz-Liszt/"><span class="tag">Franz Liszt</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kakao-I-Open-Builder/"><span class="tag">Kakao I Open Builder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/La-Piscine/"><span class="tag">La Piscine</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Papago-NMT-API/"><span class="tag">Papago NMT API</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Teachable-Machine/"><span class="tag">Teachable Machine</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tech-Seminar/"><span class="tag">Tech Seminar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/VoyagerX/"><span class="tag">VoyagerX</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WaveNet/"><span class="tag">WaveNet</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word2Vec/"><span class="tag">Word2Vec</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EA%B3%B5%ED%86%B5%EA%B3%BC%EC%A0%95/"><span class="tag">공통과정</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%82%A8%EC%84%B8%EB%8F%99/"><span class="tag">남세동</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="tag">딥러닝</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B3%B4%EC%9D%B4%EC%A0%80%EC%97%91%EC%8A%A4/"><span class="tag">보이저엑스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%8B%9C%EA%B0%81%ED%99%94/"><span class="tag">시각화</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%B4%EC%A0%95/"><span class="tag">열정</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%9D%B4%EB%84%88%EC%84%9C%ED%81%B4/"><span class="tag">이너서클</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%9D%B4%EB%85%B8%EB%B2%A0%EC%9D%B4%EC%85%98%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8/"><span class="tag">이노베이션아카데미</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%B1%97%EB%B4%87/"><span class="tag">챗봇</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%B4%88%EC%A0%88%EA%B8%B0%EA%B5%90-%EC%97%B0%EC%8A%B5%EA%B3%A1/"><span class="tag">초절기교 연습곡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/"><span class="tag">카카오톡</span><span class="tag">2</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">카탈로그</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-소켓-이해하기"><span class="level-left"><span class="level-item">1</span><span class="level-item">1. 소켓 이해하기</span></span></a><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#File-Open-Mode"><span class="level-left"><span class="level-item">1.1.1</span><span class="level-item">File Open Mode</span></span></a></li></ul></ul></li><li><a class="level is-mobile" href="#2-소켓-생성과-프로토콜-설정"><span class="level-left"><span class="level-item">2</span><span class="level-item">2. 소켓 생성과 프로토콜 설정</span></span></a></li><li><a class="level is-mobile" href="#3-주소-체계와-데이터-정렬"><span class="level-left"><span class="level-item">3</span><span class="level-item">3. 주소 체계와 데이터 정렬</span></span></a></li><li><a class="level is-mobile" href="#3-TCP-기반-서버-클라이언트"><span class="level-left"><span class="level-item">4</span><span class="level-item">3. TCP 기반 서버/클라이언트</span></span></a></li><li><a class="level is-mobile" href="#4-I-O-멀티플렉싱"><span class="level-left"><span class="level-item">5</span><span class="level-item">4. I/O 멀티플렉싱</span></span></a><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#select-함수-호출-예제"><span class="level-left"><span class="level-item">5.1.1</span><span class="level-item">select() 함수 호출 예제</span></span></a></li></ul></ul></li><li><a class="level is-mobile" href="#5-Webserv-과제-진행하기"><span class="level-left"><span class="level-item">6</span><span class="level-item">5. Webserv 과제 진행하기</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">최근 글</h3><article class="media"><figure class="media-left"><a class="image" href="/AI-Bookathon/"><img src="/image/3rd_ai_bookathon.jpg" alt="AI Bookathon 대상 후기"></a></figure><div class="media-content"><p class="date"><time datetime="2021-11-17T21:54:58.000Z">2021-11-18</time></p><p class="title"><a href="/AI-Bookathon/">AI Bookathon 대상 후기</a></p><p class="categories"><a href="/categories/Competition/">Competition</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time datetime="2021-10-16T05:29:55.000Z">2021-10-16</time></p><p class="title"><a href="/PStage-MRC-7-Linking-MRC-and-Retrieval/">PStage MRC 7강 - Linking MRC and Retrieval</a></p><p class="categories"><a href="/categories/Study/">Study</a> / <a href="/categories/Study/NLP/">NLP</a> / <a href="/categories/Study/NLP/MRC/">MRC</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time datetime="2021-10-14T21:24:41.000Z">2021-10-15</time></p><p class="title"><a href="/PStage-MRC-6-Scaling-up-with-FAISS/">PStage MRC 6강 - Scaling up with FAISS</a></p><p class="categories"><a href="/categories/Study/">Study</a> / <a href="/categories/Study/NLP/">NLP</a> / <a href="/categories/Study/NLP/MRC/">MRC</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time datetime="2021-10-13T19:59:34.000Z">2021-10-14</time></p><p class="title"><a href="/PStage-MRC-4-5-Passage-Retrieval-Sparse-Embedding-Dense-Embedding/">PStage MRC 4-5강 - Passage Retrieval - Sparse Embedding, Dense Embedding</a></p><p class="categories"><a href="/categories/Study/">Study</a> / <a href="/categories/Study/NLP/">NLP</a> / <a href="/categories/Study/NLP/MRC/">MRC</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time datetime="2021-10-13T02:50:23.000Z">2021-10-13</time></p><p class="title"><a href="/PStage-MRC-3-Generation-based-MRC/">PStage MRC 3강 - Generation-based MRC</a></p><p class="categories"><a href="/categories/Study/">Study</a> / <a href="/categories/Study/NLP/">NLP</a> / <a href="/categories/Study/NLP/MRC/">MRC</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">아카이브</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">11월 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/10/"><span class="level-start"><span class="level-item">10월 2021</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">9월 2021</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">8월 2021</span></span><span class="level-end"><span class="level-item tag">33</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">4월 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">12월 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">9월 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">8월 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/06/"><span class="level-start"><span class="level-item">6월 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/05/"><span class="level-start"><span class="level-item">5월 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">4월 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">3월 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">2월 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/image/logo.png" alt="YOHAI" height="28"></a><p class="is-size-7"><span>&copy; 2023 Yohan Lee</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/l-yohai"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("ko");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="맨 위로" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "이 웹 사이트는 귀하의 경험을 향상시키기 위해 Cookie를 사용합니다.",
+          dismiss: "무시",
+          allow: "허용",
+          deny: "거부",
+          link: "더 알아보기",
+          policy: "Cookie 정책",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="입력 하세요..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"입력 하세요...","untitled":"(제목 없음)","posts":"포스트","pages":"페이지","categories":"카테고리","tags":"태그"});
+        });</script></body></html>
