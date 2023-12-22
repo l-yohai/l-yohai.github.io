@@ -1,16 +1,954 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://l-yohai.github.io/about/index.html</loc>
+    
+    <lastmod>2023-11-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/PStage-MRC-7-Linking-MRC-and-Retrieval/</loc>
+    
+    <lastmod>2023-11-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/AI-Bookathon/</loc>
+    
+    <lastmod>2021-11-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/PStage-MRC-6-Scaling-up-with-FAISS/</loc>
+    
+    <lastmod>2021-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/PStage-MRC-2-Extraction-based-MRC/</loc>
+    
+    <lastmod>2021-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/PStage-MRC-4-5-Passage-Retrieval-Sparse-Embedding-Dense-Embedding/</loc>
+    
+    <lastmod>2021-10-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/PStage-MRC-3-Generation-based-MRC/</loc>
+    
+    <lastmod>2021-10-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/PStage-MRC-1-MRC-Intro/</loc>
+    
+    <lastmod>2021-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-9-week/</loc>
+    
+    <lastmod>2021-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-7-week/</loc>
+    
+    <lastmod>2021-09-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/VSCode-Terminal-Customizing/</loc>
+    
+    <lastmod>2021-09-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-5-week/</loc>
+    
+    <lastmod>2021-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/AI-Competition-and-planning-guide/</loc>
+    
+    <lastmod>2021-09-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-pstage-1/</loc>
+    
+    <lastmod>2021-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-4-week/</loc>
+    
+    <lastmod>2021-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-3-week/</loc>
+    
+    <lastmod>2021-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-2-week/</loc>
+    
+    <lastmod>2021-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/boostcamp-memoirs-1-week/</loc>
+    
+    <lastmod>2021-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/collaborate-tool-for-paper-review/</loc>
+    
+    <lastmod>2021-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/WaveNet-Review/</loc>
+    
+    <lastmod>2021-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/F-Liszt-Legend-No-2-S-175/</loc>
+    
+    <lastmod>2021-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/F-Liszt-12-Transcendental-Etude-S-139-No-10-in-F-minor-Appassionata/</loc>
+    
+    <lastmod>2021-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Context-Dependent-Pre-Trained-Deep-Neural-Networks-for-Large-Vocabulary-Speech-Recognition/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Fazil-Say-Paganini-Variation-intro/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Arensky-Suite-No-1-in-F-major-Op-15-Part-2-3/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Generative-Models/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Transformer-intro/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/RNN-intro/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Computer-Vision-Applications-Semantic-Segmentation-and-Detection/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Convolution-intro/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Optimization-intro/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Multi-Layer-Perceptron/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/RNN-first-step/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/CNN-first-step/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/bayesian-statistics/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/statistics/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/probability-theory/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/understanding-deeplearning-training-methods/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/gradient-descent/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/what-is-matrix/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/what-is-vector/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/understanding-visualize/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Data-Centric/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/living-programmers/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Vscode-Python-Convention/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/CV-NLP-choice-guide/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/reading-papers/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/git-mannual/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/multitasking/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/greek-alphabet/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Tensorflow-Value-Error-Unknown-Layer-Functional-problem/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/socket-and-multiplexing-server/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/2020-innocon/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/42-Seoul-One-year-Memoirs/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Your-True-Review/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Attention-is-all-you-need-Transformer-summary/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tech-seminar-voyagerX/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/kittler-hjy/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Word2vec-Visualization/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/auto-translated-chatbot-using-papago-api/</loc>
+    
+    <lastmod>2021-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/CPython-integer-object/</loc>
+    
+    <lastmod>2021-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Teachable-Machine-Model-for-kakao-chatbot/</loc>
+    
+    <lastmod>2021-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/network-and-OSI/</loc>
+    
+    <lastmod>2021-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Brute-Force-Search/</loc>
+    
+    <lastmod>2021-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/IP-address-and-subnet-mask/</loc>
+    
+    <lastmod>2021-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/Wille-zur-Macht/</loc>
+    
+    <lastmod>2021-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/const-char-vs-char-const/</loc>
+    
+    <lastmod>2021-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
+  <url>
+    <loc>https://l-yohai.github.io/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-    <sitemap>
-        <loc>https://l-yohai.github.io/post-sitemap.xml</loc>
-        <lastmod>2023-11-18T14:14:16.000Z</lastmod>
-    </sitemap>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/42Seoul/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/42%EC%84%9C%EC%9A%B8/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/42%EC%84%9C%EC%9A%B8-%EB%B3%B8%EA%B3%BC%EC%A0%95/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/42%EC%84%9C%EC%9A%B8-%ED%9B%84%EA%B8%B0/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/La-Piscine/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EC%9D%B4%EB%84%88%EC%84%9C%ED%81%B4/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EC%9D%B4%EB%85%B8%EB%B2%A0%EC%9D%B4%EC%85%98%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EA%B3%B5%ED%86%B5%EA%B3%BC%EC%A0%95/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/AI-%EB%8C%80%ED%9A%8C-%ED%98%91%EC%97%85-%ED%94%8C%EB%9E%98%EB%8B%9D%EA%B0%80%EC%9D%B4%EB%93%9C/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/Franz-Liszt/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EC%B4%88%EC%A0%88%EA%B8%B0%EA%B5%90-%EC%97%B0%EC%8A%B5%EA%B3%A1/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EC%97%B4%EC%A0%95/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/Teachable-Machine/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/Kakao-I-Open-Builder/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EC%B1%97%EB%B4%87/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/Word2Vec/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EC%8B%9C%EA%B0%81%ED%99%94/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/WaveNet/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/Papago-NMT-API/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/42-Seoul/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/Tech-Seminar/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/VoyagerX/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EB%82%A8%EC%84%B8%EB%8F%99/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EB%94%A5%EB%9F%AC%EB%8B%9D/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/tags/%EB%B3%B4%EC%9D%B4%EC%A0%80%EC%97%91%EC%8A%A4/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
-    <sitemap>
-        <loc>https://l-yohai.github.io/page-sitemap.xml</loc>
-        <lastmod>2023-11-30T02:37:59.000Z</lastmod>
-    </sitemap>
-
-</sitemapindex>
-<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/42-Life/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Competition/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/fur-Musik/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Programming/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Boostcamp-AI-Tech/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/Python/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Paper-Review/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/Algorithm/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/AI/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Programming/Tips/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/Math-for-AI/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Boostcamp-AI-Tech/Master-Class/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/Network/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/NLP/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Programming/Project/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Programming/Problem-Solving/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Diary/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/NLP/MRC/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Yonsei/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/C/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-yohai.github.io/categories/Study/Visualization/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+</urlset>

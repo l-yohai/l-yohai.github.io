@@ -18,7 +18,34 @@
       <guid>https://l-yohai.github.io/AI-Bookathon/</guid>
       <pubDate>Wed, 17 Nov 2021 21:54:58 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;2021-SKKU-AI-x-Bookathon-대상-후기&quot;&gt;&lt;a href=&quot;#2021-SKKU-AI-x-Bookathon-대상-후기&quot; class=&quot;headerlink&quot; title=&quot;2021 SKKU AI x Bookathon 대상 후기&quot;&gt;&lt;/a&gt;2021 SKKU AI x Bookathon 대상 후기&lt;/h2&gt;&lt;h2 id=&quot;대회-및-팀원-소개&quot;&gt;&lt;a href=&quot;#대회-및-팀원-소개&quot; class=&quot;headerlink&quot; title=&quot;대회 및 팀원 소개&quot;&gt;&lt;/a&gt;대회 및 팀원 소개&lt;/h2&gt;</description>
+      <description>&lt;h2 id=&quot;2021-SKKU-AI-x-Bookathon-대상-후기&quot;&gt;&lt;a href=&quot;#2021-SKKU-AI-x-Bookathon-대상-후기&quot; class=&quot;headerlink&quot; title=&quot;2021 SKKU AI x Bookathon 대상 후기&quot;&gt;&lt;/a&gt;2021 SKKU AI x Bookathon 대상 후기&lt;/h2&gt;&lt;h2 id=&quot;대회-및-팀원-소개&quot;&gt;&lt;a href=&quot;#대회-및-팀원-소개&quot; class=&quot;headerlink&quot; title=&quot;대회 및 팀원 소개&quot;&gt;&lt;/a&gt;대회 및 팀원 소개&lt;/h2&gt;&lt;h3 id=&quot;북📚이온앤온-팀원들&quot;&gt;&lt;a href=&quot;#북📚이온앤온-팀원들&quot; class=&quot;headerlink&quot; title=&quot;북📚이온앤온 팀원들&quot;&gt;&lt;/a&gt;북📚이온앤온 팀원들&lt;/h3&gt;&lt;div class=&quot;table-container&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;허은진&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;윤채원&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;김종현&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;곽진성&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;이요한&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/eunaoeh&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/48787957?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/ycw0363&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/80023607?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/gimmaru&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/87857169?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/jskwak98&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/47588410?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://github.com/l-yohai&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/49181231?v=4&quot; alt=&quot;Avatar&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;본 글은 5명의 팀원이 무박2일동안 한숨도 안자가면서 열중했던 제 3회 AI x Bookathon 대회 후기이자 솔루션입니다. &lt;/p&gt;
+&lt;p&gt;제 3회 AI x Bookathon 은 성균관대학교와 MindsLab 이 협약하여 주최되었고, Naver Clova 의 후원으로 진행되었습니다. 약 60여개 팀이 참여했던 예선을 거쳐 총 15개의 팀이 본선에 참여하게 되었습니다. 본선에서는 16일 오후 3시부터 17일 오후 12시까지, 참여팀들은 21시간동안 2만자의 수필을 생성해야 했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/image/3rd_ai_bookathon.jpg&quot; alt=&quot;대회 포스터&quot;&gt;&lt;/p&gt;
+&lt;p&gt;21시간이라는 짧은 시간이었지만 주제 선정 과정부터 모델링, 생성과정에서 여러 문제를 해결하고 차별점을 두기 위해 많은 시도와 실험을 하였고, 결과적으로 1등을 하며 대상을 받을 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;막연한 순간들이 매우 많았지만, 그럼에도 여러 시행착오를 겪고 극복하며 완성도 있는 작품을 만들어낸 저희의 이야기가 좋은 레퍼런스가 되길 바라면서 시작해 보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jskwak98/Bookathon3_Bookie_On_And_On&quot;&gt;&amp;gt;&amp;gt; 코드 보러가기&lt;/a&gt;&lt;/p&gt;</description>
       
       
       
@@ -39,7 +66,15 @@
       <guid>https://l-yohai.github.io/PStage-MRC-7-Linking-MRC-and-Retrieval/</guid>
       <pubDate>Sat, 16 Oct 2021 05:29:55 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Introduction-to-Open-domain-Question-Answering-ODQA&quot;&gt;&lt;a href=&quot;#Introduction-to-Open-domain-Question-Answering-ODQA&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Open-domain Question Answering (ODQA)&quot;&gt;&lt;/a&gt;Introduction to Open-domain Question Answering (ODQA)&lt;/h2&gt;&lt;p&gt;MRC는 지문이 주어진 상황에서 질의응답을 하는 과제이다. 이에 반해 ODQA는 비슷한 형태이지만, 지문 부분이 주어지는 것이 아니라 위키 혹은 웹 전체가 주어지게 되기 때문에 매우 많은 지문을 봐야하는 Large Scale 과제가 된다.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&quot;Introduction-to-Open-domain-Question-Answering-ODQA&quot;&gt;&lt;a href=&quot;#Introduction-to-Open-domain-Question-Answering-ODQA&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Open-domain Question Answering (ODQA)&quot;&gt;&lt;/a&gt;Introduction to Open-domain Question Answering (ODQA)&lt;/h2&gt;&lt;p&gt;MRC는 지문이 주어진 상황에서 질의응답을 하는 과제이다. 이에 반해 ODQA는 비슷한 형태이지만, 지문 부분이 주어지는 것이 아니라 위키 혹은 웹 전체가 주어지게 되기 때문에 매우 많은 지문을 봐야하는 Large Scale 과제가 된다.&lt;/p&gt;
+&lt;p&gt;ODQA라는 문제는 꽤 예전부터 다루었던 문제이며, short answer with support의 형태를 목표로 했었다.&lt;/p&gt;
+&lt;p&gt;1) Question processing&lt;/p&gt;
+&lt;p&gt;   질문으로부터 키워드를 선택하여 답변의 타입을 선택할 수 있도록 했다.&lt;/p&gt;
+&lt;p&gt;2) Passage Retrieval&lt;/p&gt;
+&lt;p&gt;   기존 IR 방법을 활용하여 연관된 document를 뽑고, passage 단위로 자른 후 선별한다.&lt;/p&gt;
+&lt;p&gt;3) Answer processing&lt;/p&gt;
+&lt;p&gt;   주어진 질문과 passage들 내에서 답을 선택하는 휴리스틱한 분류문제로 진행했다.&lt;/p&gt;
+&lt;p&gt;ODQA는 꽤 역사가 길며, 지금까지는 위와 같은 방식으로 진행되고 있었는데, 2011년 IBM Watson을 통해 발전하게 된다.&lt;/p&gt;</description>
       
       
       
@@ -64,7 +99,13 @@
       <guid>https://l-yohai.github.io/PStage-MRC-6-Scaling-up-with-FAISS/</guid>
       <pubDate>Thu, 14 Oct 2021 21:24:41 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Passage-Retrieval-and-Similarity-Search&quot;&gt;&lt;a href=&quot;#Passage-Retrieval-and-Similarity-Search&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval and Similarity Search&quot;&gt;&lt;/a&gt;Passage Retrieval and Similarity Search&lt;/h2&gt;&lt;p&gt;저번 강의에서 임베딩을 통해 리트리벌을 진행하려고 할 때 질문과 지문 쪽 각각 인코더가 존재했다는 것을 배웠다. 질문은 그때그때 임베딩을 하며, 지문은 미리 임베딩을 해놓지만 새로운 것이 들어올 때 추가하여 적절한 임베딩을 반환하게 된다.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&quot;Passage-Retrieval-and-Similarity-Search&quot;&gt;&lt;a href=&quot;#Passage-Retrieval-and-Similarity-Search&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval and Similarity Search&quot;&gt;&lt;/a&gt;Passage Retrieval and Similarity Search&lt;/h2&gt;&lt;p&gt;저번 강의에서 임베딩을 통해 리트리벌을 진행하려고 할 때 질문과 지문 쪽 각각 인코더가 존재했다는 것을 배웠다. 질문은 그때그때 임베딩을 하며, 지문은 미리 임베딩을 해놓지만 새로운 것이 들어올 때 추가하여 적절한 임베딩을 반환하게 된다.&lt;/p&gt;
+&lt;p&gt;Nearest Neighbor Search에서는 Passage 개수가 늘어날 수록 Top-k 때 Dot product 연산이 부담스러워질 수 있는데, 이러한 과정에서 Similarity Search를 아는 것이 중요하다.&lt;/p&gt;
+&lt;h3 id=&quot;MIPS-Maximum-Inner-Product-Search&quot;&gt;&lt;a href=&quot;#MIPS-Maximum-Inner-Product-Search&quot; class=&quot;headerlink&quot; title=&quot;MIPS(Maximum Inner Product Search)&quot;&gt;&lt;/a&gt;MIPS(Maximum Inner Product Search)&lt;/h3&gt;&lt;p&gt;기본적으로 Nearest Neighbor Search보다, Inner product Search가 더 많이 사용되고 있다. Nearest Neighbor와 같은 L2 유클리디언 거리를 계산하는 것보다 Dot Product의 Maximum을 찾는 문제로 돌리는 것이 더 수월하기 때문이다. 가장 가까운 벡터를 찾겠다는 것은 Maximum Inner Product를 찾겠다는 것으로 이해하면 된다. 하지만 개념 정리나 상상을 할 때는 Nearest Neighbor Search를 떠올리는 것이 더 쉽긴 한다.&lt;/p&gt;
+&lt;p&gt;MIPS는 주어진 질문(query) 벡터 q에 대해 Passage 벡터 v들 중 가장 질문과 관련된 벡터를 찾는 문제이며, 관련성은 내적이 가장 큰 값으로 찾는다.&lt;/p&gt;
+&lt;p&gt;하지만 실제 검색해야할 데이터는 위키피디아에만 5백만개이며, 수십억, 수십조까지 커질 수 있기 때문에 사실상 모든 문서 임베딩을 Bruteforce로 찾는 것은 불가능하다.&lt;/p&gt;
+&lt;h3 id=&quot;Tradeoffs-of-similarity-search&quot;&gt;&lt;a href=&quot;#Tradeoffs-of-similarity-search&quot; class=&quot;headerlink&quot; title=&quot;Tradeoffs of similarity search&quot;&gt;&lt;/a&gt;Tradeoffs of similarity search&lt;/h3&gt;&lt;p&gt;1) Search Speed - 쿼리당 유사한 벡터 k개를 찾는 시간. 많은 벡터를 가지고 있을수록 당연히 시간이 오래걸린다.&lt;/p&gt;
+&lt;p&gt;   &lt;strong&gt;&lt;em&gt;Pruning&lt;/em&gt;&lt;/strong&gt; 을 사용하면 속도 개선 가능&lt;/p&gt;</description>
       
       
       
@@ -89,7 +130,11 @@
       <guid>https://l-yohai.github.io/PStage-MRC-4-5-Passage-Retrieval-Sparse-Embedding-Dense-Embedding/</guid>
       <pubDate>Wed, 13 Oct 2021 19:59:34 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Introduction-to-Passage-Retrieval&quot;&gt;&lt;a href=&quot;#Introduction-to-Passage-Retrieval&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Passage Retrieval&quot;&gt;&lt;/a&gt;Introduction to Passage Retrieval&lt;/h2&gt;&lt;h3 id=&quot;Passage-Retrieval&quot;&gt;&lt;a href=&quot;#Passage-Retrieval&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval&quot;&gt;&lt;/a&gt;Passage Retrieval&lt;/h3&gt;</description>
+      <description>&lt;h2 id=&quot;Introduction-to-Passage-Retrieval&quot;&gt;&lt;a href=&quot;#Introduction-to-Passage-Retrieval&quot; class=&quot;headerlink&quot; title=&quot;Introduction to Passage Retrieval&quot;&gt;&lt;/a&gt;Introduction to Passage Retrieval&lt;/h2&gt;&lt;h3 id=&quot;Passage-Retrieval&quot;&gt;&lt;a href=&quot;#Passage-Retrieval&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval&quot;&gt;&lt;/a&gt;Passage Retrieval&lt;/h3&gt;&lt;p&gt;Passage Retrieval은 질문에 맞는 문서를 찾는 것을 의미한다. 데이터베이스에 따라서 형태가 달라질 수는 있지만, 일반적으로 웹 상에 존재하는 모든 문서를 대상으로 한다. 예를들어 토트넘이라는 쿼리에 대해서 토트넘의 역사, 우승기록, 손흥민 등에 대한 문서를 가져오는 시스템을 의미한다.&lt;/p&gt;
+&lt;h3 id=&quot;Passage-Retrieval-with-MRC&quot;&gt;&lt;a href=&quot;#Passage-Retrieval-with-MRC&quot; class=&quot;headerlink&quot; title=&quot;Passage Retrieval with MRC&quot;&gt;&lt;/a&gt;Passage Retrieval with MRC&lt;/h3&gt;&lt;p&gt;Passage Retrieval을 MRC와 연결지어 생각했을 때, Open-domain Question Answering이 가능해진다. Passage Retrieval과 MRC를 이어서 2-Stage로 만들어버리는 것을 의미하는데, 쿼리가 들어왔을 때 데이터베이스에서 적절한 문서를 가져온 후, MRC 모델을 통해 가져온 문서에서 답을 찾는 프로세스이다.&lt;/p&gt;
+&lt;p&gt;이 때 중요한 것은 정답이 있을 만한 문서를 적절하게 찾아서 가져오는 과정이며, Query와 Passage를 미리 임베딩한 뒤 유사도로 랭킹을 매겨놓고, 유사도가 가장 높은 Passage를 선택한다.&lt;/p&gt;
+&lt;h2 id=&quot;Passage-Embedding-and-Sparse-Embedding&quot;&gt;&lt;a href=&quot;#Passage-Embedding-and-Sparse-Embedding&quot; class=&quot;headerlink&quot; title=&quot;Passage Embedding and Sparse Embedding&quot;&gt;&lt;/a&gt;Passage Embedding and Sparse Embedding&lt;/h2&gt;&lt;h3 id=&quot;Passage-Embedding-Space&quot;&gt;&lt;a href=&quot;#Passage-Embedding-Space&quot; class=&quot;headerlink&quot; title=&quot;Passage Embedding Space&quot;&gt;&lt;/a&gt;Passage Embedding Space&lt;/h3&gt;&lt;p&gt;Passage Embedding의 벡터 공간을 의미하며, 벡터화된 Passage를 이용하여 Passage 간 유사도도 계산할 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;Sparse-Embedding&quot;&gt;&lt;a href=&quot;#Sparse-Embedding&quot; class=&quot;headerlink&quot; title=&quot;Sparse Embedding&quot;&gt;&lt;/a&gt;Sparse Embedding&lt;/h3&gt;</description>
       
       
       
@@ -114,7 +159,21 @@
       <guid>https://l-yohai.github.io/PStage-MRC-3-Generation-based-MRC/</guid>
       <pubDate>Wed, 13 Oct 2021 02:50:23 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Generation-based-MRC&quot;&gt;&lt;a href=&quot;#Generation-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC&quot;&gt;&lt;/a&gt;Generation-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Generation-based-MRC-문제-정의&quot;&gt;&lt;a href=&quot;#Generation-based-MRC-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC 문제 정의&quot;&gt;&lt;/a&gt;Generation-based MRC 문제 정의&lt;/h3&gt;</description>
+      <description>&lt;h2 id=&quot;Generation-based-MRC&quot;&gt;&lt;a href=&quot;#Generation-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC&quot;&gt;&lt;/a&gt;Generation-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Generation-based-MRC-문제-정의&quot;&gt;&lt;a href=&quot;#Generation-based-MRC-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC 문제 정의&quot;&gt;&lt;/a&gt;Generation-based MRC 문제 정의&lt;/h3&gt;&lt;p&gt;Extraction-based mrc와 다르게 주어진 질문의 답이 지문 내에 존재하지 않을 수도 있기 때문에 기본적으로 답변을 ‘생성’하는 문제로 분류한다.&lt;/p&gt;
+&lt;p&gt;input은 Extraction-based mrc와 동일하지만, generation-based mrc에서는 fine-tuning 시 정답 text까지 생성하는 seq2seq 모델로 분류할 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;Generation-based-MRC-vs-Extraction-base-MRC&quot;&gt;&lt;a href=&quot;#Generation-based-MRC-vs-Extraction-base-MRC&quot; class=&quot;headerlink&quot; title=&quot;Generation-based MRC vs. Extraction-base MRC&quot;&gt;&lt;/a&gt;Generation-based MRC vs. Extraction-base MRC&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;MRC 모델 구조&lt;ul&gt;
+&lt;li&gt;Seq-to-Seq PLM 구조 (Generation) vs. PLM + Classifier 구조 (Extraction)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Loss 계산을 위한 답의 형태 / Prediction의 형태&lt;ul&gt;
+&lt;li&gt;Free-form text 형태 (Generation) vs. 지문 내 답의 위치 (Extraction)&lt;/li&gt;
+&lt;li&gt;Extraction-based MRC는 f1 계산을 위해 text로의 별도의 전환 과정이 필요하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Pre-processing&quot;&gt;&lt;a href=&quot;#Pre-processing&quot; class=&quot;headerlink&quot; title=&quot;Pre-processing&quot;&gt;&lt;/a&gt;Pre-processing&lt;/h2&gt;&lt;h3 id=&quot;Tokenize&quot;&gt;&lt;a href=&quot;#Tokenize&quot; class=&quot;headerlink&quot; title=&quot;Tokenize&quot;&gt;&lt;/a&gt;Tokenize&lt;/h3&gt;&lt;p&gt;Extraction과 같이 토큰화를 진행한 뒤 input_ids(또는 input_token_ids)를 생성한다.&lt;/p&gt;
+&lt;p&gt;Generation 모델에서는 PAD 토큰은 사용되지만, CLS와 SEP 토큰의 경우 사용할 수는 있지만 보통 자연어를 이용한 텍스트 포맷으로 대신하는 경우가 많다. ex) CLS -&amp;gt; Question, SEP -&amp;gt; Context&lt;/p&gt;</description>
       
       
       
@@ -139,7 +198,12 @@
       <guid>https://l-yohai.github.io/PStage-MRC-2-Extraction-based-MRC/</guid>
       <pubDate>Tue, 12 Oct 2021 02:41:29 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Extraction-based-MRC&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC&quot;&gt;&lt;/a&gt;Extraction-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Extraction-based-MRC의-문제-정의&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC의-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC의 문제 정의&quot;&gt;&lt;/a&gt;Extraction-based MRC의 문제 정의&lt;/h3&gt;</description>
+      <description>&lt;h2 id=&quot;Extraction-based-MRC&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC&quot;&gt;&lt;/a&gt;Extraction-based MRC&lt;/h2&gt;&lt;h3 id=&quot;Extraction-based-MRC의-문제-정의&quot;&gt;&lt;a href=&quot;#Extraction-based-MRC의-문제-정의&quot; class=&quot;headerlink&quot; title=&quot;Extraction-based MRC의 문제 정의&quot;&gt;&lt;/a&gt;Extraction-based MRC의 문제 정의&lt;/h3&gt;&lt;p&gt;질문의 답변이 항상 주어진 지문 내에 span으로 존재한다고 가정한다.&lt;/p&gt;
+&lt;p&gt;평가방법은 크게 EM과 f1이 존재한다. f1은 조금 더 soft한 metric으로 보통 EM보다 점수가 높게 형성된다. EM score는 정답과 조금이라도 다르면 0점을 부여하고, F1은 정답과의 overlap 비율을 계산하여 부분점수를 부여한다.&lt;/p&gt;
+&lt;p&gt;모델의 input은 Context, Question 두 개의 벡터가 임베딩의 형태로 들어가게 되며 start index와 end index이 존재하는 벡터가 output이 된다.&lt;/p&gt;
+&lt;h2 id=&quot;Pre-processing&quot;&gt;&lt;a href=&quot;#Pre-processing&quot; class=&quot;headerlink&quot; title=&quot;Pre-processing&quot;&gt;&lt;/a&gt;Pre-processing&lt;/h2&gt;&lt;h3 id=&quot;Tokenization&quot;&gt;&lt;a href=&quot;#Tokenization&quot; class=&quot;headerlink&quot; title=&quot;Tokenization&quot;&gt;&lt;/a&gt;Tokenization&lt;/h3&gt;&lt;p&gt;텍스트를 작은 단위(token)로 나누어야 한다.&lt;/p&gt;
+&lt;p&gt;띄어쓰기, 형태소, subword 등 여러 단위의 토큰 기준이 사용되는데, 최근엔 OOV(out of vocab) 문제를 해결해주고 정보학적 이점을 가진 BPE가 주로 사용되며, WordPiece Tokenizer 역시 BPE 방법론 중 하나이다.&lt;/p&gt;
+&lt;p&gt;input으로 들어갈 때 SEP 라는 special 토큰으로 context와 질문을 구분하게 된다.&lt;/p&gt;</description>
       
       
       
@@ -164,7 +228,15 @@
       <guid>https://l-yohai.github.io/PStage-MRC-1-MRC-Intro/</guid>
       <pubDate>Tue, 12 Oct 2021 00:58:58 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;Introduction-to-MRC&quot;&gt;&lt;a href=&quot;#Introduction-to-MRC&quot; class=&quot;headerlink&quot; title=&quot;Introduction to MRC&quot;&gt;&lt;/a&gt;Introduction to MRC&lt;/h2&gt;&lt;p&gt;Machine Reading Comprehension (기계독해)는 주어진 지문(Context)를 이해하고, 주어진 질의(Query/Question)의 답변을 추론하는 문제이다.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&quot;Introduction-to-MRC&quot;&gt;&lt;a href=&quot;#Introduction-to-MRC&quot; class=&quot;headerlink&quot; title=&quot;Introduction to MRC&quot;&gt;&lt;/a&gt;Introduction to MRC&lt;/h2&gt;&lt;p&gt;Machine Reading Comprehension (기계독해)는 주어진 지문(Context)를 이해하고, 주어진 질의(Query/Question)의 답변을 추론하는 문제이다.&lt;/p&gt;
+&lt;p&gt;예를들어 서울특별시에 대한 지문에서 &lt;code&gt;서울의 GDP는 세계 몇 위야?&lt;/code&gt; 라는 질문을 했을 때, &lt;code&gt;세계 4위&lt;/code&gt; 라는 답변을 하는 과제이다.&lt;/p&gt;
+&lt;p&gt;주로 질문(쿼리)가 들어오면 문서에서 답을 낼 수 있는 시스템(구글, 인공지능 스피커)에서 사용되며, 관련 문서를 찾고 -&amp;gt; 정답을 찾는 방식으로 구성된다.&lt;/p&gt;
+&lt;p&gt;MRC의 종류들은 아래와 같다.&lt;/p&gt;
+&lt;p&gt;1) Extractive Answer Datasets&lt;/p&gt;
+&lt;p&gt;   질의에 대한 답이 항상 주어진 지문의 segment(or span)으로 존재하는 경우. 이런 방식을 채택하는 데이터셋으로는 SQuAD, KorQuAD, NewsQA 등이 있다.&lt;/p&gt;
+&lt;p&gt;2) Descriptive/Narrative Answer Datasets&lt;/p&gt;
+&lt;p&gt;   답이 지문 내에 존재하지 않고, 질의를 보고 생성된 sentence(or free-form)의 형태. MS MARCO, Narrative QA 등의 데이터셋이 이러한 방식을 채택한다.&lt;/p&gt;
+&lt;p&gt;3) Multiple-choice Datasets&lt;/p&gt;</description>
       
       
       
@@ -197,7 +269,13 @@
 &lt;li&gt;BERT 기반 단일 문장 분류 모델 학습&lt;/li&gt;
 &lt;li&gt;BERT 기반 두 문장 관계 분류 모델 학습&lt;/li&gt;
 &lt;li&gt;BERT 언어모델 기반의 문장 토큰 분류&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;/ol&gt;
+&lt;h2 id=&quot;대회관련&quot;&gt;&lt;a href=&quot;#대회관련&quot; class=&quot;headerlink&quot; title=&quot;대회관련&quot;&gt;&lt;/a&gt;대회관련&lt;/h2&gt;&lt;h3 id=&quot;협업전략-툴&quot;&gt;&lt;a href=&quot;#협업전략-툴&quot; class=&quot;headerlink&quot; title=&quot;협업전략, 툴&quot;&gt;&lt;/a&gt;협업전략, 툴&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;협업툴&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;협업툴은 Notion을 메인으로 사용한다. 여러 툴에서 파편적인 기능들만을 선별적으로 사용할 수도 있지만, 데드라인이 주어진 대회라는 플랫폼 하에서는 채널이 다양할 수록 혼란만 가중되는 것 같다. Notion에서 여러 유용한 Template을 하나하나 가져와서 꽤 괜찮은 Dashboard를 만들고, 코드관리를 제외한 모든 것을 Notion으로 해결하고 있다. 기록의 중요성에 공감을 많이 하여 모인 팀 답게, Notion을 적극적으로 사용하고 있고 그로인해 체계적인 실험과 작업관리가 가능해진 것 같다.&lt;/p&gt;
+&lt;p&gt;또한 Wandb를 팀단위로 만들어서 각자 한 실험에 대한 log를 시각화하여 볼 수 있게 되었다. good practice인듯!!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;협업전략&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;실험전략은 개인이 하고싶은 것 위주로 플래닝을 진행하며, 작은 모델을 Base로 하여 빠른 실험이 가능하도록 했다. 또한 실험을 통한 성능비교를 위해 hyperparameter나 seed등 변수가 될 수 있는 모든 것들을 fix하여 진행한다. 코드의 경우 본인의 실험에 따라 각자의 코드가 전부 달라지며, 그것을 하나로 통합하면서 진행하는 것은 대회에서는 굉장히 비효율적인 방식인 것 같다. 한 번 진행해보고 PR이나 Merge에 병목이 생기는 것을 경험한 뒤로, 언제든 그때그때의 실험으로 Rollback이 가능하도록 branch를 여러개로 나누되, 합치진 않기로 결정했다.&lt;/p&gt;
+&lt;h3 id=&quot;NLP-Augmentation&quot;&gt;&lt;a href=&quot;#NLP-Augmentation&quot; class=&quot;headerlink&quot; title=&quot;NLP Augmentation&quot;&gt;&lt;/a&gt;NLP Augmentation&lt;/h3&gt;</description>
       
       
       
@@ -220,7 +298,23 @@
       
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황&quot;&gt;&lt;a href=&quot;#학습현황&quot; class=&quot;headerlink&quot; title=&quot;학습현황&quot;&gt;&lt;/a&gt;학습현황&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;21.09.13 월 (09:30 ~ 20:15)&lt;/li&gt;
+&lt;li&gt;21.09.14 화 (09:20 ~ 20:50)&lt;/li&gt;
+&lt;li&gt;21.09.15 수 (09:40 ~ 23:59)&lt;/li&gt;
+&lt;li&gt;21.09.16 목 (09:58 ~ 23:59)&lt;/li&gt;
+&lt;li&gt;21.09.17 금 (10:00 ~ 22:50)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;진도&quot;&gt;&lt;a href=&quot;#진도&quot; class=&quot;headerlink&quot; title=&quot;진도&quot;&gt;&lt;/a&gt;진도&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Transformer - Self-supervised Pre-training Models - Advanced Self-supervised Pre-training Models&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;이번-주의-개선할-사항-및-자기성찰&quot;&gt;&lt;a href=&quot;#이번-주의-개선할-사항-및-자기성찰&quot; class=&quot;headerlink&quot; title=&quot;이번 주의 개선할 사항 및 자기성찰&quot;&gt;&lt;/a&gt;이번 주의 개선할 사항 및 자기성찰&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;멘탈 트레이닝을 잘 해야겠다.&lt;/li&gt;
+&lt;li&gt;부캠을 떠나서 그냥 이번 주에는 감정적인 대응도 많이 하고, 어떤 일의 결과들도 쉽게 승복하지 못했던 것 같다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;과제-수행과정과-결과물&quot;&gt;&lt;a href=&quot;#과제-수행과정과-결과물&quot; class=&quot;headerlink&quot; title=&quot;과제 수행과정과 결과물&quot;&gt;&lt;/a&gt;과제 수행과정과 결과물&lt;/h2&gt;</description>
       
       
       
@@ -242,7 +336,15 @@
       <pubDate>Thu, 16 Sep 2021 07:22:57 GMT</pubDate>
       
       <description>&lt;p&gt;서버에서 vscode 터미널 많이들 사용하고 계시죠?!! 캠퍼여러분들께 도움이되는 터미널 커스텀에 대해서 소개해드릴까 합니다!&lt;/p&gt;
-&lt;p&gt;vscode의 default terminal은 bash로, 커스터마이징의 끝은 순정이라고는 하지만.. zsh의 강력함을 한 번 맛보면 bash로 돌아가기가 정말 힘듭니다.&lt;/p&gt;</description>
+&lt;p&gt;vscode의 default terminal은 bash로, 커스터마이징의 끝은 순정이라고는 하지만.. zsh의 강력함을 한 번 맛보면 bash로 돌아가기가 정말 힘듭니다.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/image/image-20210916163359082.png&quot; alt=&quot;굉장히 칙칙한 bash&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;그러면.. zsh는 뭐가다른데?! 이미지 한장으로 보여드릴게요. 결과는 아래와 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/image/image-20210916145624492.png&quot; alt=&quot;Powerlevel10k&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;딱봐도 엄청나죠..!!!? 위의 것들은 oh-my-zsh과 powerlevel10k, 그리고 zsh-autosuggestions 과 zsh-syntax-highlighting 이라는 플러그인을 적용한 모습입니다. 여러분들도 이대로만 따라하시면 위와같은 스마트한 기능과 멋을 가진 매력적인 터미널을 얻을 수 있습니다!&lt;/p&gt;
+&lt;p&gt;자 그렇다면 지금부터 본격적인 세팅 들어갑니다. 레쓰기릿!!&lt;/p&gt;</description>
       
       
       
@@ -267,7 +369,23 @@
       
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황&quot;&gt;&lt;a href=&quot;#학습현황&quot; class=&quot;headerlink&quot; title=&quot;학습현황&quot;&gt;&lt;/a&gt;학습현황&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;21.09.06 월 (05:30 ~ 20:15)&lt;/li&gt;
+&lt;li&gt;21.09.07 화 (05:20 ~ 20:50)&lt;/li&gt;
+&lt;li&gt;21.09.08 수 (06:00 ~ 22:00)&lt;/li&gt;
+&lt;li&gt;21.09.09 목 (08:28 ~ 23:59)&lt;/li&gt;
+&lt;li&gt;21.09.10 금 (00:00 ~ 03:00, 09:58 ~ 21:50)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;진도&quot;&gt;&lt;a href=&quot;#진도&quot; class=&quot;headerlink&quot; title=&quot;진도&quot;&gt;&lt;/a&gt;진도&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Intro to NLP, Bag of Words - Word Embedding - Recurrent Neural Network - LSTM and GRU - Sequence to Sequence - Beam Search and BLEU score&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;이번-주의-개선할-사항-및-자기성찰&quot;&gt;&lt;a href=&quot;#이번-주의-개선할-사항-및-자기성찰&quot; class=&quot;headerlink&quot; title=&quot;이번 주의 개선할 사항 및 자기성찰&quot;&gt;&lt;/a&gt;이번 주의 개선할 사항 및 자기성찰&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;이력서는 미리미리&lt;/li&gt;
+&lt;li&gt;자소서는 미리미리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;과제-수행과정과-결과물&quot;&gt;&lt;a href=&quot;#과제-수행과정과-결과물&quot; class=&quot;headerlink&quot; title=&quot;과제 수행과정과 결과물&quot;&gt;&lt;/a&gt;과제 수행과정과 결과물&lt;/h2&gt;</description>
       
       
       
@@ -313,7 +431,14 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;/image/image-20210903191905704.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;7명의 팀원이 2주동안 잠도 거의 안자가면서 올인했던 P Stage의 ‘마스크 착용 분류 대회’에 대한 플래닝 가이드입니다. 저희는 각자 실력도 다 다르고 협업문화도 잘 모르는 상태로 대회에 임하였습니다. 그러다 보니 뭘 해야할지 모르는 순간들도 너무 많았고, 여러 시행착오를 겪었기 때문에 다음 기수분들 혹은 인공지능 대회 프로세스 중 협업관리를 어떻게 하는 것이 좋을지 저희의 경험을 조금 나누어볼까 합니다.&lt;/p&gt;
+&lt;p&gt;당연히 처음엔 너무 막막했어요. 이게 잘 될까? 싶었던 대회였는데, 계속해서 시간과 에너지를 쏟으니 별로 경험이 없는 사람들 7명이서 38개 조 중 13등을 하게 되었습니다. 물론 순위권에 들었으면 좋았겠지만, 대회는 처음인 사람들끼리는 나름 성공적인 결과였다고 생각합니다. 이러한 저희 조의 이야기들이 어떤 형태로든 도움이 되고, 좋은 레퍼런스가 되기를 바랍니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;🦆-대회-전략-수립-및-협업환경-구축&quot;&gt;&lt;a href=&quot;#🦆-대회-전략-수립-및-협업환경-구축&quot; class=&quot;headerlink&quot; title=&quot;🦆 대회 전략 수립 및 협업환경 구축&quot;&gt;&lt;/a&gt;🦆 대회 전략 수립 및 협업환경 구축&lt;/h2&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;em&gt;이번생에 협업은 처음이라..&lt;/em&gt;&lt;/p&gt;</description>
       
       
       
@@ -338,7 +463,18 @@
       <guid>https://l-yohai.github.io/boostcamp-memoirs-pstage-1/</guid>
       <pubDate>Fri, 03 Sep 2021 15:35:38 GMT</pubDate>
       
-      <description>&lt;h2 id=&quot;🔥-Final-Score&quot;&gt;&lt;a href=&quot;#🔥-Final-Score&quot; class=&quot;headerlink&quot; title=&quot;🔥 Final Score&quot;&gt;&lt;/a&gt;🔥 Final Score&lt;/h2&gt;&lt;h3 id=&quot;🥉Public-Leaderboard&quot;&gt;&lt;a href=&quot;#🥉Public-Leaderboard&quot; class=&quot;headerlink&quot; title=&quot;🥉Public Leaderboard&quot;&gt;&lt;/a&gt;🥉Public Leaderboard&lt;/h3&gt;</description>
+      <description>&lt;h2 id=&quot;🔥-Final-Score&quot;&gt;&lt;a href=&quot;#🔥-Final-Score&quot; class=&quot;headerlink&quot; title=&quot;🔥 Final Score&quot;&gt;&lt;/a&gt;🔥 Final Score&lt;/h2&gt;&lt;h3 id=&quot;🥉Public-Leaderboard&quot;&gt;&lt;a href=&quot;#🥉Public-Leaderboard&quot; class=&quot;headerlink&quot; title=&quot;🥉Public Leaderboard&quot;&gt;&lt;/a&gt;🥉Public Leaderboard&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Acc: 81.508&lt;/li&gt;
+&lt;li&gt;F1 (macro): 0.766 (11등)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;🥉Private-Leaderboard&quot;&gt;&lt;a href=&quot;#🥉Private-Leaderboard&quot; class=&quot;headerlink&quot; title=&quot;🥉Private Leaderboard&quot;&gt;&lt;/a&gt;🥉Private Leaderboard&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Acc: 80.746&lt;/li&gt;
+&lt;li&gt;F1 (macro): 0.754 (13등 - 2위 하락)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;📝-Task-Description&quot;&gt;&lt;a href=&quot;#📝-Task-Description&quot; class=&quot;headerlink&quot; title=&quot;📝 Task Description&quot;&gt;&lt;/a&gt;📝 Task Description&lt;/h2&gt;&lt;p&gt;COVID-19의 확산으로 우리나라는 물론 전 세계 사람들은 경제적, 생산적인 활동에 많은 제약을 가지게 되었습니다. 우리나라는 COVID-19 확산 방지를 위해 사회적 거리 두기를 단계적으로 시행하는 등의 많은 노력을 하고 있습니다. 과거 높은 사망률을 가진 사스(SARS)나 에볼라(Ebola)와는 달리 COVID-19의 치사율은 오히려 비교적 낮은 편에 속합니다. 그럼에도 불구하고, 이렇게 오랜 기간 동안 우리를 괴롭히고 있는 근본적인 이유는 바로 COVID-19의 강력한 전염력 때문입니다.&lt;/p&gt;
+&lt;p&gt;감염자의 입, 호흡기로부터 나오는 비말, 침 등으로 인해 다른 사람에게 쉽게 전파가 될 수 있기 때문에 감염 확산 방지를 위해 무엇보다 중요한 것은 모든 사람이 마스크로 코와 입을 가려서 혹시 모를 감염자로부터의 전파 경로를 원천 차단하는 것입니다. 이를 위해 공공 장소에 있는 사람들은 반드시 마스크를 착용해야 할 필요가 있으며, 무엇 보다도 코와 입을 완전히 가릴 수 있도록 올바르게 착용하는 것이 중요합니다. 하지만 넓은 공공장소에서 모든 사람들의 올바른 마스크 착용 상태를 검사하기 위해서는 추가적인 인적자원이 필요할 것입니다.&lt;/p&gt;
+&lt;p&gt;따라서, 우리는 카메라로 비춰진 사람 얼굴 이미지 만으로 이 사람이 마스크를 쓰고 있는지, 쓰지 않았는지, 정확히 쓴 것이 맞는지 자동으로 가려낼 수 있는 시스템이 필요합니다. 이 시스템이 공공장소 입구에 갖춰져 있다면 적은 인적자원으로도 충분히 검사가 가능할 것입니다.&lt;/p&gt;</description>
       
       
       
@@ -361,7 +497,31 @@
       
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황&quot;&gt;&lt;a href=&quot;#학습현황&quot; class=&quot;headerlink&quot; title=&quot;학습현황&quot;&gt;&lt;/a&gt;학습현황&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;21.08.23 월 (09:40 ~ 20:20)&lt;/li&gt;
+&lt;li&gt;21.08.24 화 (10:30 ~ 23:59)&lt;/li&gt;
+&lt;li&gt;21.08.25 수 (07:00 ~ 23:59)&lt;/li&gt;
+&lt;li&gt;21.08.26 목 (09:50 ~ 23:59)&lt;/li&gt;
+&lt;li&gt;21.08.27 금 (10:00 ~ 23:59)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;진도&quot;&gt;&lt;a href=&quot;#진도&quot; class=&quot;headerlink&quot; title=&quot;진도&quot;&gt;&lt;/a&gt;진도&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;이미지 분류 대회를 위한 EDA - Dataset - Data Generation - Model - Training - Inference - Ensemble - Experiment Toolkits&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;이번-주의-개선할-사항-및-자기성찰&quot;&gt;&lt;a href=&quot;#이번-주의-개선할-사항-및-자기성찰&quot; class=&quot;headerlink&quot; title=&quot;이번 주의 개선할 사항 및 자기성찰&quot;&gt;&lt;/a&gt;이번 주의 개선할 사항 및 자기성찰&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;협업을 위한 코드에서 고려하지 못한 점들이 너무 많이 있었다.&lt;ul&gt;
+&lt;li&gt;내가 아는 것을 다른 사람도 알 거라는 착각&lt;/li&gt;
+&lt;li&gt;아 이걸로 되겠지 하면서 push 했다가 오류 발생하는 지점들&lt;/li&gt;
+&lt;li&gt;예외처리 고려 여부&lt;/li&gt;
+&lt;li&gt;Package fix&lt;/li&gt;
+&lt;li&gt;TODO List 공유 x&lt;/li&gt;
+&lt;li&gt;수정사항 및 기능 설명이 우선시 되었어야 하는데 하지 않았음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;앞으로 팀 전체 코드를 위해서는 상대방의 아무것도 없는 환경 상태에서 바로 돌아갈 수 있도록 더 많은 신경을 써서 코드를 작성해야겠다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;피어세션&quot;&gt;&lt;a href=&quot;#피어세션&quot; class=&quot;headerlink&quot; title=&quot;피어세션&quot;&gt;&lt;/a&gt;피어세션&lt;/h2&gt;</description>
       
       
       
@@ -383,7 +543,22 @@
       <pubDate>Mon, 23 Aug 2021 20:49:16 GMT</pubDate>
       
       <description>&lt;p&gt;팀프로젝트를 진행하면서 여러 목적성을 가진 채널이 필요해졌고, 그 중 하나가 논문리뷰한 자료들을 어떻게 관리할지였다. 팀원들 모두 퀄리티가 너무 좋게 준비를 잘 해오셔서 시각적인 요소들을 사용하여 자료를 공유할 수 있으면 좋겠다는 생각을 했고, 여러 이야기 끝에 깃허브 페이지를 사용해보기로 했다.&lt;/p&gt;
-&lt;h2 id=&quot;Jekyll-or-Hexo&quot;&gt;&lt;a href=&quot;#Jekyll-or-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Jekyll or Hexo?&quot;&gt;&lt;/a&gt;Jekyll or Hexo?&lt;/h2&gt;</description>
+&lt;h2 id=&quot;Jekyll-or-Hexo&quot;&gt;&lt;a href=&quot;#Jekyll-or-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Jekyll or Hexo?&quot;&gt;&lt;/a&gt;Jekyll or Hexo?&lt;/h2&gt;&lt;p&gt;깃허브 페이지를 관리할 때 주로 Jekyll과 Hexo를 사용한다. 처음에는 Jekyll로 페이지를 꾸며보았지만 동적 사이트 생성방식인 Jekyll은 반영시간이 매우 길고 관리가 귀찮기 때문에 Hexo로 옮기게 되었다.&lt;/p&gt;
+&lt;h2 id=&quot;Previous-Install&quot;&gt;&lt;a href=&quot;#Previous-Install&quot; class=&quot;headerlink&quot; title=&quot;Previous Install&quot;&gt;&lt;/a&gt;Previous Install&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nodejs.org/ko/download/&quot;&gt;Node.js&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;Mac의 경우 &lt;code&gt;brew install node&lt;/code&gt; 로 설치할 수 있다.&lt;/li&gt;
+&lt;li&gt;설치가 잘 되었는지 확인하기 위해서는 cmd(window) 혹은 터미널(mac)에서 &lt;code&gt;npm version&lt;/code&gt; 을 쳐보자!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;환경-세팅&quot;&gt;&lt;a href=&quot;#환경-세팅&quot; class=&quot;headerlink&quot; title=&quot;환경 세팅&quot;&gt;&lt;/a&gt;환경 세팅&lt;/h2&gt;&lt;p&gt;docs 등 로컬에서 관리할 폴더만 하나 만들어두고, PaperReview 레포지토리를 클론받습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git clone https://github.com/Boostcamp-AI-Tech-1-15/PaperReview.git&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;PaperReview 레포지토리를 클론받고 현재 &lt;code&gt;develop&lt;/code&gt; 브랜치에 관련 파일들을 전부 올려두었는데,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;cd PaperReview&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git checkout develop&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
       
       
       
@@ -407,7 +582,12 @@
       <pubDate>Sun, 22 Aug 2021 10:39:23 GMT</pubDate>
       
       <description>&lt;p&gt;Fazil Say는 여러 유명 작품들을 많이 편곡했는데 그 중에서 터키행진곡과 이 곡이다.&lt;/p&gt;
-&lt;p&gt;현대음악적인 테크닉들이 매우 많이 등장하며, 현대음악답게.. 뒷부분은 내 취향이 아니다. 이해하기 넘 어려워&lt;/p&gt;</description>
+&lt;p&gt;현대음악적인 테크닉들이 매우 많이 등장하며, 현대음악답게.. 뒷부분은 내 취향이 아니다. 이해하기 넘 어려워&lt;/p&gt;
+&lt;p&gt;리스트의 파가니니 연습곡 6번(주제와변주)을 재즈느낌으로 편곡했는데 참 아름답게 잘 살린 것 같다.&lt;/p&gt;
+&lt;p&gt;원곡은 입시곡이었어서 맨 첫 시작 긁는 것만 들어도 PTSD 오는데&lt;/p&gt;
+&lt;p&gt;이건 좀 재밌다. 이게 편곡의 순기능인가 ㅎㅎ;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=qh8INgcDOOQ&quot;&gt;내가친거!&lt;/a&gt;&lt;br&gt;&lt;/p&gt;&lt;div class=&quot;video-container&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/qh8INgcDOOQ&quot; frameborder=&quot;0&quot; loading=&quot;lazy&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+</description>
       
       
       
@@ -429,7 +609,12 @@
       <pubDate>Sun, 22 Aug 2021 10:33:41 GMT</pubDate>
       
       <description>&lt;p&gt;Anton Stepanovich Arensky 의 &lt;code&gt;두 대의 피아노를 위한 모음곡 1번 F장조, Op. 15&lt;/code&gt; 중 2번 왈츠이다.&lt;/p&gt;
-&lt;p&gt;림스키코르사코프에게 작곡을 배운 뒤 라흐마니노프와 스크리아빈을 제자로 둔 거장이다.&lt;/p&gt;</description>
+&lt;p&gt;림스키코르사코프에게 작곡을 배운 뒤 라흐마니노프와 스크리아빈을 제자로 둔 거장이다.&lt;/p&gt;
+&lt;p&gt;3개의 소품으로 이루어진 이 곡 중 두 번째 ‘Valse’ 는 아기자기하고 귀여운 멜로디가 낭만적으로 느껴진다.&lt;/p&gt;
+&lt;p&gt;First와 Second가 주 선율을 주고받으며 고조되다가 화려한 아르페지오로 곡의 분위기를 반복적으로 반전시킨다.&lt;/p&gt;
+&lt;p&gt;유명하진 않지만 은근 힐링음악.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=d-FFCen-51g&quot;&gt;내가친거!&lt;/a&gt;&lt;br&gt;&lt;/p&gt;&lt;div class=&quot;video-container&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/d-FFCen-51g&quot; frameborder=&quot;0&quot; loading=&quot;lazy&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+</description>
       
       
       
@@ -452,6 +637,21 @@
       
       <description>&lt;h2 id=&quot;강의내용&quot;&gt;&lt;a href=&quot;#강의내용&quot; class=&quot;headerlink&quot; title=&quot;강의내용&quot;&gt;&lt;/a&gt;강의내용&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;강의정리 및 강의노트는 저작권상 이유로 공개하지 않습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;학습현황&quot;&gt;&lt;a href=&quot;#학습현황&quot; class=&quot;headerlink&quot; title=&quot;학습현황&quot;&gt;&lt;/a&gt;학습현황&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;21.08.17 화 (09:50 ~ 19:15)&lt;/li&gt;
+&lt;li&gt;21.08.18 수 (10:20 ~ 23:50)&lt;/li&gt;
+&lt;li&gt;21.08.19 목 (09:36 ~ 05:00)&lt;/li&gt;
+&lt;li&gt;21.08.20 금 (09:48 ~ 23:59 예정)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;진도&quot;&gt;&lt;a href=&quot;#진도&quot; class=&quot;headerlink&quot; title=&quot;진도&quot;&gt;&lt;/a&gt;진도&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Pytorch (Basic - Pytorch Template - Custom Model - AutoGard &amp;amp; Optimizer - Dataset &amp;amp; Dataloader - Custom Dataset - Monitoring tools - Multi GPU - Hyperparameter Tuning - Troubleshooting)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;지난-주-선언에서-지킨-것과-지키지-못한-것&quot;&gt;&lt;a href=&quot;#지난-주-선언에서-지킨-것과-지키지-못한-것&quot; class=&quot;headerlink&quot; title=&quot;지난 주 선언에서 지킨 것과 지키지 못한 것&quot;&gt;&lt;/a&gt;지난 주 선언에서 지킨 것과 지키지 못한 것&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;수식 하나, 키워드 하나조차 가볍게 넘기지 말라는 다짐을 어느정도 지킬 수 있었던 것 같다. 파이토치의 공식문서를 트래킹하면서 어떤 역할을 하는지 몰랐던 함수들에 대해서 하나씩 정리해나갈 수 있었다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;이번-주의-개선할-사항-및-자기성찰&quot;&gt;&lt;a href=&quot;#이번-주의-개선할-사항-및-자기성찰&quot; class=&quot;headerlink&quot; title=&quot;이번 주의 개선할 사항 및 자기성찰&quot;&gt;&lt;/a&gt;이번 주의 개선할 사항 및 자기성찰&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;한 번에 너무 많은 양의 코드를 실행해보고, 너무 많은 지식을 받아들이려고 하다 보니 뇌용량에 한계가 온 것 같다. 단기간에 기억해야 하는 것들을 전부 기억할 수 있다는 자신감이 떨어지는데, 오래 볼 수 있도록 한 번 정리를 하는게 좋지 않았을까 하는 아쉬움이 남는다. 다음주에는 성실한 블로그 포스팅에 조금 더 신경써보자.&lt;/li&gt;
 &lt;/ul&gt;</description>
       
       
@@ -469,11 +669,57 @@
     
     <item>
       <title>Data Centric 특강 - 최성철 교수님</title>
-      <link>https://l-yohai.github.io/What-is-Data-Centric/</link>
-      <guid>https://l-yohai.github.io/What-is-Data-Centric/</guid>
+      <link>https://l-yohai.github.io/Data-Centric/</link>
+      <guid>https://l-yohai.github.io/Data-Centric/</guid>
       <pubDate>Thu, 19 Aug 2021 09:03:43 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Data-Centric&quot;&gt;&lt;a href=&quot;#Data-Centric&quot; class=&quot;headerlink&quot; title=&quot;Data Centric&quot;&gt;&lt;/a&gt;Data Centric&lt;/h1&gt;&lt;p&gt;더이상 성능을 미세하게 올리는 것에 집착하는 AI 엔지니어링은 요구되지 않는다. 과연 어떤 능력이 더 중요할 것인가?&lt;/p&gt;</description>
+      <description>&lt;h1 id=&quot;Data-Centric&quot;&gt;&lt;a href=&quot;#Data-Centric&quot; class=&quot;headerlink&quot; title=&quot;Data Centric&quot;&gt;&lt;/a&gt;Data Centric&lt;/h1&gt;&lt;p&gt;더이상 성능을 미세하게 올리는 것에 집착하는 AI 엔지니어링은 요구되지 않는다. 과연 어떤 능력이 더 중요할 것인가?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;수학을 임성빈 교수님만큼 해야 AI를 할 수 있는가? Nope&lt;/li&gt;
+&lt;li&gt;대신에 ML/AI Engineer들은 이제는, 코딩을 잘해야 한다. 네트워크에 대한 지식이나, CS에 대한 지식들이 더 많은 Area에서 기회를 줄 것임.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;실전 AI에서는 매우 복잡한 단계를 거쳐서 프로젝트가 진행된다.&lt;/p&gt;
+&lt;p&gt;Issues&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data&lt;ul&gt;
+&lt;li&gt;실제 ML 프로젝트에서는 양질의 데이터 확보가 관건임.&lt;/li&gt;
+&lt;li&gt;Production time 데이터(프로젝트가 끝난 후 Serving 단계에서의 데이터) 와  Experiment 데이터가 다를 때 발생하는 문제들&lt;/li&gt;
+&lt;li&gt;데이터 생성에 관한 문제&lt;ul&gt;
+&lt;li&gt;User generated data: inputs, clicks for recommendation&lt;/li&gt;
+&lt;li&gt;System generated data: logs, metadata, prediction&lt;/li&gt;
+&lt;li&gt;Data Flywheel (데이터 선순환): 사용자들 참여로 데이터 개선&lt;ul&gt;
+&lt;li&gt;구글 포토를 사용하면 가족들의 얼굴을 계속 같은 사람인지 물어보게 하여 사람들이 직접 태깅하게 하는 것. 데이터가 스스로 라벨링을 하게 하는 작업.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data augmentation: 데이터를 임의로 추가 확보&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data drift: 시간이 지나면서 데이터는 계속 바뀔 것임. 어떻게 production 레벨과 experiment 레벨의 데이터 간극을 맞출지가 중요한 문제이다.&lt;ul&gt;
+&lt;li&gt;2주나 4주 등 일정 간격을 정한 뒤 새로운 데이터로 새로운 모델을 뽑아냄. 이 때 새로운 모델을 뽑아낼 때는 hyper parameter tuning이 되어있을 것임. 이것을 가지고 Dynamic 하게 학습을 시키는 등 대책이 있으면 좋음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data Feedback Loop&lt;ul&gt;
+&lt;li&gt;사용자로부터 오는 데이터를 자동화하여 모델에 피딩해주는 것이 중요함.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Model&lt;/li&gt;
+&lt;li&gt;Algorithms&lt;/li&gt;
+&lt;li&gt;Metrics&lt;/li&gt;
+&lt;li&gt;Hyper parameter tuning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;앞으로 알아야 할 것들.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MLOps 도구들&lt;/li&gt;
+&lt;li&gt;당연히 데이터베이스!! SQL&lt;/li&gt;
+&lt;li&gt;Cloud - AWS, GCP, Azure&lt;/li&gt;
+&lt;li&gt;Spark (+ Hadoop)&lt;/li&gt;
+&lt;li&gt;Linux + Docker + 쿠버네티스&lt;/li&gt;
+&lt;li&gt;Scheduling 도구 (KubeFlow, MLFlow, &lt;strong&gt;AirFlow&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;위의 것들을 써보는 것을 추천하지만, 전문가가 되라는 것은 아님. 최근엔 이러한 역량들을 전부 요구하기 때문이다.&lt;/p&gt;
+&lt;p&gt;하나의 시스템으로서의 ML/DL 개발&lt;/p&gt;</description>
       
       
       
@@ -486,7 +732,7 @@
       
       
       
-      <comments>https://l-yohai.github.io/What-is-Data-Centric/#disqus_thread</comments>
+      <comments>https://l-yohai.github.io/Data-Centric/#disqus_thread</comments>
       
     </item>
     
@@ -502,9 +748,25 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;이전에 신호처리와 Image Segmentation에 사용되던 Causal Convolution은 많은 레이어를 필요로했고, Receptive Field를 확장시키기 위해서는 큰 필터가 필요하여 연산에 많은 비용이 들었다. WaveNet은 이러한 문제들을 Dilated Convolution을 사용하여  Receptive Fields를 효율적으로 넓힐 수 있었다. 그 결과 Causal Convolution보다 연산비용을 줄이고 학습속도를 시퀀셜 모델을 처리하던 RNN, LSTM보다 획기적으로 줄일 수 있었다.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;기존 16bit 정수형 시퀀스로 저장되던 음성신호들의 연산에는 각 레이어마다 65,536개의 확률 계산이 필요했는데, $\mu$-law companding transformation 방법을 사용하여 256개의 신호로 양자화시킬 수 있었다. Activation Unit Gate (LSTM에서의 input게이트와 유사) 를 사용하여 linguistic features (주파수, 음의 높낮이, 숨소리, 세기 등)들을 재현할 수 있었다.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;기존 16bit 정수형 시퀀스로 저장되던 음성신호들의 연산에는 각 레이어마다 65,536개의 확률 계산이 필요했는데, $&#92;mu$-law companding transformation 방법을 사용하여 256개의 신호로 양자화시킬 수 있었다. Activation Unit Gate (LSTM에서의 input게이트와 유사) 를 사용하여 linguistic features (주파수, 음의 높낮이, 숨소리, 세기 등)들을 재현할 수 있었다.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h2 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;WaveNet은 음성의 파형을 생성하는 모델.&lt;/li&gt;
+&lt;li&gt;과거의 음성 데이터 $x_1, x_2, … , x_{t - 1}$ 가 주어졌을 때 $t$ 시점을 기준으로 $x_t$ 라는 데이터가 음성으로써 성립할 확률 $P(x_1, …, x_{T-1}, x_T)$ 을 학습한 확률론적(probabilistic) 모델이자 자귀회귀(autoregressive) 모델이다.&lt;/li&gt;
+&lt;li&gt;TTS(Test-To-Speech)에 적용할 때는 SOTA(당시 2016년)를 달성했고 영어와 중국어에서 사람의 음성만큼 자연스러웠음.&lt;/li&gt;
+&lt;li&gt;WaveNet은 다양한 화자의 음성적 특징들을 동일한 정확도로 감지할 수 있음.&lt;/li&gt;
+&lt;li&gt;음악을 학습했을 때도 사실적인 음악 파형들을 생성했음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Waveform을 결합확률분포로 표현 -&amp;gt; Conv Layer를 쌓아서 모델링하겠다.&lt;/p&gt;
+&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;WaveNet은 PixelCNN 구조를 기반으로 한 Audio 생성모델이다. &lt;/p&gt;
+&lt;h4 id=&quot;WaveNet의-특징&quot;&gt;&lt;a href=&quot;#WaveNet의-특징&quot; class=&quot;headerlink&quot; title=&quot;WaveNet의 특징&quot;&gt;&lt;/a&gt;WaveNet의 특징&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;WaveNet은 이전에는 TTS 분야에서 불가능했던 자연스러운 음성 신호를 생성할 수 있다.&lt;/li&gt;
+&lt;li&gt;long-range temporal dependencies를 해결하기 위해 &lt;code&gt;dilated causal convolution&lt;/code&gt; 을 개발했으며, receptive fields를 매우 크게 넓힐 수 있었다.&lt;/li&gt;
+&lt;li&gt;단일 모델로 다양한 음성을 생성할 수 있다.&lt;/li&gt;
+&lt;li&gt;적은 음성인식 데이터셋으로도 좋은 성능을 낼 수 있으며 TTS, 음악, Voice Conversion 등 여러 분야에 응용될 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;WaveNet&quot;&gt;&lt;a href=&quot;#WaveNet&quot; class=&quot;headerlink&quot; title=&quot;WaveNet&quot;&gt;&lt;/a&gt;WaveNet&lt;/h2&gt;</description>
       
       
       
